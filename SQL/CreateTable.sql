@@ -1,0 +1,325 @@
+﻿use master
+IF DB_ID('MsList') IS NULL
+BEGIN
+    CREATE DATABASE MsList;
+END
+GO
+
+USE MsList;
+GO
+
+-- Drop tables in reverse dependency order
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLinkUserAccess') DROP TABLE ShareLinkUserAccess;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLink') DROP TABLE ShareLink;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListMemberPermission') DROP TABLE ListMemberPermission;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Activity') DROP TABLE Activity;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Trash') DROP TABLE Trash;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListRowComment') DROP TABLE ListRowComment;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'FileAttachment') DROP TABLE FileAttachment;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'FavoriteList') DROP TABLE FavoriteList;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnSettingValue') DROP TABLE ListColumnSettingValue;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'DataTypeSettingKey') DROP TABLE DataTypeSettingKey;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListCellValue') DROP TABLE ListCellValue;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListRow') DROP TABLE ListRow;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnSettingObject') DROP TABLE ListColumnSettingObject;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListDynamicColumn') DROP TABLE ListDynamicColumn;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListView') DROP TABLE ListView;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewTypeSetting') DROP TABLE ViewTypeSetting;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'List') DROP TABLE List;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'KeySetting') DROP TABLE KeySetting;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Permission') DROP TABLE Permission;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemDataType') DROP TABLE SystemDataType;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewType') DROP TABLE ViewType;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'WorkspaceMember') DROP TABLE WorkspaceMember;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateProvider') DROP TABLE TemplateProvider;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Workspace') DROP TABLE Workspace;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Account') DROP TABLE Account;
+GO
+
+-- Create tables in dependency order
+CREATE TABLE Account (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+	Avatar NVARCHAR(255),
+    FullName NVARCHAR(255),
+    LastName NVARCHAR(255),
+    DateBirth DATE,
+    Email NVARCHAR(255),
+	Company NVARCHAR(255),
+	AccountStatus NVARCHAR(50) DEFAULT 'Active' ,
+    AccountPassword NVARCHAR(255)
+);
+
+CREATE TABLE Workspace (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    WorkspaceName NVARCHAR(255)
+);
+
+CREATE TABLE TemplateProvider (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ProviderName NVARCHAR(255)
+);
+
+CREATE TABLE WorkspaceMember (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    WorkspaceId INT FOREIGN KEY REFERENCES Workspace(Id),
+    AccountId INT FOREIGN KEY REFERENCES Account(Id),
+    JoinedAt DATETIME NOT NULL DEFAULT GETDATE(),
+	MemberStatus NVARCHAR(50) DEFAULT 'Active' ,
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+-- có 5 loại list, form, kanban, gallery và calendar
+CREATE TABLE ViewType (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Title NVARCHAR(100) NOT NULL,        -- VD: 'List', 'Form', ...
+    HeaderImage NVARCHAR(255),           -- URL hoặc tên file ảnh
+    Icon NVARCHAR(100),                  -- Tên icon hoặc path
+    ListTypeDescription NVARCHAR(500)            -- Mô tả loại list
+);
+
+-- các loại data cho cột (loại data mà ItemValue được phép trả về)
+--> cần xác định key setting cho từng loại
+CREATE TABLE SystemDataType (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Icon NVARCHAR(100),              -- tên icon hoặc đường dẫn
+    DataTypeDescription NVARCHAR(500),       -- mô tả
+    CoverImg NVARCHAR(255),          -- ảnh bìa (có thể là URL)
+    DisplayName NVARCHAR(100) NOT NULL, -- VD: 'Single Text', 'Choice'
+    DataTypeValue NVARCHAR(50) NOT NULL  -- VD: 'Text', 'Number', 'Boolean'
+);;
+
+-- 3 quyền truy cập 
+CREATE TABLE Permission (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+	Icon NVARCHAR(255),
+    PermissionName NVARCHAR(100),
+    PermissionCode NVARCHAR(50) NOT NULL --Owner, Contributor, Reader
+);
+
+-- key setting cho column 
+CREATE TABLE KeySetting (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Icon NVARCHAR(100),                  -- icon hoặc tên biểu tượng
+    KeyName NVARCHAR(100) NOT NULL,      -- tên setting
+    ValueType NVARCHAR(50) NOT NULL,     -- 'text', 'number', 'datetime', etc.
+    IsDefaultValue BIT DEFAULT 0,        -- true nếu là giá trị mặc định
+	ValueOfDefault NVARCHAR(255),         -- giá trị mặc định nếu có
+	IsShareLinkSetting BIT DEFAULT 0    -- true nếu dùng cho share link
+);
+
+CREATE TABLE List (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ViewTypeId INT NOT NULL REFERENCES ViewType(Id),             -- FK đến ListType
+    ListName NVARCHAR(100) NOT NULL,
+    Icon NVARCHAR(100),
+    Color NVARCHAR(50),
+    CreatedBy INT NOT NULL,              -- FK đến User hoặc Account
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    ListStatus NVARCHAR(50) DEFAULT 'Active'                  -- 'Active', 'Archived', etc.
+);
+
+--CREATE TABLE ViewTypeSetting (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,                    -- Khóa chính tự tăng
+--    ViewName NVARCHAR(100) NOT NULL,                     -- Tên hiển thị của view (VD: "My Tasks", "Team Board")
+--    DisplayType NVARCHAR(50) NOT NULL,                   -- Kiểu view: List, Calendar, Gallery, Board
+--    ViewSettingJson NVARCHAR(MAX)                        -- Cấu hình chi tiết từng loại view (dạng JSON)
+--);
+
+--- 1 list có thể tạo nhiều view
+--- cần trigger auto tạo 1 view tên "Tất cả khoản mục"
+CREATE TABLE ListView (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+	ListId INT NOT NULL REFERENCES List(Id),                     -- FK đến bảng List
+    CreatedBy INT NOT NULL REFERENCES Account(Id),                  -- FK đến bảng Account/User
+    ViewTypeId INT NOT NULL  REFERENCES ViewType(Id),   
+	ViewName NVARCHAR(255),
+    DisplayOrder INT NOT NULL DEFAULT 0                        -- Số thứ tự hiển thị
+);
+
+CREATE TABLE ListDynamicColumn (
+    Id INT IDENTITY(1,1) PRIMARY KEY,                              
+    ListId INT NOT NULL REFERENCES List(Id),                       
+    SystemDataTypeId INT NOT NULL REFERENCES SystemDataType(Id),  -- nếu dạng choice thì key setting có hỏi là multi choice hoặc ko,
+    ColumnName NVARCHAR(100) NOT NULL,                             -- Tên của cột hiển thị trên UI
+    ColumnDescription NVARCHAR(255),                                     -- Mô tả ngắn về cột
+    DisplayOrder INT DEFAULT 1,                                    -- Thứ tự hiển thị trong danh sách
+	IsSystemColumn BIT NOT NULL DEFAULT 0,							--  Cột system thì user ko thể thay đổi đc 
+    IsVisible BIT NOT NULL DEFAULT 1,                                       -- 1: Hiển thị | 0: Ẩn khỏi view
+    CreatedBy INT NOT NULL REFERENCES Account(Id),                -- Ai tạo ra cột này
+    CreatedAt DATETIME DEFAULT GETDATE()                           -- Ngày giờ tạo
+);
+
+-- lưu các giá trị cho cột có dạng là choice
+CREATE TABLE ListColumnSettingObject (
+    Id INT PRIMARY KEY IDENTITY,
+    ListDynamicColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
+    DisplayName NVARCHAR(255),    -- Tên hiển thị 
+    DisplayColor NVARCHAR(20) NOT NULL DEFAULT '#28A745', -- Màu mặc định nếu không chọn
+    DisplayOrder INT NOT NULL DEFAULT 0          -- Thứ tự hiển thị trong dropdown
+)
+
+--CREATE TABLE ViewTypeSettingKey (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    ViewTypeId INT FOREIGN KEY REFERENCES ViewType(Id),
+--    KeySettingId INT FOREIGN KEY REFERENCES KeySetting(Id)
+--
+
+---- nên đổi thêm value
+--CREATE TABLE ListViewSetting (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    ListViewId INT FOREIGN KEY REFERENCES ListView(Id),
+--    ViewTypeSettingKeyId INT FOREIGN KEY REFERENCES ViewTypeSettingKey(Id),
+--    GroupByColumnId INT FOREIGN KEY REFERENCES DynamicColumn(Id),
+--    RawValue NVARCHAR(255)
+--);
+
+CREATE TABLE ListRow (
+    Id INT IDENTITY(1,1) PRIMARY KEY,               -- Khóa chính tự tăng
+    ListId INT NOT NULL REFERENCES List(Id),        -- FK đến danh sách chứa dòng này
+    DisplayOrder INT NOT NULL DEFAULT 1,                     -- Thứ tự hiển thị (sắp xếp row)
+    ModifiedAt DATETIME,                            -- Thời điểm chỉnh sửa gần nhất
+    CreatedBy INT NOT NULL REFERENCES Account(Id),  -- Ai tạo dòng này
+    CreatedAt DATETIME DEFAULT GETDATE(),           -- Thời điểm tạo
+    ListRowStatus NVARCHAR(50) DEFAULT 'Active'            -- Trạng thái: Active, Archived, Deleted,...
+);
+
+-- lưu giá trị của row tại 1 col
+CREATE TABLE ListCellValue (
+    Id INT IDENTITY(1,1) PRIMARY KEY,                     -- Khóa chính tự tăng
+    ListRowId INT NOT NULL REFERENCES ListRow(Id),        -- FK đến dòng chứa giá trị
+    ListColumnId INT NOT NULL REFERENCES ListDynamicColumn(Id), -- FK đến cột động tương ứng
+    CellValue NVARCHAR(MAX),                                  -- Giá trị nhập (text, number, json,...)
+    CreatedBy INT NOT NULL REFERENCES Account(Id),        -- Ai tạo giá trị này
+    CreatedAt DATETIME DEFAULT GETDATE()                  -- Thời gian tạo
+);
+
+
+-- need check
+--CREATE TABLE KeySettingEnumOption (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    KeySettingId INT NOT NULL FOREIGN KEY REFERENCES KeySetting(Id),
+--    OptionValue VARCHAR(255) NOT NULL,
+--    OptionLabel VARCHAR(255) NOT NULL
+--);
+
+-- xác định loại col nào thì có setting gì
+CREATE TABLE DataTypeSettingKey (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    SystemDataTypeId INT FOREIGN KEY REFERENCES SystemDataType(Id),
+    KeySettingId INT FOREIGN KEY REFERENCES KeySetting(Id)
+);
+
+-- giá trị lưu cho setting của col 
+CREATE TABLE ListColumnSettingValue (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
+    DataTypeSettingKey INT FOREIGN KEY REFERENCES DataTypeSettingKey(Id),
+    KeyValue NVARCHAR(255),
+    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+-- tính năng ko hỗ trợ tài khoản cá nhân
+
+--CREATE TABLE Notifications (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    AccountId INT FOREIGN KEY REFERENCES Account(Id),
+--    Title NVARCHAR(255),
+--    CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
+--    IsRead BIT,
+--    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+--    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+--);
+
+--CREATE TABLE ChangeLog (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    ListRowId INT FOREIGN KEY REFERENCES ListRow(Id),
+--    EditedBy INT FOREIGN KEY REFERENCES Account(Id),
+--    ChangedField NVARCHAR(255),
+--    OldValue NVARCHAR(MAX),
+--    NewValue NVARCHAR(MAX),
+--	CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+--    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+--);
+
+
+CREATE TABLE FavoriteList (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ListId INT FOREIGN KEY REFERENCES List(Id),
+    FavoriteListOfUser INT FOREIGN KEY REFERENCES Account(Id),
+    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE FileAttachment (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ListRowId INT FOREIGN KEY REFERENCES ListRow(Id),
+    FileAttachmentName NVARCHAR(255),
+    FileUrl NVARCHAR(500),
+    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE ListRowComment (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ListRowId INT FOREIGN KEY REFERENCES ListRow(Id),
+    Content NVARCHAR(MAX),
+    CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
+    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+
+CREATE TABLE Trash (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+	EntityType NVARCHAR(50), -- 'List', 'ListItem', 'FileAttachment'
+    EntityId INT, -- ID of the deleted entity
+    UserDeleteId INT FOREIGN KEY REFERENCES Account(Id),
+	DeletedAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE Activity (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ListId INT FOREIGN KEY REFERENCES List(Id),
+    ListRowId INT FOREIGN KEY REFERENCES ListRow(Id),
+    ListCommentId INT FOREIGN KEY REFERENCES ListRowComment(Id),
+    ActionType NVARCHAR(100),
+    Note NVARCHAR(MAX),
+    CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
+    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE ListMemberPermission (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ListId INT FOREIGN KEY REFERENCES List(Id),
+    AccountId INT FOREIGN KEY REFERENCES Account(Id),
+    HighestPermissionCode NVARCHAR(50),
+    HighestPermissionId INT FOREIGN KEY REFERENCES Permission(Id),
+    GrantedByAccountId INT FOREIGN KEY REFERENCES Account(Id),
+    Note NVARCHAR(MAX),
+    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE ShareLink (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ListId INT FOREIGN KEY REFERENCES List(Id),
+    TargetUrl NVARCHAR(500),
+    IsPublic BIT,
+    PermissionId INT FOREIGN KEY REFERENCES Permission(Id),
+    ExpirationDate DATETIME,
+    IsLoginRequired BIT,
+    LinkPassword NVARCHAR(255),
+    CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
+    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
+    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE ShareLinkUserAccess (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ShareLinkId INT NOT NULL FOREIGN KEY REFERENCES ShareLink(Id),
+    Email NVARCHAR(255) NOT NULL,
+    AccountId INT NULL FOREIGN KEY REFERENCES Account(Id)
+);
+GO

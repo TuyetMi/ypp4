@@ -1,26 +1,26 @@
 ﻿------------------------------------------
--- MÀN HÌNH DASHBOARD --
+-- DASHBOARD SCREEN --
 
--- 1. Hiển thị tất cả các list mà mình được share và tự tạo
--- 2. Hiển thị tất cả các list mà mình tự tạo
--- 3. Hiển thị thông tin user
--- 4. Hiển thị Favorites List của mình
+-- 1. Display all lists that the logged-in user created or were shared with them
+-- 2. Display all lists that the logged-in user created
+-- 3. Display information of the logged-in user
+-- 4. Display favorite lists of the logged-in user
 
--- 1. Hiển thị tất cả các list mà mình được share và tự tạo
-DECLARE @UserId INT = 2;  -- thay bằng ID của user đang đăng nhập
+-- 1. Display all lists that the logged-in user created or were shared with them
+DECLARE @UserId INT = 2;  -- Replace with the ID of the logged-in user
 
 SELECT DISTINCT 
-	l.*,
-    lmp.HighestPermissionCode, -- extra
-	lmp.GrantedByAccountId -- extra
+    l.*,
+    lmp.HighestPermissionCode, -- Extra
+    lmp.GrantedByAccountId -- Extra
 FROM List l
-LEFT JOIN ListMemberPermission lmp ON l.Id = lmp.ListId AND lmp.AccountId = @UserId -- vẫn dùng JOIN ĐC vì người tạo sẽ đc thêm vào ListMemberPermission
+LEFT JOIN ListMemberPermission lmp ON l.Id = lmp.ListId AND lmp.AccountId = @UserId -- JOIN is still used because the creator will be added to ListMemberPermission
 WHERE l.CreatedBy = @UserId 
-	OR lmp.Id IS NOT NULL
-	AND l.ListStatus = 'Active';
+    OR lmp.Id IS NOT NULL
+    AND l.ListStatus = 'Active';
 GO
 
--- 2. Hiển thị tất cả các list mà mình tự tạo
+-- 2. Display all lists that the logged-in user created
 DECLARE @UserId INT = 2; 
 SELECT 
     l.*
@@ -29,23 +29,23 @@ WHERE l.CreatedBy = @UserId
     AND l.ListStatus = 'Active';
 GO
 
--- 3. Hiển thị thông tin user
+-- 3. Display information of the logged-in user
 DECLARE @UserId INT = 2;
 
 SELECT 
     a.Id,
     a.FirstName,
-	a.LastName,
-	a.Avatar,
+    a.LastName,
+    a.Avatar,
     a.Email,
-	a.Company,
+    a.Company,
     a.AccountStatus
 FROM Account a
 WHERE a.Id = @UserId;
 GO
 
--- 4. Hiển thị Favorites List của mình
-DECLARE @UserId INT = 2;  -- thay bằng ID user đang đăng nhập
+-- 4. Display favorite lists of the logged-in user
+DECLARE @UserId INT = 2;  -- Replace with the ID of the logged-in user
 
 SELECT 
     l.Id AS ListId,
@@ -63,9 +63,9 @@ ORDER BY fl.CreateAt DESC;
 GO
 
 ------------------------------------------
--- MÀN HÌNH SHOW LIST TYPE ĐỂ TẠO LIST MỚI --
+-- LIST TYPE SELECTION SCREEN FOR CREATING A NEW LIST --
 
--- 1. Hiển thị tất cả list type để chọn
+-- 1. Display all list types for selection
 SELECT 
     Id,
     Title,
@@ -73,7 +73,8 @@ SELECT
     HeaderImage
 FROM ListType
 ORDER BY Title;
--- 2. Hiển thị tất cả templates 
+
+-- 2. Display all templates 
 SELECT 
     lt.Id,
     lt.Title,
@@ -83,9 +84,9 @@ FROM ListTemplate lt
 ORDER BY lt.Title;
 
 ------------------------------------------
--- MÀN HÌNH CHỌN LIST TYPE ĐỂ TẠO LIST MỚI --
--- 1. Hiển thị thông tin của list type mà người dùng đã chọn
-DECLARE @ListTypeId INT = 3;  -- thay bằng ID người dùng chọn
+-- LIST TYPE SELECTION SCREEN FOR CREATING A NEW LIST --
+-- 1. Display information of the list type selected by the user
+DECLARE @ListTypeId INT = 3;  -- Replace with the ID selected by the user
 
 SELECT 
     Id,
@@ -98,12 +99,12 @@ WHERE Id = @ListTypeId;
 GO
 
 ------------------------------------------
--- MÀN HÌNH CHỌN TEMPLATE ĐỂ TẠO LIST MỚI DỰA THEO TEMPLATE ĐÓ--
--- 1. Hiển thị tất cả template
--- 2. Hiển thị thông tin của template đó
--- 3. Hiển thị sample data cho template đó (Chưa tạo đc)
+-- TEMPLATE SELECTION SCREEN FOR CREATING A NEW LIST BASED ON A TEMPLATE --
+-- 1. Display all templates
+-- 2. Display information of the selected template
+-- 3. Display sample data for the selected template (Not yet implemented)
 
--- 1. Hiển thị tất cả templates 
+-- 1. Display all templates 
 SELECT 
     lt.Id,
     lt.Title,
@@ -112,8 +113,8 @@ SELECT
 FROM ListTemplate lt
 ORDER BY lt.Title;
 
--- 2. Hiển thị thông tin của template đó
-DECLARE @TemplateId INT = 5;  -- thay bằng ID của template muốn xem
+-- 2. Display information of the selected template
+DECLARE @TemplateId INT = 5;  -- Replace with the ID of the template to view
 
 SELECT 
     lt.Id,
@@ -130,8 +131,46 @@ FROM ListTemplate lt
 WHERE lt.Id = @TemplateId;
 GO
 
+----------------------------------------
+-- LIST SCREEN 
+-- 1. Display List information 
+-- 2. Display all list views of the selected list
+-- 3. Display information of SystemColumn
+-- 4. Display avatars of users with access to the list 
 
+-- 1. Display List information
+DECLARE @UserId INT = 2;     -- ID of the logged-in user
+DECLARE @ListId INT = 2;     -- ID of the selected list
 
+SELECT 
+    l.Id,
+    l.ListName,
+    l.ListTypeId,
+    l.CreatedBy,
+    l.CreatedAt,
+    l.ListStatus,
+    l.Icon,
+    l.Color,
+    lmp.HighestPermissionCode,
+    lmp.GrantedByAccountId
+FROM List l
+LEFT JOIN ListMemberPermission lmp 
+    ON l.Id = lmp.ListId AND lmp.AccountId = @UserId
+WHERE l.Id = @ListId
+    AND (
+        l.CreatedBy = @UserId
+        OR lmp.Id IS NOT NULL
+    )
+    AND l.ListStatus = 'Active';
 
+-- 2. Display all list views of the selected list
+DECLARE @ListId INT = 2;     -- ID of the selected list
 
-
+SELECT
+    lv.Id,
+    lv.ListId,
+    lv.ViewName,
+    lv.DisplayOrder
+FROM ListView lv
+WHERE lv.ListId = @ListId
+ORDER BY lv.DisplayOrder;

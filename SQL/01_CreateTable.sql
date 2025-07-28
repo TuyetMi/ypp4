@@ -81,7 +81,6 @@ CREATE TABLE WorkspaceMember (
 );
 ---------------------------
 ---------------------- SYSTEM SETTING ---------------------
-
 -- Table for three access permissions
 CREATE TABLE Permission (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -94,7 +93,7 @@ CREATE TABLE Permission (
 -- Table to store view types
 CREATE TABLE ViewType (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    Title NVARCHAR(100) NOT NULL, -- Supports 5 types: list, form, kanban, gallery, and calendar
+    Title NVARCHAR(100) NOT NULL, -- Examples: 'List', 'Form', 'Gallery', 'Calendar', 'Board'
     HeaderImage NVARCHAR(255), -- URL or file name of the image
     Icon NVARCHAR(100), -- Icon name or path
     ViewTypeDescription NVARCHAR(500) -- Description of the view type
@@ -180,7 +179,6 @@ CREATE TABLE TemplateView (
     ViewName NVARCHAR(255),
     DisplayOrder INT
 );
-
 
 -- Table for TemplateColumn
 CREATE TABLE TemplateColumn (

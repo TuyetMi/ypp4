@@ -1,22 +1,8 @@
 ﻿USE MsList;
 GO
--- Xóa trigger nếu đã tồn tại để tránh lỗi khi chạy lại
-IF OBJECT_ID('trg_AdjustListViewDisplayOrder', 'TR') IS NOT NULL
-    DROP TRIGGER trg_AdjustListViewDisplayOrder;
-GO
-IF OBJECT_ID('trg_CreateDefaultListView', 'TR') IS NOT NULL
-    DROP TRIGGER trg_CreateDefaultListView;
-GO
-IF OBJECT_ID('trg_AssignOwnerToListCreator', 'TR') IS NOT NULL
-    DROP TRIGGER trg_AssignDefaultListPermission;
-GO
-IF OBJECT_ID('TRG_FavoriteList_PermissionCheck', 'TR') IS NOT NULL
-    DROP TRIGGER TRG_FavoriteList_PermissionCheck;
-GO
-
 
 -- tự động tăng thứ tự display order cho list view mới trong 1 list 
-CREATE TRIGGER trg_AdjustListViewDisplayOrder
+CREATE OR ALTER TRIGGER trg_AdjustListViewDisplayOrder
 ON ListView
 AFTER INSERT, UPDATE
 AS
@@ -51,9 +37,10 @@ BEGIN
 END;
 GO
 
--- tự động tạo 1 list view dạng list - default là "All Items"
--- nếu list mới dạng "board, galary, calendar, form" thì tạo thêm 1 list view có cùng dạng vs list type của list mới
-CREATE TRIGGER trg_CreateDefaultListView
+-- Auto-create a default "All Items" list view (type: List)
+-- If the list type is Board, Gallery, Calendar, or Form, 
+-- also create a view matching the list type
+CREATE OR ALTER TRIGGER trg_CreateDefaultListView
 ON List
 AFTER INSERT
 AS
@@ -96,7 +83,7 @@ END;
 GO
 
 -- tự động gán quyền 'OWNER' cho người mới tạo list đó
-CREATE TRIGGER trg_AssignOwnerToListCreator
+CREATE OR ALTER TRIGGER trg_AssignOwnerToListCreator
 ON List
 AFTER INSERT
 AS
@@ -144,7 +131,7 @@ END;
 GO
 
 -- Create a trigger to enforce the constraint
-CREATE TRIGGER TRG_FavoriteList_PermissionCheck
+CREATE OR ALTER TRIGGER TRG_FavoriteList_PermissionCheck
 ON FavoriteList
 AFTER INSERT, UPDATE
 AS
@@ -167,3 +154,114 @@ BEGIN
     END;
 END;
 GO
+
+-- trigger tự động tạo Dynamic Column từ System Column
+CREATE OR ALTER TRIGGER tr_CreateDynamicColumnsOnListInsert
+ON List
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Declare variables
+    DECLARE @ListId INT;
+    DECLARE @SystemColumnId INT;
+    DECLARE @SystemDataTypeId INT;
+    DECLARE @ColumnName NVARCHAR(100);
+    DECLARE @DisplayOrder INT;
+    DECLARE @CreatedBy INT;
+    DECLARE @DataTypeSettingKeyId INT;
+    DECLARE @KeyValue NVARCHAR(255);
+
+    -- Cursor to iterate through inserted List records
+    DECLARE list_cursor CURSOR FOR
+    SELECT Id, CreatedBy FROM inserted;
+
+    OPEN list_cursor;
+    FETCH NEXT FROM list_cursor INTO @ListId, @CreatedBy;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Cursor to iterate through SystemColumn records
+        DECLARE system_column_cursor CURSOR FOR
+        SELECT Id, SystemDataTypeId, ColumnName, DisplayOrder
+        FROM SystemColumn;
+
+        OPEN system_column_cursor;
+        FETCH NEXT FROM system_column_cursor INTO @SystemColumnId, @SystemDataTypeId, @ColumnName, @DisplayOrder;
+
+        WHILE @@FETCH_STATUS = 0
+        BEGIN
+            -- Insert into ListDynamicColumn
+            INSERT INTO ListDynamicColumn (
+                ListId,
+                SystemDataTypeId,
+                SystemColumnId,
+                ColumnName,
+                DisplayOrder,
+                IsSystemColumn,
+                IsVisible,
+                CreatedBy,
+                CreatedAt
+            )
+            VALUES (
+                @ListId,
+                @SystemDataTypeId,
+                @SystemColumnId,
+                @ColumnName,
+                @DisplayOrder,
+                1, -- IsSystemColumn = 1 since it's copied from SystemColumn
+                CASE WHEN @ColumnName = 'Title' THEN 1 ELSE 0 END, -- IsVisible = 1 for 'Title', 0 for others
+                @CreatedBy,
+                GETDATE()
+            );
+
+            -- Get the newly inserted ListDynamicColumn Id
+            DECLARE @NewDynamicColumnId INT;
+            SET @NewDynamicColumnId = SCOPE_IDENTITY();
+
+            -- Cursor to iterate through SystemColumnSettingValue for the current SystemColumn
+            DECLARE setting_cursor CURSOR FOR
+            SELECT DataTypeSettingKeyId, KeyValue
+            FROM SystemColumnSettingValue
+            WHERE SystemColumnId = @SystemColumnId;
+
+            OPEN setting_cursor;
+            FETCH NEXT FROM setting_cursor INTO @DataTypeSettingKeyId, @KeyValue;
+
+            WHILE @@FETCH_STATUS = 0
+            BEGIN
+                -- Insert into DynamicColumnSettingValue
+                INSERT INTO DynamicColumnSettingValue (
+                    DynamicColumnId,
+                    DataTypeSettingKey,
+                    KeyValue,
+                    CreateAt,
+                    UpdateAt
+                )
+                VALUES (
+                    @NewDynamicColumnId,
+                    @DataTypeSettingKeyId,
+                    @KeyValue,
+                    GETDATE(),
+                    GETDATE()
+                );
+
+                FETCH NEXT FROM setting_cursor INTO @DataTypeSettingKeyId, @KeyValue;
+            END;
+
+            CLOSE setting_cursor;
+            DEALLOCATE setting_cursor;
+
+            FETCH NEXT FROM system_column_cursor INTO @SystemColumnId, @SystemDataTypeId, @ColumnName, @DisplayOrder;
+        END;
+
+        CLOSE system_column_cursor;
+        DEALLOCATE system_column_cursor;
+
+        FETCH NEXT FROM list_cursor INTO @ListId, @CreatedBy;
+    END;
+
+    CLOSE list_cursor;
+    DEALLOCATE list_cursor;
+END;

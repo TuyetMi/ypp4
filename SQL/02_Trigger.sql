@@ -1,4 +1,6 @@
-﻿-- Xóa trigger nếu đã tồn tại để tránh lỗi khi chạy lại
+﻿USE MsList;
+GO
+-- Xóa trigger nếu đã tồn tại để tránh lỗi khi chạy lại
 IF OBJECT_ID('trg_AdjustListViewDisplayOrder', 'TR') IS NOT NULL
     DROP TRIGGER trg_AdjustListViewDisplayOrder;
 GO

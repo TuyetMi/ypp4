@@ -11,8 +11,10 @@ USE MsList;
 GO
 
 -- Drop tables in reverse dependency order
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLinkSettingValue') DROP TABLE ShareLinkSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLinkUserAccess') DROP TABLE ShareLinkUserAccess;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLink') DROP TABLE ShareLink;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Scope') DROP TABLE Scope;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListMemberPermission') DROP TABLE ListMemberPermission;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Activity') DROP TABLE Activity;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Trash') DROP TABLE Trash;
@@ -24,15 +26,13 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListCellValue') DROP TABLE Lis
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListRow') DROP TABLE ListRow;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnSettingObject') DROP TABLE ListColumnSettingObject;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListViewSettingValue') DROP TABLE ListViewSettingValue;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ChangeLog') DROP TABLE ChangeLog; -- Added for potential issue
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Notifications') DROP TABLE Notifications; -- Added for potential issue
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListDynamicColumn') DROP TABLE ListDynamicColumn;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumnSettingValue') DROP TABLE SystemColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumn') DROP TABLE SystemColumn;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListView') DROP TABLE ListView;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateSampleCell') DROP TABLE TemplateSampleCell;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateSampleRow') DROP TABLE TemplateSampleRow;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateViewSetting') DROP TABLE TemplateViewSetting;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateViewSettingValue') DROP TABLE TemplateViewSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateColumnSettingValue') DROP TABLE TemplateColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateColumn') DROP TABLE TemplateColumn;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateView') DROP TABLE TemplateView;
@@ -114,6 +114,7 @@ CREATE TABLE ViewSettingKey (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     SettingKey NVARCHAR(100) NOT NULL, -- Examples: 'StartDate', 'EndDate', 'IsPublic'
     ValueType NVARCHAR(50) NOT NULL -- Examples: 'number', 'boolean', 'datetime', 'string'
+
 );
 
 -- Table to define which settings are used by each view type
@@ -180,6 +181,7 @@ CREATE TABLE TemplateView (
     DisplayOrder INT
 );
 
+
 -- Table for TemplateColumn
 CREATE TABLE TemplateColumn (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -198,15 +200,14 @@ CREATE TABLE TemplateColumnSettingValue (
     KeyValue NVARCHAR(255)
 );
 
--- Table for TemplateViewSetting
-CREATE TABLE TemplateViewSetting (
+-- Table for TemplateViewSettingValue
+CREATE TABLE TemplateViewSettingValue (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     TemplateViewId INT NOT NULL REFERENCES TemplateView(Id),
     ViewTypeSettingId INT NOT NULL REFERENCES ViewTypeSettingKey(Id),
-    GroupByColumnId INT NULL REFERENCES TemplateColumn(Id),
+    GroupByColumnId INT REFERENCES TemplateColumn(Id),
     RawValue NVARCHAR(MAX)
 );
-
 -- Table for TemplateSampleRow
 CREATE TABLE TemplateSampleRow (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -382,12 +383,19 @@ CREATE TABLE ListMemberPermission (
     CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
     UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
 );
+CREATE TABLE Scope (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Code NVARCHAR(50) NOT NULL UNIQUE, -- e.g., 'PUBLIC', 'AUTHORIZED', 'SPECIFIC'
+    DisplayName NVARCHAR(100) NOT NULL,       -- Display name
+    ScopeDescription NVARCHAR(255),         -- Optional description
+    Icon NVARCHAR(100)                 -- Icon name or path
+);
 
 CREATE TABLE ShareLink (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListId INT FOREIGN KEY REFERENCES List(Id),
     TargetUrl NVARCHAR(500),
-    IsPublic BIT,
+    ScopeId INT FOREIGN KEY REFERENCES Scope(Id),
     PermissionId INT FOREIGN KEY REFERENCES Permission(Id),
     ExpirationDate DATETIME,
     LinkStatus NVARCHAR(50) DEFAULT 'Active',
@@ -403,5 +411,12 @@ CREATE TABLE ShareLinkUserAccess (
     ShareLinkId INT NOT NULL FOREIGN KEY REFERENCES ShareLink(Id),
     AccountId INT NULL FOREIGN KEY REFERENCES Account(Id),
     Email NVARCHAR(255) NOT NULL
+);
+
+CREATE TABLE ShareLinkSettingValue (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ShareLinkId INT NOT NULL REFERENCES ShareLink(Id),         
+    KeySettingId INT NOT NULL REFERENCES KeySetting(Id), 
+    KeyValue NVARCHAR(255) NOT NULL                    
 );
 GO

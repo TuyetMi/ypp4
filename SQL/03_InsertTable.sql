@@ -949,24 +949,24 @@ VALUES ('List'), ('Form'), ('Board'), ('Gallery'), ('Calendar');
 
 INSERT INTO SystemDataType (DisplayName, DataTypeValue)
 VALUES 
-    ('Single Line Text', 'Text'),
-    ('Choice', 'Choice'),
+    ('Single Line Text', 'TEXT'),
+    ('Choice', 'INT'),
     ('Date and Time', 'DateTime'),
-    ('Multiple Lines of Text', 'MultilineText'),
-    ('Person or Group', 'User'),
+    ('Multiple Lines of Text', 'TEXT'),
+    ('Person or Group', 'INT'),
     ('Number', 'Number'),
     ('Yes/No', 'Boolean'),
-    ('Lookup', 'Lookup'),
-    ('Image', 'Image'),
-    ('Rate', 'Rating');
+    ('Lookup', 'TEXT'),
+    ('Image', 'TEXT'),
+    ('Rate', 'INT'),
+	('Attachment', 'TEXT'),
+	('Id', 'INT');
 
 INSERT INTO Permission (PermissionName, PermissionCode, PermissionDescription, Icon)
 VALUES 
     ('Can view', 'VIEW', 'Can not edit or share items or this list.', NULL),
 	('Can edit items', 'CONTRIBUTOR', 'Can edit, add, or remove items.', NULL),
     ('Can edit list', 'OWNER', 'Can edit, add, or remove items, columns, or views.', NULL);
-
-
 
 -- missing
 INSERT INTO KeySetting (KeyName, ValueType)
@@ -984,7 +984,6 @@ VALUES
 	('Default value', 'INT'),
 	('Display choices using:', 'BIT'),
 	('Allow multiple selections', 'BIT'),
-	('Require that this column contains information', 'BIT'),
 	('Enforce unique values','BIT'),
 	-- date
 	('Include Time','BIT'),
@@ -994,9 +993,53 @@ VALUES
 	('Append changes to existing text','BIT'),
 	-- Person or Group
 	('Allow selection of Groups','BIT'),
-	('Show profile photos','BIT')
-	;
-SET NOCOUNT ON;
+	('Show profile photos','BIT');
+
+
+-- missing
+INSERT INTO DataTypeSettingKey (SystemDataTypeId, KeySettingId)
+VALUES
+
+-- Single Line Text (Text)
+(1, 5),
+(1, 4),
+(1, 6),
+(1, 3),
+(1, 2),
+
+-- Choice
+(2, 7),
+(2, 8),
+(2, 4),
+(2, 9),
+(2, 10),
+(2, 3),
+(2, 2),
+
+-- Date and time
+(3, 12),
+(3, 13),
+(3, 8),
+(3, 4),
+
+-- Multiple Lines of Text
+(4, 5),
+(4, 4),
+(4, 14),
+(4, 15),
+(4, 3),
+
+-- Person or Group
+(5, 16),
+(5, 17),
+(5, 10),
+(5, 3),
+(5, 2),
+
+-- Special Type
+(11, 3),
+(12, 3);
+
 --- Phần List ---
 INSERT INTO List (ListTypeId, ListName, Icon, Color, CreatedBy, CreatedAt, ListStatus) VALUES
 (1, 'Project Roadmap', 'roadmap', '#FF5733', 1, '2025-01-01 08:00:00', 'Active'),
@@ -1166,7 +1209,7 @@ VALUES
 (4, NULL, 'Design Album', 'album', '#99FF66', 2, '2025-06-12 15:00:00', 'Active'),
 (5, NULL, 'Event Calendar', 'calendar', '#FF33A1', 2, '2025-06-13 16:00:00', 'Active'),
 (5, NULL, 'Team Schedule Planner', 'schedule', '#CC33FF', 2, '2025-06-14 17:00:00', 'Archived');
-
+                                   
 -- Phần Share quyền cho list --
 INSERT INTO ListMemberPermission (ListId, AccountId, HighestPermissionId, HighestPermissionCode, GrantedByAccountId, Note, CreateAt, UpdateAt)
 VALUES
@@ -1436,6 +1479,43 @@ VALUES
 (133, 10, '2025-07-24 17:21:00', '2025-07-24 17:21:00'),
 (134, 10, '2025-07-24 17:22:00', '2025-07-24 17:22:00'),
 (135, 10, '2025-07-24 17:23:00', '2025-07-24 17:23:00');
+
+-- missing 
+-- System Column --
+INSERT INTO SystemColumn (SystemDataTypeId, ColumnName, DisplayOrder, CreatedBy, CanRename)
+VALUES 
+    (6, 'ID', 1, NULL, 0), 
+    (1, 'Title', 2, NULL, 1),
+    (5, 'Created By', 3, NULL, 0),
+    (5, 'Modified By', 4, NULL, 0),
+    (11, 'Attachment', 5, NULL, 0); 
+
+INSERT INTO SystemColumnSettingValue (SystemColumnId, DataTypeSettingKeyId, KeyValue)
+VALUES 
+    -- ID (SystemColumnId = 1, SystemDataTypeId = 6, Number)
+    (1, 1, '1'), -- Enforce unique values: true
+    (1, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 6 AND KeySettingId = 3), '1'), -- Require that this column contains information: true
+
+    -- Title (SystemColumnId = 2, SystemDataTypeId = 1, Single Line Text)
+    (2, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 1 AND KeySettingId = 2), '0'), -- Enforce unique values: false
+    (2, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 1 AND KeySettingId = 3), '1'), -- Require that this column contains information: true
+    (2, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 1 AND KeySettingId = 4), '0'), -- Use Calculated Value: false
+    (2, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 1 AND KeySettingId = 5), 'Untitled'), -- Default value: 'Untitled'
+    (2, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 1 AND KeySettingId = 6), '100'), -- Maximum number of characters: 100
+
+    -- Created By (SystemColumnId = 3, SystemDataTypeId = 5, Person or Group)
+    (3, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 2), '0'), -- Enforce unique values: false
+    (3, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 3), '1'), -- Require that this column contains information: true
+    (3, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 10), '0'), -- Allow multiple selections: false
+    (3, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 16), '0'), -- Allow selection of Groups: false
+    (3, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 17), '1'), -- Show profile photos: true
+
+    -- Modified By (SystemColumnId = 4, SystemDataTypeId = 5, Person or Group)
+    (4, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 2), '0'), -- Enforce unique values: false
+    (4, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 3), '1'), -- Require that this column contains information: true
+    (4, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 10), '0'), -- Allow multiple selections: false
+    (4, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 16), '0'), -- Allow selection of Groups: false
+    (4, (SELECT Id FROM DataTypeSettingKey WHERE SystemDataTypeId = 5 AND KeySettingId = 17), '1'); -- Show profile photos: true
 
 --- Phần Template ---
 INSERT INTO TemplateProvider (ProviderName)

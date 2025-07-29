@@ -13,13 +13,14 @@ GO
 DECLARE @UserId INT = 2;  -- Replace with the ID of the logged-in user
 
 SELECT DISTINCT 
+	l.Id,
     l.ListName,
 	l.Icon,
 	l.Color, 
     lmp.HighestPermissionCode, -- Extra
     lmp.GrantedByAccountId -- Extra
 FROM List l
-LEFT JOIN ListMemberPermission lmp ON l.Id = lmp.ListId AND lmp.AccountId = @UserId -- JOIN is still used because the creator will be added to ListMemberPermission
+JOIN ListMemberPermission lmp ON l.Id = lmp.ListId AND lmp.AccountId = @UserId -- JOIN is still used because the creator will be added to ListMemberPermission
 WHERE l.CreatedBy = @UserId 
     OR lmp.Id IS NOT NULL
     AND l.ListStatus = 'Active';
@@ -55,6 +56,7 @@ GO
 DECLARE @UserId INT = 2;  -- Replace with the ID of the logged-in user
 
 SELECT 
+	l.Id,
     l.ListName,
 	l.Icon,
 	l.Color
@@ -62,7 +64,7 @@ FROM FavoriteList fl
 INNER JOIN List l ON fl.ListId = l.Id
 WHERE fl.FavoriteListOfUser = @UserId
     AND l.ListStatus = 'Active'
-ORDER BY fl.CreateAt DESC;
+ORDER BY fl.CreatedAt DESC;
 GO
 
 ------------------------------------------
@@ -272,7 +274,58 @@ JOIN DataTypeSettingKey dsk ON ks.Id = dsk.KeySettingId
 JOIN SystemDataType sd ON dsk.SystemDataTypeId = sd.Id
 WHERE dsk.SystemDataTypeId = @SystemDataTypeId
 
-------------------
+-------------------------------------------
+----------- LIST TABLE --------------------
+DECLARE @ListId INT = 1; -- Change to desired ListId
+DECLARE @Columns NVARCHAR(4000) = ''; -- Column < 100
+DECLARE @SQL NVARCHAR(4000) = '';
 
+-- Build column list dynamically
+SELECT @Columns = STRING_AGG(QUOTENAME(ColumnName), ', ')
+FROM ListDynamicColumn
+WHERE ListId = @ListId;
+
+-- Construct the dynamic SQL
+SET @SQL = '
+SELECT *
+FROM (
+    SELECT 
+        lr.Id AS RowId,
+        lr.DisplayOrder AS RowOrder,
+        ldc.ColumnName,
+        lcv.CellValue
+    FROM ListRow lr
+	CROSS JOIN ListDynamicColumn ldc
+    LEFT JOIN ListCellValue lcv ON lcv.ListRowId = lr.Id AND lcv.ListColumnId = ldc.Id
+    WHERE lr.ListId = @ListId
+) AS SourceTable
+PIVOT (
+    MAX(CellValue)
+    FOR ColumnName IN (' + @Columns + ')
+) AS PivotTable
+ORDER BY RowOrder;';
+
+-- Execute the dynamic SQL
+EXEC sp_executesql @SQL, N'@ListId INT', @ListId;
+
+---------------------------------------------------
+---------- EDIT LIST ROW SCREEN -------------------
+-- 1. Display the cell values for each column of the specified list row
+-- 2. Display the comments associated with that list row
+
+-- 1. Display the cell values for each column of the specified list row
+DECLARE @ListId INT = 1;
+DECLARE @ListRow INT = 1;
+
+SELECT 
+    ldc.ColumnName,
+    lcv.CellValue
+FROM ListCellValue lcv
+JOIN ListDynamicColumn ldc ON lcv.ListColumnId = ldc.Id
+JOIN ListRow lr ON lcv.ListRowId = lr.Id
+WHERE lr.Id = @ListRow
+  AND lr.ListId = @ListId       -- đảm bảo đúng row thuộc list đó
+  AND ldc.ListId = @ListId      -- chỉ lấy cột của list này
+ORDER BY ldc.DisplayOrder;
 
 

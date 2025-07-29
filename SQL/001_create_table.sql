@@ -42,7 +42,7 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'DataTypeSettingKey') DROP TABL
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewTypeSettingKey') DROP TABLE ViewTypeSettingKey;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'KeySetting') DROP TABLE KeySetting;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewSettingKey') DROP TABLE ViewSettingKey;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Permission') DROP TABLE Permission;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListPermission') DROP TABLE ListPermission;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemDataType') DROP TABLE SystemDataType;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewType') DROP TABLE ViewType;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListType') DROP TABLE ListType;
@@ -68,23 +68,23 @@ CREATE TABLE Account (
 -------- WORKSPACE --------
 CREATE TABLE Workspace (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    WorkspaceName NVARCHAR(255)
+    WorkspaceName NVARCHAR(255) NOT NULL
 );
 
 CREATE TABLE WorkspaceMember (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     WorkspaceId INT FOREIGN KEY REFERENCES Workspace(Id),
     AccountId INT FOREIGN KEY REFERENCES Account(Id),
-    JoinedAt DATETIME NOT NULL DEFAULT GETDATE(),
-    MemberStatus NVARCHAR(50) DEFAULT 'Active',
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    JoinedAt DATETIME,
+    MemberStatus NVARCHAR(50)  NOT NULL DEFAULT 'Active',
+    UpdatedAt DATETIME
 );
 ---------------------------
 ---------------------- SYSTEM SETTING ---------------------
 -- Table for three access permissions
-CREATE TABLE Permission (
+CREATE TABLE ListPermission (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    PermissionName NVARCHAR(100),
+    PermissionName NVARCHAR(100)  NOT NULL,
     PermissionCode NVARCHAR(50) NOT NULL, -- Owner, Contributor, Reader
     PermissionDescription NVARCHAR(255),
     Icon NVARCHAR(255)
@@ -104,7 +104,7 @@ CREATE TABLE ListType (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     Title NVARCHAR(255), -- Examples: 'List', 'Form', 'Gallery', 'Calendar', 'Board'
     Icon NVARCHAR(100),
-    ListTypeDescription NVARCHAR(MAX),
+    ListTypeDescription NVARCHAR(500),
     HeaderImage NVARCHAR(500)
 );
 
@@ -162,11 +162,11 @@ CREATE TABLE ListTemplate (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     Title NVARCHAR(255),
     HeaderImage NVARCHAR(500),
-    TemplateDescription NVARCHAR(MAX),
+    TemplateDescription NVARCHAR(500),
     Icon NVARCHAR(100),
     Color NVARCHAR(50) DEFAULT '#28A745',
-    Sumary NVARCHAR(MAX),
-    Feature NVARCHAR(MAX),
+    Sumary NVARCHAR(500),
+    Feature NVARCHAR(500),
     ListTypeId INT NOT NULL REFERENCES ListType(Id),
     ProviderId INT NOT NULL REFERENCES TemplateProvider(Id)
 );
@@ -186,7 +186,7 @@ CREATE TABLE TemplateColumn (
     SystemDataTypeId INT NOT NULL REFERENCES SystemDataType(Id),
     ListTemplateId INT NOT NULL REFERENCES ListTemplate(Id),
     ColumnName NVARCHAR(255),
-    ColumnDescription NVARCHAR(MAX),
+    ColumnDescription NVARCHAR(500),
     DisplayOrder INT,
     IsVisible BIT
 );
@@ -204,7 +204,7 @@ CREATE TABLE TemplateViewSettingValue (
     TemplateViewId INT NOT NULL REFERENCES TemplateView(Id),
     ViewTypeSettingId INT NOT NULL REFERENCES ViewTypeSettingKey(Id),
     GroupByColumnId INT REFERENCES TemplateColumn(Id),
-    RawValue NVARCHAR(MAX)
+    RawValue NVARCHAR(500)
 );
 -- Table for TemplateSampleRow
 CREATE TABLE TemplateSampleRow (
@@ -218,7 +218,7 @@ CREATE TABLE TemplateSampleCell (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     TemplateColumnId INT NOT NULL REFERENCES TemplateColumn(Id),
     TemplateSampleRowId INT NOT NULL REFERENCES TemplateSampleRow(Id),
-    CellValue NVARCHAR(MAX)
+    CellValue NVARCHAR(500)
 );
 
 ------------------
@@ -230,7 +230,7 @@ CREATE TABLE List (
     Icon NVARCHAR(100),
     Color NVARCHAR(50),
     CreatedBy INT NOT NULL, -- FK to User or Account
-    CreatedAt DATETIME DEFAULT GETDATE(),
+    CreatedAt DATETIME,
     ListStatus NVARCHAR(50) DEFAULT 'Active' -- 'Active', 'Archived', etc.
 );
 
@@ -251,8 +251,8 @@ CREATE TABLE SystemColumn (
     ColumnName NVARCHAR(100) NOT NULL,
     DisplayOrder INT,
     CreatedBy INT REFERENCES Account(Id),
-    CreatedAt DATETIME DEFAULT GETDATE(),
-    CanRename BIT DEFAULT 0 --  only SystemColumn name "Title" has value = 1
+    CreatedAt DATETIME,
+    CanRename BIT NOT NULL DEFAULT 0 --  only SystemColumn name "Title" has value = 1
 );
 
 CREATE TABLE SystemColumnSettingValue (
@@ -273,7 +273,7 @@ CREATE TABLE ListDynamicColumn (
     IsSystemColumn BIT NOT NULL DEFAULT 0, -- System columns cannot be modified by users
     IsVisible BIT NOT NULL DEFAULT 1, -- 1: Visible | 0: Hidden from view
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- Who created this column
-    CreatedAt DATETIME DEFAULT GETDATE() -- Creation timestamp
+    CreatedAt DATETIME -- Creation timestamp
 );
 
 -- Store values for columns of type 'choice'
@@ -300,8 +300,8 @@ CREATE TABLE ListRow (
     DisplayOrder INT NOT NULL DEFAULT 0, -- Display order (row sorting)
     ModifiedAt DATETIME, -- Last modified timestamp
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- Who created this row
-    CreatedAt DATETIME DEFAULT GETDATE(), -- Creation timestamp
-    ListRowStatus NVARCHAR(50) DEFAULT 'Active' -- Status: Active, Archived, Deleted, etc.
+    CreatedAt DATETIME, -- Creation timestamp
+    ListRowStatus NVARCHAR(50) NOT NULL DEFAULT 'Active' -- Status: Active, Archived, Deleted, etc.
 );
 
 -- Store the value of a row in a specific column
@@ -309,9 +309,9 @@ CREATE TABLE ListCellValue (
     Id INT IDENTITY(1,1) PRIMARY KEY, -- Auto-incrementing primary key
     ListRowId INT NOT NULL REFERENCES ListRow(Id), -- FK to the row containing the value
     ListColumnId INT NOT NULL REFERENCES ListDynamicColumn(Id), -- FK to the corresponding dynamic column
-    CellValue NVARCHAR(MAX), -- Input value (text, number, JSON, etc.)
+    CellValue NVARCHAR(500), -- Input value
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- Who created this value
-    CreatedAt DATETIME DEFAULT GETDATE() -- Creation timestamp
+    CreatedAt DATETIME -- Creation timestamp
 );
 
 -- Store values for column settings
@@ -320,16 +320,16 @@ CREATE TABLE DynamicColumnSettingValue (
     DynamicColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
     DataTypeSettingKey INT FOREIGN KEY REFERENCES DataTypeSettingKey(Id),
     KeyValue NVARCHAR(255),
-    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE FavoriteList (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListId INT FOREIGN KEY REFERENCES List(Id),
     FavoriteListOfUser INT FOREIGN KEY REFERENCES Account(Id),
-    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE FileAttachment (
@@ -337,17 +337,17 @@ CREATE TABLE FileAttachment (
     ListRowId INT FOREIGN KEY REFERENCES ListRow(Id),
     FileAttachmentName NVARCHAR(255),
     FileUrl NVARCHAR(500),
-    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE ListRowComment (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListRowId INT FOREIGN KEY REFERENCES ListRow(Id),
-    Content NVARCHAR(MAX),
+    Content NVARCHAR(500),
     CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
-    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE Trash (
@@ -355,7 +355,7 @@ CREATE TABLE Trash (
     EntityType NVARCHAR(50), -- 'List', 'ListItem', 'FileAttachment'
     EntityId INT, -- ID of the deleted entity
     UserDeleteId INT FOREIGN KEY REFERENCES Account(Id),
-    DeletedAt DATETIME NOT NULL DEFAULT GETDATE()
+    DeletedAt DATETIME
 );
 
 CREATE TABLE Activity (
@@ -364,22 +364,22 @@ CREATE TABLE Activity (
     ListRowId INT FOREIGN KEY REFERENCES ListRow(Id),
     ListCommentId INT FOREIGN KEY REFERENCES ListRowComment(Id),
     ActionType NVARCHAR(100),
-    Note NVARCHAR(MAX),
+    Note NVARCHAR(500),
     CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
-    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE ListMemberPermission (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListId INT FOREIGN KEY REFERENCES List(Id),
     AccountId INT FOREIGN KEY REFERENCES Account(Id), -- The user receiving the permission
-    HighestPermissionId INT FOREIGN KEY REFERENCES Permission(Id),
+    HighestPermissionId INT FOREIGN KEY REFERENCES ListPermission(Id),
     HighestPermissionCode NVARCHAR(50),
     GrantedByAccountId INT FOREIGN KEY REFERENCES Account(Id),
-    Note NVARCHAR(MAX),
-    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    Note NVARCHAR(500),
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 CREATE TABLE Scope (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -394,14 +394,14 @@ CREATE TABLE ShareLink (
     ListId INT FOREIGN KEY REFERENCES List(Id),
     TargetUrl NVARCHAR(500),
     ScopeId INT FOREIGN KEY REFERENCES Scope(Id),
-    PermissionId INT FOREIGN KEY REFERENCES Permission(Id),
+    PermissionId INT FOREIGN KEY REFERENCES ListPermission(Id),
     ExpirationDate DATETIME,
-    LinkStatus NVARCHAR(50) DEFAULT 'Active',
+    LinkStatus NVARCHAR(50) NOT NULL DEFAULT 'Active',
     IsLoginRequired BIT,
     LinkPassword NVARCHAR(255),
     CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
-    CreateAt DATETIME NOT NULL DEFAULT GETDATE(),
-    UpdateAt DATETIME NOT NULL DEFAULT GETDATE()
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE ShareLinkUserAccess (

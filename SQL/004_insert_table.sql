@@ -737,7 +737,7 @@ INSERT INTO Workspace (WorkspaceName) VALUES
 
 SET NOCOUNT ON;
 
-INSERT INTO WorkspaceMember (WorkspaceId, AccountId, JoinedAt, MemberStatus, UpdateAt) VALUES
+INSERT INTO WorkspaceMember (WorkspaceId, AccountId, JoinedAt, MemberStatus, UpdatedAt) VALUES
 (1, 1, '2025-01-01 08:00:00', 'Active', '2025-01-01 08:00:00'),
 (1, 2, '2025-01-02 09:15:00', 'Active', '2025-01-02 09:15:00'),
 (1, 3, '2025-01-03 10:30:00', 'Inactive', '2025-01-03 10:30:00'),
@@ -950,18 +950,18 @@ INSERT INTO SystemDataType (DisplayName, DataTypeValue)
 VALUES 
     ('Single Line Text', 'TEXT'),
     ('Choice', 'INT'),
-    ('Date and Time', 'DateTime'),
+    ('Date and Time', 'DATETIME'),
     ('Multiple Lines of Text', 'TEXT'),
     ('Person or Group', 'INT'),
-    ('Number', 'Number'),
-    ('Yes/No', 'Boolean'),
+    ('Number', 'NUMBER'),
+    ('Yes/No', 'BOOLEAN'),
     ('Lookup', 'TEXT'),
     ('Image', 'TEXT'),
     ('Rate', 'INT'),
 	('Attachment', 'TEXT'),
 	('Id', 'INT');
 
-INSERT INTO Permission (PermissionName, PermissionCode, PermissionDescription, Icon)
+INSERT INTO ListPermission (PermissionName, PermissionCode, PermissionDescription, Icon)
 VALUES 
     ('Can view', 'VIEW', 'Can not edit or share items or this list.', NULL),
 	('Can edit items', 'CONTRIBUTOR', 'Can edit, add, or remove items.', NULL),
@@ -994,8 +994,6 @@ VALUES
 	('Allow selection of Groups','BIT'),
 	('Show profile photos','BIT');
 	-- Number
-
-
 
 -- missing
 INSERT INTO DataTypeSettingKey (SystemDataTypeId, KeySettingId)
@@ -1044,7 +1042,6 @@ VALUES
 (11, 3),
 (12, 3);
 
-SELECT * FROM KeySetting;
 -- missing 
 -- System Column --
 INSERT INTO SystemColumn (SystemDataTypeId, ColumnName, DisplayOrder, CreatedBy, CanRename)
@@ -1054,6 +1051,7 @@ VALUES
     (5, 'Created By', 3, NULL, 0),
     (5, 'Modified By', 4, NULL, 0),
     (11, 'Attachment', 5, NULL, 0); 
+
 INSERT INTO SystemColumnSettingValue (SystemColumnId, DataTypeSettingKeyId, KeyValue)
 VALUES 
 -- ID 
@@ -1518,9 +1516,349 @@ VALUES
 (4, NULL, 'Design Album', 'album', '#99FF66', 2, '2025-06-12 15:00:00', 'Active'),
 (5, NULL, 'Event Calendar', 'calendar', '#FF33A1', 2, '2025-06-13 16:00:00', 'Active'),
 (5, NULL, 'Team Schedule Planner', 'schedule', '#CC33FF', 2, '2025-06-14 17:00:00', 'Archived');
-                                   
+
+-- Insert data into ListDynamicColumn for ListId 1 to 100 (DisplayOrder starts from 6, CreatedBy matches ListId)
+INSERT INTO ListDynamicColumn (ListId, SystemDataTypeId, ColumnName, ColumnDescription, DisplayOrder, IsSystemColumn, IsVisible, CreatedBy, CreatedAt)
+VALUES
+-- ListId 1 (4 columns, DisplayOrder 6-9, CreatedBy = 1)
+(1, 1, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 1', 6, 0, 1, 1, '2025-07-29 14:36:00'),
+(1, 2, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 1', 7, 0, 1, 1, '2025-07-29 14:36:00'),
+(1, 3, 'col_3_DATETIME', 'Mô tả cho cột 3 trong danh sách 1', 8, 0, 1, 1, '2025-07-29 14:36:00'),
+(1, 4, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 1', 9, 0, 1, 1, '2025-07-29 14:36:00'),
+-- ListId 2 (3 columns, DisplayOrder 6-8, CreatedBy = 2)
+(2, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 2', 6, 0, 1, 2, '2025-07-29 14:36:00'),
+(2, 6, 'col_2_NUMBER', 'Mô tả cho cột 2 trong danh sách 2', 7, 0, 1, 2, '2025-07-29 14:36:00'),
+(2, 7, 'col_3_BOOLEAN', 'Mô tả cho cột 3 trong danh sách 2', 8, 0, 1, 2, '2025-07-29 14:36:00'),
+-- ListId 3 (5 columns, DisplayOrder 6-10, CreatedBy = 3)
+(3, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 3', 6, 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 9, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 3', 7, 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 10, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 3', 8, 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 3', 9, 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 12, 'col_5_INT', 'Mô tả cho cột 5 trong danh sách 3', 10, 0, 1, 3, '2025-07-29 14:36:00'),
+-- ListId 4 (4 columns, DisplayOrder 6-9, CreatedBy = 4)
+(4, 1, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 4', 6, 0, 1, 4, '2025-07-29 14:36:00'),
+(4, 3, 'col_2_DATETIME', 'Mô tả cho cột 2 trong danh sách 4', 7, 0, 1, 4, '2025-07-29 14:36:00'),
+(4, 5, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 4', 8, 0, 1, 4, '2025-07-29 14:36:00'),
+(4, 7, 'col_4_BOOLEAN', 'Mô tả cho cột 4 trong danh sách 4', 9, 0, 1, 4, '2025-07-29 14:36:00'),
+-- ListId 5 (3 columns, DisplayOrder 6-8, CreatedBy = 5)
+(5, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 5', 6, 0, 1, 5, '2025-07-29 14:36:00'),
+(5, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 5', 7, 0, 1, 5, '2025-07-29 14:36:00'),
+(5, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 5', 8, 0, 1, 5, '2025-07-29 14:36:00'),
+-- ListId 6 (5 columns, DisplayOrder 6-10, CreatedBy = 6)
+(6, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 6', 6, 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 6', 7, 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 6', 8, 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 6', 9, 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 6', 10, 0, 1, 6, '2025-07-29 14:36:00'),
+-- ListId 7 (4 columns, DisplayOrder 6-9, CreatedBy = 7)
+(7, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 7', 6, 0, 1, 7, '2025-07-29 14:36:00'),
+(7, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 7', 7, 0, 1, 7, '2025-07-29 14:36:00'),
+(7, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 7', 8, 0, 1, 7, '2025-07-29 14:36:00'),
+(7, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 7', 9, 0, 1, 7, '2025-07-29 14:36:00'),
+-- ListId 8 (3 columns, DisplayOrder 6-8, CreatedBy = 8)
+(8, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 8', 6, 0, 1, 8, '2025-07-29 14:36:00'),
+(8, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 8', 7, 0, 1, 8, '2025-07-29 14:36:00'),
+(8, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 8', 8, 0, 1, 8, '2025-07-29 14:36:00'),
+-- ListId 9 (5 columns, DisplayOrder 6-10, CreatedBy = 9)
+(9, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 9', 6, 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 9', 7, 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 9', 8, 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 9', 9, 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 9', 10, 0, 1, 9, '2025-07-29 14:36:00'),
+-- ListId 10 (4 columns, DisplayOrder 6-9, CreatedBy = 10)
+(10, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 10', 6, 0, 1, 10, '2025-07-29 14:36:00'),
+(10, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 10', 7, 0, 1, 10, '2025-07-29 14:36:00'),
+(10, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 10', 8, 0, 1, 10, '2025-07-29 14:36:00'),
+(10, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 10', 9, 0, 1, 10, '2025-07-29 14:36:00'),
+-- Continue pattern for ListId 11 to 100
+(11, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 11', 6, 0, 1, 11, '2025-07-29 14:36:00'),
+(11, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 11', 7, 0, 1, 11, '2025-07-29 14:36:00'),
+(11, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 11', 8, 0, 1, 11, '2025-07-29 14:36:00'),
+(12, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 12', 6, 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 12', 7, 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 12', 8, 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 12', 9, 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 12', 10, 0, 1, 12, '2025-07-29 14:36:00'),
+(13, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 13', 6, 0, 1, 13, '2025-07-29 14:36:00'),
+(13, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 13', 7, 0, 1, 13, '2025-07-29 14:36:00'),
+(13, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 13', 8, 0, 1, 13, '2025-07-29 14:36:00'),
+(13, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 13', 9, 0, 1, 13, '2025-07-29 14:36:00'),
+(14, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 14', 6, 0, 1, 14, '2025-07-29 14:36:00'),
+(14, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 14', 7, 0, 1, 14, '2025-07-29 14:36:00'),
+(14, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 14', 8, 0, 1, 14, '2025-07-29 14:36:00'),
+(15, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 15', 6, 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 15', 7, 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 15', 8, 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 15', 9, 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 15', 10, 0, 1, 15, '2025-07-29 14:36:00'),
+-- Continue up to ListId 100
+(97, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 97', 6, 0, 1, 97, '2025-07-29 14:36:00'),
+(97, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 97', 7, 0, 1, 97, '2025-07-29 14:36:00'),
+(97, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 97', 8, 0, 1, 97, '2025-07-29 14:36:00'),
+(98, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 98', 6, 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 98', 7, 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 98', 8, 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 98', 9, 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 98', 10, 0, 1, 98, '2025-07-29 14:36:00'),
+(99, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 99', 6, 0, 1, 99, '2025-07-29 14:36:00'),
+(99, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 99', 7, 0, 1, 99, '2025-07-29 14:36:00'),
+(99, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 99', 8, 0, 1, 99, '2025-07-29 14:36:00'),
+(99, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 99', 9, 0, 1, 99, '2025-07-29 14:36:00'),
+(100, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 100', 6, 0, 1, 100, '2025-07-29 14:36:00'),
+(100, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 100', 7, 0, 1, 100, '2025-07-29 14:36:00'),
+(100, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 100', 8, 0, 1, 100, '2025-07-29 14:36:00');
+--select * from ListDynamicColumn l where l.ListId =1; 
+
+DECLARE @TotalRows INT = 500;
+DECLARE @CurrentListId INT = 1;
+DECLARE @RowsInserted INT = 0;
+DECLARE @RowsForList INT;
+DECLARE @DisplayOrder INT;
+DECLARE @StatusCode INT;
+DECLARE @ListRowStatus NVARCHAR(50);
+
+WHILE @RowsInserted < @TotalRows
+BEGIN
+    SET @RowsForList = CASE 
+        WHEN @TotalRows - @RowsInserted >= 10 THEN 10
+        ELSE @TotalRows - @RowsInserted
+    END;
+
+    SET @DisplayOrder = 1;
+
+    WHILE @DisplayOrder <= @RowsForList
+    BEGIN
+        -- Random status: 0 = Active, 1 = Archived, 2 = Deleted
+        SET @StatusCode = ABS(CHECKSUM(NEWID())) % 3;
+        SET @ListRowStatus = CASE 
+            WHEN @StatusCode = 0 THEN 'Active'
+            WHEN @StatusCode = 1 THEN 'Archived'
+            ELSE 'Deleted'
+        END;
+
+        INSERT INTO ListRow (
+            ListId,
+            DisplayOrder,
+            ModifiedAt,
+            CreatedBy,
+            CreatedAt,
+            ListRowStatus
+        )
+        VALUES (
+            @CurrentListId,
+            @DisplayOrder,
+            NULL,
+            @CurrentListId,
+            GETDATE(),
+            @ListRowStatus
+        );
+
+        SET @DisplayOrder = @DisplayOrder + 1;
+        SET @RowsInserted = @RowsInserted + 1;
+    END
+
+    SET @CurrentListId = @CurrentListId + 1;
+END;
+select * from ListDynamicColumn l where l.ListId = 2;  
+-- List Cell Value for list 1
+INSERT INTO ListCellValue (ListRowId, ListColumnId, CellValue, CreatedBy, CreatedAt)
+VALUES
+-- Row 1
+(1, 771, '1', 1, '2025-07-29 15:09:00'), -- ID (NUMBER)
+(1, 772, 'Item 1', 1, '2025-07-29 15:09:00'), -- Title (TEXT)
+(1, 773, '1', 1, '2025-07-29 15:09:00'), -- Created By (INT)
+(1, 774, '1', 1, '2025-07-29 15:09:00'), -- Modified By (INT)
+(1, 775, 'attachment_row_1.jpg', 1, '2025-07-29 15:09:00'), -- Attachment (TEXT)
+(1, 775, 'attachment_row_2.jpg', 1, '2025-07-29 15:09:00'), -- Attachment (TEXT)
+(1, 826, 'Text for row 1', 1, '2025-07-29 15:09:00'), -- col_1_TEXT (TEXT)
+(1, 827, '10', 1, '2025-07-29 15:09:00'), -- col_2_INT (INT)
+(1, 828, '2025-07-29 10:00:00', 1, '2025-07-29 15:09:00'), -- col_3_DATETIME (DATETIME)
+(1, 829, 'Description for row 1', 1, '2025-07-29 15:09:00'), -- col_4_TEXT (TEXT)
+-- Row 2
+(2, 771, '2', 1, '2025-07-29 15:09:00'),
+(2, 772, 'Item 2', 1, '2025-07-29 15:09:00'),
+(2, 773, '1', 1, '2025-07-29 15:09:00'),
+(2, 774, '1', 1, '2025-07-29 15:09:00'),
+(2, 775, 'attachment_row_2.jpg', 1, '2025-07-29 15:09:00'),
+(2, 826, 'Text for row 2', 1, '2025-07-29 15:09:00'),
+(2, 827, '20', 1, '2025-07-29 15:09:00'),
+(2, 828, '2025-07-29 11:00:00', 1, '2025-07-29 15:09:00'),
+(2, 829, 'Description for row 2', 1, '2025-07-29 15:09:00'),
+-- Row 3
+(3, 771, '3', 1, '2025-07-29 15:09:00'),
+(3, 772, 'Item 3', 1, '2025-07-29 15:09:00'),
+(3, 773, '1', 1, '2025-07-29 15:09:00'),
+(3, 774, '1', 1, '2025-07-29 15:09:00'),
+(3, 775, 'attachment_row_3.jpg', 1, '2025-07-29 15:09:00'),
+(3, 826, 'Text for row 3', 1, '2025-07-29 15:09:00'),
+(3, 827, '30', 1, '2025-07-29 15:09:00'),
+(3, 828, '2025-07-29 12:00:00', 1, '2025-07-29 15:09:00'),
+(3, 829, 'Description for row 3', 1, '2025-07-29 15:09:00'),
+-- Row 4
+(4, 771, '4', 1, '2025-07-29 15:09:00'),
+(4, 772, 'Item 4', 1, '2025-07-29 15:09:00'),
+(4, 773, '1', 1, '2025-07-29 15:09:00'),
+(4, 774, '1', 1, '2025-07-29 15:09:00'),
+(4, 775, 'attachment_row_4.jpg', 1, '2025-07-29 15:09:00'),
+(4, 826, 'Text for row 4', 1, '2025-07-29 15:09:00'),
+(4, 827, '40', 1, '2025-07-29 15:09:00'),
+(4, 828, '2025-07-29 13:00:00', 1, '2025-07-29 15:09:00'),
+(4, 829, 'Description for row 4', 1, '2025-07-29 15:09:00'),
+-- Row 5
+(5, 771, '5', 1, '2025-07-29 15:09:00'),
+(5, 772, 'Item 5', 1, '2025-07-29 15:09:00'),
+(5, 773, '1', 1, '2025-07-29 15:09:00'),
+(5, 774, '1', 1, '2025-07-29 15:09:00'),
+(5, 775, 'attachment_row_5.jpg', 1, '2025-07-29 15:09:00'),
+(5, 826, 'Text for row 5', 1, '2025-07-29 15:09:00'),
+(5, 827, '50', 1, '2025-07-29 15:09:00'),
+(5, 828, '2025-07-29 14:00:00', 1, '2025-07-29 15:09:00'),
+(5, 829, 'Description for row 5', 1, '2025-07-29 15:09:00'),
+-- Row 6
+(6, 771, '6', 1, '2025-07-29 15:09:00'),
+(6, 772, 'Item 6', 1, '2025-07-29 15:09:00'),
+(6, 773, '1', 1, '2025-07-29 15:09:00'),
+(6, 774, '1', 1, '2025-07-29 15:09:00'),
+(6, 775, 'attachment_row_6.jpg', 1, '2025-07-29 15:09:00'),
+(6, 826, 'Text for row 6', 1, '2025-07-29 15:09:00'),
+(6, 827, '60', 1, '2025-07-29 15:09:00'),
+(6, 828, '2025-07-29 15:00:00', 1, '2025-07-29 15:09:00'),
+(6, 829, 'Description for row 6', 1, '2025-07-29 15:09:00'),
+-- Row 7
+(7, 771, '7', 1, '2025-07-29 15:09:00'),
+(7, 772, 'Item 7', 1, '2025-07-29 15:09:00'),
+(7, 773, '1', 1, '2025-07-29 15:09:00'),
+(7, 774, '1', 1, '2025-07-29 15:09:00'),
+(7, 775, 'attachment_row_7.jpg', 1, '2025-07-29 15:09:00'),
+(7, 826, 'Text for row 7', 1, '2025-07-29 15:09:00'),
+(7, 827, '70', 1, '2025-07-29 15:09:00'),
+(7, 828, '2025-07-29 16:00:00', 1, '2025-07-29 15:09:00'),
+(7, 829, 'Description for row 7', 1, '2025-07-29 15:09:00'),
+-- Row 8
+(8, 771, '8', 1, '2025-07-29 15:09:00'),
+(8, 772, 'Item 8', 1, '2025-07-29 15:09:00'),
+(8, 773, '1', 1, '2025-07-29 15:09:00'),
+(8, 774, '1', 1, '2025-07-29 15:09:00'),
+(8, 775, 'attachment_row_8.jpg', 1, '2025-07-29 15:09:00'),
+(8, 826, 'Text for row 8', 1, '2025-07-29 15:09:00'),
+(8, 827, '80', 1, '2025-07-29 15:09:00'),
+(8, 828, '2025-07-29 17:00:00', 1, '2025-07-29 15:09:00'),
+(8, 829, 'Description for row 8', 1, '2025-07-29 15:09:00'),
+-- Row 9
+(9, 771, '9', 1, '2025-07-29 15:09:00'),
+(9, 772, 'Item 9', 1, '2025-07-29 15:09:00'),
+(9, 773, '1', 1, '2025-07-29 15:09:00'),
+(9, 774, '1', 1, '2025-07-29 15:09:00'),
+(9, 775, 'attachment_row_9.jpg', 1, '2025-07-29 15:09:00'),
+(9, 826, 'Text for row 9', 1, '2025-07-29 15:09:00'),
+(9, 827, '90', 1, '2025-07-29 15:09:00'),
+(9, 828, '2025-07-29 18:00:00', 1, '2025-07-29 15:09:00'),
+(9, 829, 'Description for row 9', 1, '2025-07-29 15:09:00'),
+-- Row 10
+(10, 771, '10', 1, '2025-07-29 15:09:00'),
+(10, 772, 'Item 10', 1, '2025-07-29 15:09:00'),
+(10, 773, '1', 1, '2025-07-29 15:09:00'),
+(10, 774, '1', 1, '2025-07-29 15:09:00'),
+(10, 775, 'attachment_row_10.jpg', 1, '2025-07-29 15:09:00'),
+(10, 826, 'Text for row 10', 1, '2025-07-29 15:09:00'),
+(10, 827, '100', 1, '2025-07-29 15:09:00'),
+(10, 828, '2025-07-29 19:00:00', 1, '2025-07-29 15:09:00'),
+(10, 829, 'Description for row 10', 1, '2025-07-29 15:09:00');
+-- List Cell Value for list 2
+INSERT INTO ListCellValue (ListRowId, ListColumnId, CellValue, CreatedBy, CreatedAt)
+VALUES
+-- Row 1 (ListRowId = 11)
+(11, 766, '1', 2, '2025-07-29 15:11:00'), -- ID (NUMBER)
+(11, 767, 'Item 1', 2, '2025-07-29 15:11:00'), -- Title (TEXT)
+(11, 768, '2', 2, '2025-07-29 15:11:00'), -- Created By (INT)
+(11, 769, '2', 2, '2025-07-29 15:11:00'), -- Modified By (INT)
+(11, 770, 'attachment_row_1.jpg', 2, '2025-07-29 15:11:00'), -- Attachment (TEXT)
+(11, 830, '100', 2, '2025-07-29 15:11:00'), -- col_1_INT (INT)
+(11, 831, '1.1', 2, '2025-07-29 15:11:00'), -- col_2_NUMBER (NUMBER)
+(11, 832, '1', 2, '2025-07-29 15:11:00'), -- col_3_BOOLEAN (BOOLEAN)
+-- Row 2 (ListRowId = 12)
+(12, 766, '2', 2, '2025-07-29 15:11:00'),
+(12, 767, 'Item 2', 2, '2025-07-29 15:11:00'),
+(12, 768, '2', 2, '2025-07-29 15:11:00'),
+(12, 769, '2', 2, '2025-07-29 15:11:00'),
+(12, 770, 'attachment_row_2.jpg', 2, '2025-07-29 15:11:00'),
+(12, 830, '200', 2, '2025-07-29 15:11:00'),
+(12, 831, '2.2', 2, '2025-07-29 15:11:00'),
+(12, 832, '0', 2, '2025-07-29 15:11:00'),
+-- Row 3 (ListRowId = 13)
+(13, 766, '3', 2, '2025-07-29 15:11:00'),
+(13, 767, 'Item 3', 2, '2025-07-29 15:11:00'),
+(13, 768, '2', 2, '2025-07-29 15:11:00'),
+(13, 769, '2', 2, '2025-07-29 15:11:00'),
+(13, 770, 'attachment_row_3.jpg', 2, '2025-07-29 15:11:00'),
+(13, 830, '300', 2, '2025-07-29 15:11:00'),
+(13, 831, '3.3', 2, '2025-07-29 15:11:00'),
+(13, 832, '1', 2, '2025-07-29 15:11:00'),
+-- Row 4 (ListRowId = 14)
+(14, 766, '4', 2, '2025-07-29 15:11:00'),
+(14, 767, 'Item 4', 2, '2025-07-29 15:11:00'),
+(14, 768, '2', 2, '2025-07-29 15:11:00'),
+(14, 769, '2', 2, '2025-07-29 15:11:00'),
+(14, 770, 'attachment_row_4.jpg', 2, '2025-07-29 15:11:00'),
+(14, 830, '400', 2, '2025-07-29 15:11:00'),
+(14, 831, '4.4', 2, '2025-07-29 15:11:00'),
+(14, 832, '0', 2, '2025-07-29 15:11:00'),
+-- Row 5 (ListRowId = 15)
+(15, 766, '5', 2, '2025-07-29 15:11:00'),
+(15, 767, 'Item 5', 2, '2025-07-29 15:11:00'),
+(15, 768, '2', 2, '2025-07-29 15:11:00'),
+(15, 769, '2', 2, '2025-07-29 15:11:00'),
+(15, 770, 'attachment_row_5.jpg', 2, '2025-07-29 15:11:00'),
+(15, 830, '500', 2, '2025-07-29 15:11:00'),
+(15, 831, '5.5', 2, '2025-07-29 15:11:00'),
+(15, 832, '1', 2, '2025-07-29 15:11:00'),
+-- Row 6 (ListRowId = 16)
+(16, 766, '6', 2, '2025-07-29 15:11:00'),
+(16, 767, 'Item 6', 2, '2025-07-29 15:11:00'),
+(16, 768, '2', 2, '2025-07-29 15:11:00'),
+(16, 769, '2', 2, '2025-07-29 15:11:00'),
+(16, 770, 'attachment_row_6.jpg', 2, '2025-07-29 15:11:00'),
+(16, 830, '600', 2, '2025-07-29 15:11:00'),
+(16, 831, '6.6', 2, '2025-07-29 15:11:00'),
+(16, 832, '0', 2, '2025-07-29 15:11:00'),
+-- Row 7 (ListRowId = 17)
+(17, 766, '7', 2, '2025-07-29 15:11:00'),
+(17, 767, 'Item 7', 2, '2025-07-29 15:11:00'),
+(17, 768, '2', 2, '2025-07-29 15:11:00'),
+(17, 769, '2', 2, '2025-07-29 15:11:00'),
+(17, 770, 'attachment_row_7.jpg', 2, '2025-07-29 15:11:00'),
+(17, 830, '700', 2, '2025-07-29 15:11:00'),
+(17, 831, '7.7', 2, '2025-07-29 15:11:00'),
+(17, 832, '1', 2, '2025-07-29 15:11:00'),
+-- Row 8 (ListRowId = 18)
+(18, 766, '8', 2, '2025-07-29 15:11:00'),
+(18, 767, 'Item 8', 2, '2025-07-29 15:11:00'),
+(18, 768, '2', 2, '2025-07-29 15:11:00'),
+(18, 769, '2', 2, '2025-07-29 15:11:00'),
+(18, 770, 'attachment_row_8.jpg', 2, '2025-07-29 15:11:00'),
+(18, 830, '800', 2, '2025-07-29 15:11:00'),
+(18, 831, '8.8', 2, '2025-07-29 15:11:00'),
+(18, 832, '0', 2, '2025-07-29 15:11:00'),
+-- Row 9 (ListRowId = 19)
+(19, 766, '9', 2, '2025-07-29 15:11:00'),
+(19, 767, 'Item 9', 2, '2025-07-29 15:11:00'),
+(19, 768, '2', 2, '2025-07-29 15:11:00'),
+(19, 769, '2', 2, '2025-07-29 15:11:00'),
+(19, 770, 'attachment_row_9.jpg', 2, '2025-07-29 15:11:00'),
+(19, 830, '900', 2, '2025-07-29 15:11:00'),
+(19, 831, '9.9', 2, '2025-07-29 15:11:00'),
+(19, 832, '1', 2, '2025-07-29 15:11:00'),
+-- Row 10 (ListRowId = 20)
+(20, 766, '10', 2, '2025-07-29 15:11:00'),
+(20, 767, 'Item 10', 2, '2025-07-29 15:11:00'),
+(20, 768, '2', 2, '2025-07-29 15:11:00'),
+(20, 769, '2', 2, '2025-07-29 15:11:00'),
+(20, 770, 'attachment_row_10.jpg', 2, '2025-07-29 15:11:00'),
+(20, 830, '1000', 2, '2025-07-29 15:11:00'),
+(20, 831, '10.10', 2, '2025-07-29 15:11:00'),
+(20, 832, '0', 2, '2025-07-29 15:11:00');                                
 -- Phần Share quyền cho list --
-INSERT INTO ListMemberPermission (ListId, AccountId, HighestPermissionId, HighestPermissionCode, GrantedByAccountId, Note, CreateAt, UpdateAt)
+INSERT INTO ListMemberPermission (ListId, AccountId, HighestPermissionId, HighestPermissionCode, GrantedByAccountId, Note, CreatedAt, UpdatedAt)
 VALUES
 (1, 2, 2, 'CONTRIBUTOR', 1, 'Shared edit access for project collaboration', '2025-01-01 08:30:00', '2025-01-01 08:30:00'),
 (1, 3, 1, 'VIEW', 1, 'View-only access for review', '2025-01-01 09:00:00', '2025-01-01 09:00:00'),
@@ -1622,7 +1960,7 @@ VALUES
 (49, 98, 2, 'CONTRIBUTOR', 49, 'Edit gallery items', '2025-02-18 16:45:00', '2025-02-18 16:45:00'),
 (50, 99, 3, 'OWNER', 50, 'Manage event calendar', '2025-02-19 17:30:00', '2025-02-19 17:30:00'),
 (50, 100, 1, 'VIEW', 50, 'View event calendar', '2025-02-19 18:00:00', '2025-02-19 18:00:00');
-INSERT INTO ListMemberPermission (ListId, AccountId, HighestPermissionId, HighestPermissionCode, GrantedByAccountId, Note, CreateAt, UpdateAt)
+INSERT INTO ListMemberPermission (ListId, AccountId, HighestPermissionId, HighestPermissionCode, GrantedByAccountId, Note, CreatedAt, UpdatedAt)
 VALUES
 -- AccountId = 1 (needs 9 more lists: 51-59)
 (51, 1, 1, 'VIEW', 51, 'View bug list', '2025-02-20 09:00:00', '2025-02-20 09:00:00'),
@@ -1726,7 +2064,7 @@ VALUES
 (140, 10, 3, 'OWNER', 140, 'Manage event tracker', '2025-05-20 18:00:00', '2025-05-20 18:00:00');
 
 -- Chức năng --
-INSERT INTO FavoriteList (ListId, FavoriteListOfUser, CreateAt, UpdateAt)
+INSERT INTO FavoriteList (ListId, FavoriteListOfUser, CreatedAt, UpdatedAt)
 VALUES
 -- AccountId = 1
 (2, 1, '2025-07-24 16:34:00', '2025-07-24 16:34:00'),

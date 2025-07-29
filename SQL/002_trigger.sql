@@ -97,7 +97,7 @@ BEGIN
     SELECT 
         @OwnerPermissionId = Id,
         @OwnerPermissionCode = PermissionCode
-    FROM Permission 
+    FROM ListPermission 
     WHERE PermissionCode = 'OWNER';
 
     IF @OwnerPermissionId IS NULL
@@ -114,8 +114,8 @@ BEGIN
         HighestPermissionCode,
         GrantedByAccountId,
         Note,
-        CreateAt,
-        UpdateAt
+        CreatedAt,
+        UpdatedAt
     )
     SELECT 
         i.Id,
@@ -236,8 +236,8 @@ BEGIN
                     DynamicColumnId,
                     DataTypeSettingKey,
                     KeyValue,
-                    CreateAt,
-                    UpdateAt
+                    CreatedAt,
+                    UpdatedAt
                 )
                 VALUES (
                     @NewDynamicColumnId,
@@ -265,3 +265,5 @@ BEGIN
     CLOSE list_cursor;
     DEALLOCATE list_cursor;
 END;
+GO
+

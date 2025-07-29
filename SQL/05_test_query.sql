@@ -1,4 +1,7 @@
-﻿------------------------------------------
+﻿USE MsList
+GO
+
+------------------------------------------
 -- DASHBOARD SCREEN --
 
 -- 1. Display all lists that the logged-in user created or were shared with them
@@ -268,6 +271,8 @@ FROM KeySetting ks
 JOIN DataTypeSettingKey dsk ON ks.Id = dsk.KeySettingId
 JOIN SystemDataType sd ON dsk.SystemDataTypeId = sd.Id
 WHERE dsk.SystemDataTypeId = @SystemDataTypeId
+
+------------------
 
 
 

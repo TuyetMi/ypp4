@@ -1,4 +1,6 @@
-﻿
+﻿USE MsList
+GO 
+
 -- SP to auto-increment display order for list view
 CREATE OR ALTER PROCEDURE GetNextDisplayOrderForListView
     @ListId INT,

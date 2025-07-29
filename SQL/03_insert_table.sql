@@ -1,5 +1,4 @@
-﻿
-USE MsList;
+﻿USE MsList;
 GO
 
 ----- INSERT TABLE -----
@@ -994,6 +993,8 @@ VALUES
 	-- Person or Group
 	('Allow selection of Groups','BIT'),
 	('Show profile photos','BIT');
+	-- Number
+
 
 
 -- missing
@@ -1035,12 +1036,15 @@ VALUES
 (5, 10),
 (5, 3),
 (5, 2),
+(5, 1),
+
+-- Number
 
 -- Special Type
 (11, 3),
 (12, 3);
 
-
+SELECT * FROM KeySetting;
 -- missing 
 -- System Column --
 INSERT INTO SystemColumn (SystemDataTypeId, ColumnName, DisplayOrder, CreatedBy, CanRename)

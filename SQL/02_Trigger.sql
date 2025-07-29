@@ -1,6 +1,6 @@
 ﻿USE MsList;
 GO
-
+--
 -- tự động tăng thứ tự display order cho list view mới trong 1 list 
 CREATE OR ALTER TRIGGER trg_AdjustListViewDisplayOrder
 ON ListView

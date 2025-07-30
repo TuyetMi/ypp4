@@ -1,5 +1,10 @@
 -- DATABASE CHANGELOG --
 
+### 2025-07-29
+- Updated:
++ Add data: ListDynamicCol, ListCellValue
++ Write a query for the UI to retrieve data from List, Dynamic Columns, and System Columns
+
 ### 2025-07-28
 - Updated: 
 // Auto-create a default "All Items" list view (type: List)

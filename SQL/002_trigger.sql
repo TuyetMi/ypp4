@@ -265,5 +265,5 @@ BEGIN
     CLOSE list_cursor;
     DEALLOCATE list_cursor;
 END;
-GO
+
 

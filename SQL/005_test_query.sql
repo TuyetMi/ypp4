@@ -273,6 +273,7 @@ FROM KeySetting ks
 JOIN DataTypeSettingKey dsk ON ks.Id = dsk.KeySettingId
 JOIN SystemDataType sd ON dsk.SystemDataTypeId = sd.Id
 WHERE dsk.SystemDataTypeId = @SystemDataTypeId
+GO
 
 -------------------------------------------
 ----------- LIST TABLE --------------------
@@ -307,7 +308,7 @@ ORDER BY RowOrder;';
 
 -- Execute the dynamic SQL
 EXEC sp_executesql @SQL, N'@ListId INT', @ListId;
-
+GO
 ---------------------------------------------------
 ---------- EDIT LIST ROW SCREEN -------------------
 -- 1. Display the cell values for each column of the specified list row
@@ -327,5 +328,27 @@ WHERE lr.Id = @ListRow
   AND lr.ListId = @ListId       -- đảm bảo đúng row thuộc list đó
   AND ldc.ListId = @ListId      -- chỉ lấy cột của list này
 ORDER BY ldc.DisplayOrder;
+GO
+
+
+--select 
+--*
+--from ListMemberPermission
+--where ListId = 2 
+
+-- 2. Display the comments associated with that list row
+DECLARE @ListId INT = 1;
+DECLARE @ListRow INT = 1;
+
+SELECT 
+	a.FirstName,
+	a.Avatar,
+	lrc.Content,
+	lrc.CreatedAt
+FROM ListRowComment lrc
+JOIN Account a ON lrc.CreatedBy = a.Id
+WHERE lrc.ListRowId = @ListRow
+
+
 
 

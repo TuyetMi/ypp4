@@ -1,5 +1,10 @@
 -- DATABASE CHANGELOG --
 
+### 2025-07-31
+- Updated: 
++ Add data: ListCommentRow
++ Write a query for the UI to retrieve data from List Row, List Comment
+
 ### 2025-07-28
 - Updated: 
 // Auto-create a default "All Items" list view (type: List)

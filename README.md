@@ -1,6 +1,5 @@
 -- DATABASE CHANGELOG --
 
-<<<<<<< HEAD
 ### 2025-07-31
 - Updated: 
 + Add data: ListCommentRow

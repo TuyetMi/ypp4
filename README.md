@@ -1,16 +1,14 @@
 -- DATABASE CHANGELOG --
 
-<<<<<<< HEAD
 ### 2025-07-31
 - Updated: 
 + Add data: ListCommentRow
 + Write a query for the UI to retrieve data from List Row, List Comment
-=======
+
 ### 2025-07-29
 - Updated:
 + Add data: ListDynamicCol, ListCellValue
 + Write a query for the UI to retrieve data from List, Dynamic Columns, and System Columns
->>>>>>> 48dc5503b70094b3f4c582e2e016e1e10c72c4e9
 
 ### 2025-07-28
 - Updated: 

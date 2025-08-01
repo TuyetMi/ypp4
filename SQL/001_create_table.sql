@@ -418,3 +418,4 @@ CREATE TABLE ShareLinkSettingValue (
     KeyValue NVARCHAR(255) NOT NULL                    
 );
 GO
+

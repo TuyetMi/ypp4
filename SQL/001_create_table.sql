@@ -26,6 +26,7 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListCellValue') DROP TABLE Lis
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListRow') DROP TABLE ListRow;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnSettingObject') DROP TABLE ListColumnSettingObject;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListViewSettingValue') DROP TABLE ListViewSettingValue;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnLookupMap') DROP TABLE ListColumnLookupMap;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListDynamicColumn') DROP TABLE ListDynamicColumn;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumnSettingValue') DROP TABLE SystemColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumn') DROP TABLE SystemColumn;
@@ -276,6 +277,14 @@ CREATE TABLE ListDynamicColumn (
     CreatedAt DATETIME -- Creation timestamp
 );
 
+CREATE TABLE ListColumnLookupMap (
+    Id INT IDENTITY PRIMARY KEY,
+    -- The current column that displays the looked-up value (e.g., "Assignee: Role")
+    ColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
+    -- The source relation column this lookup is based on (e.g., "Assignee")
+    FromColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id)
+);
+
 -- Store values for columns of type 'choice'
 CREATE TABLE ListColumnSettingObject (
     Id INT PRIMARY KEY IDENTITY,
@@ -419,3 +428,23 @@ CREATE TABLE ShareLinkSettingValue (
 );
 GO
 
+CREATE TABLE FormatRuleType(
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    RuleTypeName NVARCHAR(100)
+);
+GO
+
+CREATE TABLE ListViewFormatRule (
+    Id INT IDENTITY PRIMARY KEY,
+    ListViewId INT NOT NULL REFERENCES ListView(Id),
+    FormatRuleTypeId INT NOT NULL REFERENCES FormatRuleType(Id)
+);
+GO
+
+CREATE TABLE RowStyles(
+    Id INT IDENTITY PRIMARY KEY,
+    ListViewFormatRuleId INT NOT NULL REFERENCES ListViewFormatRule(Id),
+    OddRows NVARCHAR(100),
+    EvenRows NVARCHAR(100)
+);
+GO

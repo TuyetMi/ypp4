@@ -995,6 +995,15 @@ VALUES
 	('Show profile photos','BIT');
 	-- Number
 
+    -- Lookup
+    ('Select source list', 'INT'), -- Relation
+    ('Select source column', 'INT'),
+    ('Allow multiple values', 'BOOLEAN'),
+    ('Select additional linked column', 'INT'), -- Relation: truyền vào "Linked source column"
+    -- Relation
+    ('Linked source column', 'INT');
+
+
 -- missing
 INSERT INTO DataTypeSettingKey (SystemDataTypeId, KeySettingId)
 VALUES

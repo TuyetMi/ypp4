@@ -1,5 +1,10 @@
 -- DATABASE CHANGELOG --
 
+### 2025-08-03
+- Updated: 
++ Add Entities: Format view (FormatRuleType, ListViewFormatRule, RowStyles), ListColumnLookupMap
+
++ Add data: DataType column - LookUp, Relaion, KeySetting for its
 ### 2025-07-31
 - Updated: 
 + Add data: ListCommentRow

@@ -11,6 +11,9 @@ USE MsList;
 GO
 
 -- Drop tables in reverse dependency order
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'RowStyles') DROP TABLE RowStyles;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListViewFormatRule') DROP TABLE ListViewFormatRule;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'FormatRuleType') DROP TABLE FormatRuleType;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLinkSettingValue') DROP TABLE ShareLinkSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLinkUserAccess') DROP TABLE ShareLinkUserAccess;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLink') DROP TABLE ShareLink;

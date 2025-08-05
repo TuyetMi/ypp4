@@ -5,13 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MsListsApp.Models;
 
-namespace MsListsApp.Service.WorkspaceService
+namespace MsListsApp.Services.WorkspaceService
 {
     public class WorkspaceService() : IWorkspaceService
     {
-    }
-
-    public async Task<IEnumerable<Workspace>> GetAllWorkspacesAsync()
+        public async Task<IEnumerable<Workspace>> GetAllWorkspacesAsync()
         {
             await Task.CompletedTask;
             return new List<Workspace>();

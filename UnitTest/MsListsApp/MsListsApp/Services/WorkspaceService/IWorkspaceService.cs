@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MsListsApp.Models;
 
-namespace MsListsApp.Service.WorkspaceService
+namespace MsListsApp.Services.WorkspaceService
 {
     public interface IWorkspaceService
     {

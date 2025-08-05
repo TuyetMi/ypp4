@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MsListsApp.Models;
 
-namespace MsListsApp.Service.AccountService
+namespace MsListsApp.Services.AccountService
 {
     public interface IAccountService
     {

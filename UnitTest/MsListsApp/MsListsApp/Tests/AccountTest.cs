@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MsListsApp.Models;
-using MsListsApp.Service.AccountService;
+using MsListsApp.Services.AccountService;
 
 namespace MsListsApp.Tests
 {

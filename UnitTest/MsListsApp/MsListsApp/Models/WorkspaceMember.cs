@@ -8,7 +8,18 @@ namespace MsListsApp.Models
 {
     public class WorkspaceMember
     {
+        public int Id { get; set; }
 
+        public int WorkspaceId { get; set; }
+        public Workspace Workspace { get; set; }
 
+        public int AccountId { get; set; }
+        public Account Account { get; set; }
+
+        public DateTime JoinedAt { get; set; }
+
+        public string MemberStatus { get; set; } = "Active";
+
+        public DateTime? UpdatedAt { get; set; }
     }
 }

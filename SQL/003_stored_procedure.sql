@@ -434,6 +434,38 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE sp_AddToRecentList
+    @AccountId INT,
+    @ListId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Kiểm tra quyền truy cập của người dùng
+    IF EXISTS (
+        SELECT 1
+        FROM ListMemberPermission
+        WHERE AccountId = @AccountId
+          AND ListId = @ListId
+    )
+    BEGIN
+        -- Cập nhật hoặc thêm mới vào bảng RecentList
+        MERGE RecentList AS target
+        USING (SELECT @AccountId AS AccountId, @ListId AS ListId) AS source
+        ON target.AccountId = source.AccountId AND target.ListId = source.ListId
+        WHEN MATCHED THEN
+            UPDATE SET LastAccessedAt = GETDATE()
+        WHEN NOT MATCHED THEN
+            INSERT (AccountId, ListId, LastAccessedAt)
+            VALUES (@AccountId, @ListId, GETDATE());
+    END
+    ELSE
+    BEGIN
+        RAISERROR('User does not have permission to access this list.', 16, 1);
+    END
+END;
+GO
+
 --- EXECUTE ---
 EXEC CreateList
     @ListTypeId = 2, -- ListType.Title = 'Board'

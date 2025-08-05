@@ -72,7 +72,11 @@ CREATE TABLE Account (
 -------- WORKSPACE --------
 CREATE TABLE Workspace (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    WorkspaceName NVARCHAR(255) NOT NULL
+    WorkspaceName NVARCHAR(255) NOT NULL,
+    CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
+    IsPersonal BIT NOT NULL,
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE WorkspaceMember (
@@ -230,12 +234,21 @@ CREATE TABLE List (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListTypeId INT NOT NULL REFERENCES ListType(Id), -- FK to ListType
     ListTemplateId INT REFERENCES ListTemplate(Id),
+    WorkspaceID INT REFERENCES Workspace(Id), 
     ListName NVARCHAR(100) NOT NULL,
     Icon NVARCHAR(100),
     Color NVARCHAR(50),
     CreatedBy INT NOT NULL, -- FK to User or Account
     CreatedAt DATETIME,
     ListStatus NVARCHAR(50) DEFAULT 'Active' -- 'Active', 'Archived', etc.
+);
+
+CREATE TABLE RecentList (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    AccountId INT NOT NULL FOREIGN KEY REFERENCES Account(Id),
+    ListId INT NOT NULL FOREIGN KEY REFERENCES List(Id),
+    LastAccessedAt DATETIME NOT NULL,
+    UNIQUE(AccountId, ListId) -- Mỗi người dùng chỉ có 1 bản ghi duy nhất cho mỗi list
 );
 
 -- One list can have multiple views

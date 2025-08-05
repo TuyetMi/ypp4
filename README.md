@@ -1,10 +1,20 @@
 -- DATABASE CHANGELOG --
 
+### 2025-08-05
+- Updated:
++ Update Entities: Workspace (IsPersonal) 
++ Add Entities: RecentLists
++ Add SP/Trigger: sp_AddToRecentList, trg_CreateWorkspaceForNewAccount
+
+### 2025-08-04
+- Updated: 
++ Write UnitTest: Account, Workspace
+
 ### 2025-08-03
 - Updated: 
 + Add Entities: Format view (FormatRuleType, ListViewFormatRule, RowStyles), ListColumnLookupMap
-
 + Add data: DataType column - LookUp, Relaion, KeySetting for its
+
 ### 2025-07-31
 - Updated: 
 + Add data: ListCommentRow

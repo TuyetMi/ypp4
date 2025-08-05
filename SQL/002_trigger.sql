@@ -1,6 +1,25 @@
 ﻿USE MsList;
 GO
 --
+-- tự tạo workspace cá nhân "My Lists"
+CREATE TRIGGER trg_CreateWorkspaceForNewAccount
+ON Account
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Workspace (WorkspaceName, CreatedBy, IsPersonal, CreatedAt, UpdatedAt)
+    SELECT 
+        'My Lists',         -- WorkspaceName
+        Id,                 -- CreatedBy (từ bảng inserted)
+        1,                  -- IsPersonal = TRUE
+        GETDATE(),          -- CreatedAt
+        GETDATE()           -- UpdatedAt
+    FROM inserted;
+END;
+GO
+
 -- tự động tăng thứ tự display order cho list view mới trong 1 list 
 CREATE OR ALTER TRIGGER trg_AdjustListViewDisplayOrder
 ON ListView

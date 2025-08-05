@@ -992,7 +992,7 @@ VALUES
 	('Append changes to existing text','BIT'),
 	-- Person or Group
 	('Allow selection of Groups','BIT'),
-	('Show profile photos','BIT');
+	('Show profile photos','BIT'),
 	-- Number
 
     -- Lookup

@@ -16,11 +16,17 @@ namespace MsListsApp.Models
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Workspace> Workspaces { get; set; }
         public DbSet<WorkspaceMember> WorkspaceMembers { get; set; }
+        public DbSet<List> Lists { get; set; }
+        public DbSet<RecentList> RecentLists { get; set; }
+        public DbSet<ListPermission> ListPermissions { get; set; }
+        public DbSet<ListMemberPermission> ListMemberPermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            /* ----------------------------------------------------------------- */
+            // WorkspaceMember
             // Unique constraint: 1 account chỉ join 1 workspace 1 lần
             modelBuilder.Entity<WorkspaceMember>()
                 .HasIndex(wm => new { wm.WorkspaceId, wm.AccountId })
@@ -38,6 +44,47 @@ namespace MsListsApp.Models
                 .WithMany()
                 .HasForeignKey(wm => wm.AccountId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            /* ----------------------------------------------------------------- */
+            // RecentList
+            modelBuilder.Entity<RecentList>()
+                .HasIndex(r => new { r.AccountId, r.ListId })
+                .IsUnique();
+
+            modelBuilder.Entity<RecentList>()
+                .HasOne<Account>()
+                .WithMany()
+                .HasForeignKey(r => r.AccountId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RecentList>()
+                .HasOne<List>()
+                .WithMany()
+                .HasForeignKey(r => r.ListId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            /* ----------------------------------------------------------------- */
+            modelBuilder.Entity<ListMemberPermission>()
+                .HasOne(p => p.Account)
+                .WithMany()
+                .HasForeignKey(p => p.AccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ListMemberPermission>()
+                .HasOne(p => p.GrantedByAccount)
+                .WithMany()
+                .HasForeignKey(p => p.GrantedByAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ListMemberPermission>()
+                .HasOne(p => p.List)
+                .WithMany()
+                .HasForeignKey(p => p.ListId);
+
+            modelBuilder.Entity<ListMemberPermission>()
+                .HasOne(p => p.HighestPermission)
+                .WithMany(p => p.ListMemberPermissions)
+                .HasForeignKey(p => p.HighestPermissionId);
         }
     }
 }

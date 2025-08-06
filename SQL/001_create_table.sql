@@ -40,6 +40,7 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateViewSettingValue') DRO
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateColumnSettingValue') DROP TABLE TemplateColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateColumn') DROP TABLE TemplateColumn;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateView') DROP TABLE TemplateView;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'RecentList') DROP TABLE RecentList;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'List') DROP TABLE List;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListTemplate') DROP TABLE ListTemplate;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'DataTypeSettingKey') DROP TABLE DataTypeSettingKey;
@@ -74,7 +75,7 @@ CREATE TABLE Workspace (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     WorkspaceName NVARCHAR(255) NOT NULL,
     CreatedBy INT FOREIGN KEY REFERENCES Account(Id),
-    IsPersonal BIT NOT NULL,
+    IsPersonal BIT NOT NULL DEFAULT 0,
     CreatedAt DATETIME,
     UpdatedAt DATETIME
 );

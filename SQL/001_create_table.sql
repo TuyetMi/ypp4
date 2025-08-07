@@ -234,12 +234,12 @@ CREATE TABLE TemplateSampleCell (
 CREATE TABLE List (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListTypeId INT NOT NULL REFERENCES ListType(Id), -- FK to ListType
-    ListTemplateId INT REFERENCES ListTemplate(Id),
+    ListTemplateId INT NULL REFERENCES ListTemplate(Id) ,
     WorkspaceID INT REFERENCES Workspace(Id), 
     ListName NVARCHAR(100) NOT NULL,
     Icon NVARCHAR(100),
     Color NVARCHAR(50),
-    CreatedBy INT NOT NULL, -- FK to User or Account
+    CreatedBy INT NOT NULL REFERENCES Account(Id), -- FK to User or Account
     CreatedAt DATETIME,
     ListStatus NVARCHAR(50) DEFAULT 'Active' -- 'Active', 'Archived', etc.
 );
@@ -260,7 +260,8 @@ CREATE TABLE ListView (
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- FK to Account/User table
     ViewTypeId INT NOT NULL REFERENCES ViewType(Id),
     ViewName NVARCHAR(255),
-    DisplayOrder INT NOT NULL DEFAULT 0 -- Display order
+	IsSystem BIT NOT NULL DEFAULT 0 -- 1 = "All Items"
+	CreatedAt DATETIME,
 );
 
 CREATE TABLE SystemColumn (
@@ -279,7 +280,6 @@ CREATE TABLE SystemColumnSettingValue (
     DataTypeSettingKeyId INT NOT NULL REFERENCES DataTypeSettingKey(Id),
     KeyValue NVARCHAR(255)
 );
-
 CREATE TABLE ListDynamicColumn (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListId INT NOT NULL REFERENCES List(Id),
@@ -292,6 +292,14 @@ CREATE TABLE ListDynamicColumn (
     IsVisible BIT NOT NULL DEFAULT 1, -- 1: Visible | 0: Hidden from view
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- Who created this column
     CreatedAt DATETIME -- Creation timestamp
+);
+
+CREATE TABLE ListViewColumn (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ListViewId INT NOT NULL REFERENCES ListView(Id),
+	ListDynamicColumnId INT NOT NULL REFERENCES ListDynamicColumn(Id),
+	DisplayOrder INT NOT NULL,
+	IsVisible INT
 );
 
 CREATE TABLE ListColumnLookupMap (
@@ -364,7 +372,8 @@ CREATE TABLE FileAttachment (
     FileAttachmentName NVARCHAR(255),
     FileUrl NVARCHAR(500),
     CreatedAt DATETIME,
-    UpdatedAt DATETIME
+    UpdatedAt DATETIME,
+	FileAttachmentStatus NVARCHAR(50) NOT NULL DEFAULT 'Active' -- Status: Active, Archived, Deleted, etc.
 );
 
 CREATE TABLE ListRowComment (

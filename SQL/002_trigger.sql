@@ -2,23 +2,128 @@
 GO
 --
 -- tự tạo workspace cá nhân "My Lists"
-CREATE TRIGGER trg_CreateWorkspaceForNewAccount
+CREATE OR ALTER TRIGGER trg_CreateWorkspaceForNewAccount
 ON Account
 AFTER INSERT
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    INSERT INTO Workspace (WorkspaceName, CreatedBy, IsPersonal, CreatedAt, UpdatedAt)
+    SET IDENTITY_INSERT Workspace ON;
+
+    INSERT INTO Workspace (Id, WorkspaceName, CreatedBy, IsPersonal, CreatedAt, UpdatedAt)
     SELECT 
-        'My Lists',         -- WorkspaceName
-        Id,                 -- CreatedBy (từ bảng inserted)
-        1,                  -- IsPersonal = TRUE
-        GETDATE(),          -- CreatedAt
-        GETDATE()           -- UpdatedAt
+        Id,
+        'My Lists',
+        Id,
+        1,
+        GETDATE(),
+        GETDATE()
     FROM inserted;
+
+    SET IDENTITY_INSERT Workspace OFF;
 END;
 GO
+
+-- Trigger for when a new list is created
+--CREATE TRIGGER TR_List_Insert
+--ON List
+--AFTER INSERT
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
+
+--    -- Insert into RecentList when a user creates a new list
+--    INSERT INTO RecentList (AccountId, ListId, LastAccessedAt)
+--    SELECT 
+--        i.CreatedBy,
+--        i.Id,
+--        GETDATE()
+--    FROM inserted i
+--    WHERE NOT EXISTS (
+--        SELECT 1 
+--        FROM RecentList rl 
+--        WHERE rl.AccountId = i.CreatedBy 
+--        AND rl.ListId = i.Id
+--    );
+--END;
+--GO
+
+-- tự động gán quyền 'OWNER' cho người mới tạo list đó
+CREATE OR ALTER TRIGGER trg_AssignOwnerToListCreator
+ON List
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @OwnerPermissionId INT;
+    DECLARE @OwnerPermissionCode NVARCHAR(50);
+
+    -- Lấy thông tin quyền OWNER
+    SELECT 
+        @OwnerPermissionId = Id,
+        @OwnerPermissionCode = PermissionCode
+    FROM ListPermission 
+    WHERE PermissionCode = 'OWNER';
+
+    IF @OwnerPermissionId IS NULL
+    BEGIN
+        RAISERROR('Permission "OWNER" not found in Permission table.', 16, 1);
+        RETURN;
+    END
+
+    -- Thêm vào bảng ListMemberPermission
+    INSERT INTO ListMemberPermission (
+        ListId,
+        AccountId,
+        HighestPermissionId,
+        HighestPermissionCode,
+        GrantedByAccountId,
+        Note,
+        CreatedAt,
+        UpdatedAt
+    )
+    SELECT 
+        i.Id,
+        i.CreatedBy,
+        @OwnerPermissionId,
+        @OwnerPermissionCode,
+        i.CreatedBy,
+        N'List creator',
+        GETDATE(),
+        GETDATE()
+    FROM inserted i;
+END;
+GO
+
+-- Trigger for when a user is granted permission to a list
+CREATE TRIGGER TR_ListMemberPermission_Insert
+ON ListMemberPermission
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Insert or update RecentList when a user is granted permission
+    MERGE INTO RecentList AS target
+    USING (
+        SELECT 
+            i.AccountId,
+            i.ListId,
+            GETDATE() AS LastAccessedAt
+        FROM inserted i
+    ) AS source
+    ON target.AccountId = source.AccountId 
+    AND target.ListId = source.ListId
+    WHEN MATCHED THEN
+        UPDATE SET LastAccessedAt = source.LastAccessedAt
+    WHEN NOT MATCHED THEN
+        INSERT (AccountId, ListId, LastAccessedAt)
+        VALUES (source.AccountId, source.ListId, source.LastAccessedAt);
+END;
+GO
+
 
 -- tự động tăng thứ tự display order cho list view mới trong 1 list 
 CREATE OR ALTER TRIGGER trg_AdjustListViewDisplayOrder
@@ -101,53 +206,7 @@ BEGIN
 END;
 GO
 
--- tự động gán quyền 'OWNER' cho người mới tạo list đó
-CREATE OR ALTER TRIGGER trg_AssignOwnerToListCreator
-ON List
-AFTER INSERT
-AS
-BEGIN
-    SET NOCOUNT ON;
 
-    DECLARE @OwnerPermissionId INT;
-    DECLARE @OwnerPermissionCode NVARCHAR(50);
-
-    -- Lấy thông tin quyền OWNER
-    SELECT 
-        @OwnerPermissionId = Id,
-        @OwnerPermissionCode = PermissionCode
-    FROM ListPermission 
-    WHERE PermissionCode = 'OWNER';
-
-    IF @OwnerPermissionId IS NULL
-    BEGIN
-        RAISERROR('Permission "OWNER" not found in Permission table.', 16, 1);
-        RETURN;
-    END
-
-    -- Thêm vào bảng ListMemberPermission
-    INSERT INTO ListMemberPermission (
-        ListId,
-        AccountId,
-        HighestPermissionId,
-        HighestPermissionCode,
-        GrantedByAccountId,
-        Note,
-        CreatedAt,
-        UpdatedAt
-    )
-    SELECT 
-        i.Id,
-        i.CreatedBy,
-        @OwnerPermissionId,
-        @OwnerPermissionCode,
-        i.CreatedBy,
-        N'List creator',
-        GETDATE(),
-        GETDATE()
-    FROM inserted i;
-END;
-GO
 
 -- Create a trigger to enforce the constraint
 CREATE OR ALTER TRIGGER TRG_FavoriteList_PermissionCheck

@@ -4,26 +4,26 @@ GO
 ------------------------------------------
 -- DASHBOARD SCREEN --
 
--- 1. Display all lists that the logged-in user created or were shared with them
--- 2. Display all lists that the logged-in user created
+-- -- 1. Display all recent lists 
+-- 2. Display all lists từ workspace "My Lists" của user đăng nhập
 -- 3. Display information of the logged-in user
 -- 4. Display favorite lists of the logged-in user
 
--- 1. Display all lists that the logged-in user created or were shared with them
-DECLARE @UserId INT = 2;  -- Replace with the ID of the logged-in user
-
-SELECT DISTINCT 
+-- 1. Display all recent lists 
+DECLARE @UserId INT = 2;
+SELECT  
 	l.Id,
     l.ListName,
 	l.Icon,
-	l.Color, 
-    lmp.HighestPermissionCode, -- Extra
-    lmp.GrantedByAccountId -- Extra
+	l.Color,
+	rl.LastAccessedAt,
+	CASE WHEN fvrl.Id IS NOT NULL THEN 1 ELSE 0 END AS IsFavorited
 FROM List l
-JOIN ListMemberPermission lmp ON l.Id = lmp.ListId AND lmp.AccountId = @UserId -- JOIN is still used because the creator will be added to ListMemberPermission
-WHERE l.CreatedBy = @UserId 
-    OR lmp.Id IS NOT NULL
-    AND l.ListStatus = 'Active';
+JOIN RecentList rl ON l.Id = rl.ListId
+LEFT JOIN FavoriteList fvrl ON fvrl.ListId = l.Id and fvrl.FavoriteListOfUser = @UserId
+WHERE rl.AccountId = @UserId
+    AND l.ListStatus = 'Active'
+ORDER BY rl.LastAccessedAt 
 GO
 
 -- 2. Display all lists that the logged-in user created
@@ -33,8 +33,10 @@ SELECT
 	l.Icon,
 	l.Color
 FROM List l
-WHERE l.CreatedBy = @UserId
-    AND l.ListStatus = 'Active';
+JOIN Workspace ws ON l.WorkspaceID = ws.Id
+WHERE ws.CreatedBy = @UserId
+    AND l.ListStatus = 'Active'
+	AND ws.WorkspaceName = 'My Lists';
 GO
 
 -- 3. Display information of the logged-in user
@@ -275,8 +277,8 @@ JOIN SystemDataType sd ON dsk.SystemDataTypeId = sd.Id
 WHERE dsk.SystemDataTypeId = @SystemDataTypeId
 GO
 
--------------------------------------------
------------ LIST TABLE --------------------
+-------------------------------------------------
+----------- LIST VIEW: LIST --------------------
 DECLARE @ListId INT = 1; -- Change to desired ListId
 DECLARE @Columns NVARCHAR(4000) = ''; -- Column < 100
 DECLARE @SQL NVARCHAR(4000) = '';
@@ -329,7 +331,6 @@ WHERE lr.Id = @ListRow
   AND ldc.ListId = @ListId      -- chỉ lấy cột của list này
 ORDER BY ldc.DisplayOrder;
 GO
-
 
 --select 
 --*

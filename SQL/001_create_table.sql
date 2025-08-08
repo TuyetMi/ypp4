@@ -11,9 +11,6 @@ USE MsList;
 GO
 
 -- Drop tables in reverse dependency order
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'RowStyles') DROP TABLE RowStyles;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListViewFormatRule') DROP TABLE ListViewFormatRule;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'FormatRuleType') DROP TABLE FormatRuleType;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLinkSettingValue') DROP TABLE ShareLinkSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLinkUserAccess') DROP TABLE ShareLinkUserAccess;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ShareLink') DROP TABLE ShareLink;
@@ -34,8 +31,8 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListDynamicColumn') DROP TABLE
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumnSettingValue') DROP TABLE SystemColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumn') DROP TABLE SystemColumn;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListView') DROP TABLE ListView;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateSampleCell') DROP TABLE TemplateSampleCell;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateSampleRow') DROP TABLE TemplateSampleRow;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateCellValue') DROP TABLE TemplateCellValue;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateRow') DROP TABLE TemplateRow;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateViewSettingValue') DROP TABLE TemplateViewSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateColumnSettingValue') DROP TABLE TemplateColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateColumn') DROP TABLE TemplateColumn;
@@ -216,14 +213,14 @@ CREATE TABLE TemplateViewSettingValue (
     RawValue NVARCHAR(500)
 );
 -- Table for TemplateSampleRow
-CREATE TABLE TemplateSampleRow (
+CREATE TABLE TemplateRow (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListTemplateId INT NOT NULL REFERENCES ListTemplate(Id),
     DisplayOrder INT
 );
 
 -- Table for TemplateSampleCell
-CREATE TABLE TemplateSampleCell (
+CREATE TABLE TemplateCellValue (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     TemplateColumnId INT NOT NULL REFERENCES TemplateColumn(Id),
     TemplateSampleRowId INT NOT NULL REFERENCES TemplateSampleRow(Id),
@@ -260,7 +257,7 @@ CREATE TABLE ListView (
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- FK to Account/User table
     ViewTypeId INT NOT NULL REFERENCES ViewType(Id),
     ViewName NVARCHAR(255),
-	IsSystem BIT NOT NULL DEFAULT 0 -- 1 = "All Items"
+	IsSystem BIT NOT NULL DEFAULT 0, -- 1 = "All Items"
 	CreatedAt DATETIME,
 );
 
@@ -361,7 +358,7 @@ CREATE TABLE DynamicColumnSettingValue (
 CREATE TABLE FavoriteList (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListId INT FOREIGN KEY REFERENCES List(Id),
-    FavoriteListOfUser INT FOREIGN KEY REFERENCES Account(Id),
+    AccountId INT FOREIGN KEY REFERENCES Account(Id),
     CreatedAt DATETIME,
     UpdatedAt DATETIME
 );
@@ -454,23 +451,3 @@ CREATE TABLE ShareLinkSettingValue (
 );
 GO
 
-CREATE TABLE FormatRuleType(
-    Id INT IDENTITY(1,1) PRIMARY KEY,
-    RuleTypeName NVARCHAR(100)
-);
-GO
-
-CREATE TABLE ListViewFormatRule (
-    Id INT IDENTITY PRIMARY KEY,
-    ListViewId INT NOT NULL REFERENCES ListView(Id),
-    FormatRuleTypeId INT NOT NULL REFERENCES FormatRuleType(Id)
-);
-GO
-
-CREATE TABLE RowStyles(
-    Id INT IDENTITY PRIMARY KEY,
-    ListViewFormatRuleId INT NOT NULL REFERENCES ListViewFormatRule(Id),
-    OddRows NVARCHAR(100),
-    EvenRows NVARCHAR(100)
-);
-GO

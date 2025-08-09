@@ -114,21 +114,6 @@ CREATE TABLE ListType (
     HeaderImage NVARCHAR(500)
 );
 
--- Table for ViewSetting
-CREATE TABLE ViewSettingKey (
-    Id INT IDENTITY(1,1) PRIMARY KEY,
-    SettingKey NVARCHAR(100) NOT NULL, -- Examples: 'StartDate', 'EndDate', 'IsPublic'
-    ValueType NVARCHAR(50) NOT NULL -- Examples: 'number', 'boolean', 'datetime', 'string'
-
-);
-
--- Table to define which settings are used by each view type
-CREATE TABLE ViewTypeSettingKey (
-    Id INT IDENTITY(1,1) PRIMARY KEY,
-    ViewTypeId INT FOREIGN KEY REFERENCES ViewType(Id),
-    ViewSettingKeyId INT FOREIGN KEY REFERENCES ViewSettingKey(Id)
-);
-
 -- Table for data types allowed for cell values
 CREATE TABLE SystemDataType (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -148,6 +133,13 @@ CREATE TABLE KeySetting (
     IsDefaultValue BIT DEFAULT 0, -- True if it is a default value
     ValueOfDefault NVARCHAR(255), -- Default value if applicable
     IsShareLinkSetting BIT DEFAULT 0 -- True if used for share link
+);
+
+-- Table to define which settings are used by each view type
+CREATE TABLE ViewTypeSettingKey (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ViewTypeId INT FOREIGN KEY REFERENCES ViewType(Id),
+    KeySettingID INT FOREIGN KEY REFERENCES KeySetting(Id)
 );
 
 -- Table to define which settings apply to each column type
@@ -212,6 +204,7 @@ CREATE TABLE TemplateViewSettingValue (
     GroupByColumnId INT REFERENCES TemplateColumn(Id),
     RawValue NVARCHAR(500)
 );
+
 -- Table for TemplateSampleRow
 CREATE TABLE TemplateRow (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -257,7 +250,7 @@ CREATE TABLE ListView (
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- FK to Account/User table
     ViewTypeId INT NOT NULL REFERENCES ViewType(Id),
     ViewName NVARCHAR(255),
-	IsSystem BIT NOT NULL DEFAULT 0, -- 1 = "All Items"
+	IsSystem BIT NOT NULL DEFAULT 0, -- 1 = "All Item
 	CreatedAt DATETIME,
 );
 
@@ -277,10 +270,11 @@ CREATE TABLE SystemColumnSettingValue (
     DataTypeSettingKeyId INT NOT NULL REFERENCES DataTypeSettingKey(Id),
     KeyValue NVARCHAR(255)
 );
+
 CREATE TABLE ListDynamicColumn (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListId INT NOT NULL REFERENCES List(Id),
-    SystemDataTypeId INT NOT NULL REFERENCES SystemDataType(Id), -- If type is 'choice', settings can specify multi-choice or single-choice
+    SystemDataTypeId INT NOT NULL REFERENCES  SystemDataType(Id), -- If type is 'choice', settings can specify multi-choice or single-choice
     SystemColumnId INT REFERENCES SystemColumn(Id),
     ColumnName NVARCHAR(100) NOT NULL, -- Column name displayed on UI
     ColumnDescription NVARCHAR(255), -- Short description of the column
@@ -301,18 +295,19 @@ CREATE TABLE ListViewColumn (
 
 CREATE TABLE ListColumnLookupMap (
     Id INT IDENTITY PRIMARY KEY,
-    -- The current column that displays the looked-up value (e.g., "Assignee: Role")
-    ColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
-    -- The source relation column this lookup is based on (e.g., "Assignee")
-    FromColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id)
+    TargetColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
+    SourceListId INT FOREIGN KEY REFERENCES List(Id),
+    SourceColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
+    IsAddtionColumn BIT DEFAULT 0,
+    LookupColumnId INT NULL FOREIGN KEY REFERENCES ListDynamicColumn(Id)
 );
 
 -- Store values for columns of type 'choice'
-CREATE TABLE ListColumnSettingObject (
+CREATE TABLE ListColumnChoice (
     Id INT PRIMARY KEY IDENTITY,
     ListDynamicColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
-    DisplayName NVARCHAR(255), -- Display name
-    DisplayColor NVARCHAR(20) NOT NULL DEFAULT '#28A745', -- Default color if none selected
+    ChoiceValue NVARCHAR(255), -- 
+    ChoiceColor NVARCHAR(20), 
     DisplayOrder INT NOT NULL DEFAULT 0 -- Display order in dropdown
 );
 
@@ -321,8 +316,19 @@ CREATE TABLE ListViewSettingValue (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ListViewId INT FOREIGN KEY REFERENCES ListView(Id),
     ViewTypeSettingKeyId INT FOREIGN KEY REFERENCES ViewTypeSettingKey(Id),
-    GroupByColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
-    RawValue NVARCHAR(255)
+    KeyValue NVARCHAR(255),
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
+);
+
+-- Store values for column settings
+CREATE TABLE DynamicColumnSettingValue (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    DynamicColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
+    DataTypeSettingKeyId INT FOREIGN KEY REFERENCES DataTypeSettingKey(Id),
+    KeyValue NVARCHAR(255),
+    CreatedAt DATETIME,
+    UpdatedAt DATETIME
 );
 
 CREATE TABLE ListRow (
@@ -345,15 +351,7 @@ CREATE TABLE ListCellValue (
     CreatedAt DATETIME -- Creation timestamp
 );
 
--- Store values for column settings
-CREATE TABLE DynamicColumnSettingValue (
-    Id INT IDENTITY(1,1) PRIMARY KEY,
-    DynamicColumnId INT FOREIGN KEY REFERENCES ListDynamicColumn(Id),
-    DataTypeSettingKey INT FOREIGN KEY REFERENCES DataTypeSettingKey(Id),
-    KeyValue NVARCHAR(255),
-    CreatedAt DATETIME,
-    UpdatedAt DATETIME
-);
+
 
 CREATE TABLE FavoriteList (
     Id INT IDENTITY(1,1) PRIMARY KEY,

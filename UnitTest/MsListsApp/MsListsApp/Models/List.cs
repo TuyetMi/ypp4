@@ -18,7 +18,5 @@ namespace MsListsApp.Models
         public int CreatedBy { get; set; }
         public DateTime? CreatedAt { get; set; }
         public string ListStatus { get; set; } = "Active";
-
-
     }
 }

@@ -98,7 +98,7 @@ END;
 GO
 
 -- Trigger for when a user is granted permission to a list
-CREATE TRIGGER TR_ListMemberPermission_Insert
+CREATE OR ALTER TRIGGER trg_ListMemberPermission_Insert
 ON ListMemberPermission
 AFTER INSERT
 AS
@@ -124,43 +124,6 @@ BEGIN
 END;
 GO
 
-
--- tự động tăng thứ tự display order cho list view mới trong 1 list 
-CREATE OR ALTER TRIGGER trg_AdjustListViewDisplayOrder
-ON ListView
-AFTER INSERT, UPDATE
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Tạo bảng tạm để lưu các ListId bị ảnh hưởng
-    DECLARE @AffectedLists TABLE (ListId INT);
-
-    -- Lấy các ListId từ inserted hoặc updated
-    INSERT INTO @AffectedLists (ListId)
-    SELECT ListId
-    FROM inserted
-    UNION
-    SELECT ListId
-    FROM deleted;
-
-    -- Cập nhật DisplayOrder cho từng ListId bị ảnh hưởng
-    WITH RankedListViews AS (
-        SELECT 
-            Id,
-            ListId,
-            ROW_NUMBER() OVER (PARTITION BY ListId ORDER BY DisplayOrder, Id) - 1 AS NewDisplayOrder
-        FROM ListView
-        WHERE ListId IN (SELECT ListId FROM @AffectedLists)
-    )
-    UPDATE ListView
-    SET DisplayOrder = rlv.NewDisplayOrder
-    FROM ListView lv
-    INNER JOIN RankedListViews rlv ON lv.Id = rlv.Id
-    WHERE lv.DisplayOrder != rlv.NewDisplayOrder;
-END;
-GO
-
 -- Auto-create a default "All Items" list view (type: List)
 -- If the list type is Board, Gallery, Calendar, or Form, 
 -- also create a view matching the list type
@@ -177,13 +140,13 @@ BEGIN
 
     IF @ListViewTypeId IS NOT NULL
     BEGIN
-        INSERT INTO ListView (ListId, CreatedBy, ViewTypeId, ViewName, DisplayOrder)
+        INSERT INTO ListView (ListId, CreatedBy, ViewTypeId, ViewName)
         SELECT 
             i.Id,
             i.CreatedBy,
             @ListViewTypeId,
-            'All Items',
-            0
+            'All Items'
+            
         FROM inserted i;
     END
     ELSE
@@ -192,13 +155,13 @@ BEGIN
     END
 
     -- Tạo ListView bổ sung nếu ListType không phải là 'List' với DisplayOrder = 1
-    INSERT INTO ListView (ListId, CreatedBy, ViewTypeId, ViewName, DisplayOrder)
+    INSERT INTO ListView (ListId, CreatedBy, ViewTypeId, ViewName)
     SELECT 
         i.Id,
         i.CreatedBy,
         vt.Id,
-        lt.Title,
-        1
+        lt.Title
+       
     FROM inserted i
     INNER JOIN ListType lt ON i.ListTypeId = lt.Id
     INNER JOIN ViewType vt ON lt.Title = vt.Title
@@ -206,10 +169,8 @@ BEGIN
 END;
 GO
 
-
-
 -- Create a trigger to enforce the constraint
-CREATE OR ALTER TRIGGER TRG_FavoriteList_PermissionCheck
+CREATE OR ALTER TRIGGER trg_FavoriteList_PermissionCheck
 ON FavoriteList
 AFTER INSERT, UPDATE
 AS
@@ -218,11 +179,11 @@ BEGIN
 
     -- Check if inserted/updated rows have corresponding permissions in ListMemberPermission
     IF EXISTS (
-        SELECT i.ListId, i.FavoriteListOfUser
+        SELECT i.ListId, i.AccountId
         FROM inserted i
         LEFT JOIN ListMemberPermission lmp
             ON lmp.ListId = i.ListId
-            AND lmp.AccountId = i.FavoriteListOfUser
+            AND lmp.AccountId = i.AccountId
         WHERE lmp.ListId IS NULL
     )
     BEGIN
@@ -234,7 +195,7 @@ END;
 GO
 
 -- trigger tự động tạo Dynamic Column từ System Column
-CREATE OR ALTER TRIGGER tr_CreateDynamicColumnsOnListInsert
+CREATE OR ALTER TRIGGER trg_CreateDynamicColumnsOnListInsert
 ON List
 AFTER INSERT
 AS
@@ -262,11 +223,11 @@ BEGIN
     BEGIN
         -- Cursor to iterate through SystemColumn records
         DECLARE system_column_cursor CURSOR FOR
-        SELECT Id, SystemDataTypeId, ColumnName, DisplayOrder
+        SELECT Id, SystemDataTypeId, ColumnName
         FROM SystemColumn;
 
         OPEN system_column_cursor;
-        FETCH NEXT FROM system_column_cursor INTO @SystemColumnId, @SystemDataTypeId, @ColumnName, @DisplayOrder;
+        FETCH NEXT FROM system_column_cursor INTO @SystemColumnId, @SystemDataTypeId, @ColumnName ;
 
         WHILE @@FETCH_STATUS = 0
         BEGIN
@@ -275,8 +236,7 @@ BEGIN
                 ListId,
                 SystemDataTypeId,
                 SystemColumnId,
-                ColumnName,
-                DisplayOrder,
+                ColumnName, 
                 IsSystemColumn,
                 IsVisible,
                 CreatedBy,
@@ -287,7 +247,6 @@ BEGIN
                 @SystemDataTypeId,
                 @SystemColumnId,
                 @ColumnName,
-                @DisplayOrder,
                 1, -- IsSystemColumn = 1 since it's copied from SystemColumn
                 CASE WHEN @ColumnName = 'Title' THEN 1 ELSE 0 END, -- IsVisible = 1 for 'Title', 0 for others
                 @CreatedBy,
@@ -312,7 +271,7 @@ BEGIN
                 -- Insert into DynamicColumnSettingValue
                 INSERT INTO DynamicColumnSettingValue (
                     DynamicColumnId,
-                    DataTypeSettingKey,
+                    DataTypeSettingKeyId,
                     KeyValue,
                     CreatedAt,
                     UpdatedAt
@@ -331,7 +290,7 @@ BEGIN
             CLOSE setting_cursor;
             DEALLOCATE setting_cursor;
 
-            FETCH NEXT FROM system_column_cursor INTO @SystemColumnId, @SystemDataTypeId, @ColumnName, @DisplayOrder;
+            FETCH NEXT FROM system_column_cursor INTO @SystemColumnId, @SystemDataTypeId, @ColumnName;
         END;
 
         CLOSE system_column_cursor;
@@ -343,5 +302,86 @@ BEGIN
     CLOSE list_cursor;
     DEALLOCATE list_cursor;
 END;
+go
 
+-- Trigger to sync ListDynamicColumn to ListViewColumn for "All List" ListView
+CREATE OR ALTER TRIGGER trg_ListDynamicColumn_AfterInsert
+ON ListDynamicColumn
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    DECLARE @ListId INT, @ListDynamicColumnId INT, @IsVisible BIT;
+
+    -- Cursor to handle multiple inserted rows
+    DECLARE column_cursor CURSOR FOR
+    SELECT Id, ListId, IsVisible FROM inserted;
+
+    OPEN column_cursor;
+    FETCH NEXT FROM column_cursor INTO @ListDynamicColumnId, @ListId, @IsVisible;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Insert new ListDynamicColumn into ListViewColumn for "All List" ListView
+        INSERT INTO ListViewColumn (ListViewId, ListDynamicColumnId, DisplayOrder, IsVisible)
+        SELECT 
+            lv.Id,
+            @ListDynamicColumnId,
+            (SELECT ISNULL(MAX(DisplayOrder), 0) + 1 FROM ListViewColumn WHERE ListViewId = lv.Id),
+            @IsVisible
+        FROM ListView lv
+        WHERE lv.ListId = @ListId AND lv.IsSystem = 1 AND lv.ViewName = 'All List';
+
+        -- Update DisplayOrder to prioritize visible columns
+        DECLARE @ListViewId INT;
+        SELECT @ListViewId = Id FROM ListView WHERE ListId = @ListId AND IsSystem = 1 AND ViewName = 'All List';
+
+        IF @ListViewId IS NOT NULL
+        BEGIN
+            EXEC dbo.UpdateListViewColumnDisplayOrder @ListViewId;
+        END;
+
+        FETCH NEXT FROM column_cursor INTO @ListDynamicColumnId, @ListId, @IsVisible;
+    END;
+
+    CLOSE column_cursor;
+    DEALLOCATE column_cursor;
+END;
+GO
+
+-- Function to calculate DisplayOrder for ListViewColumn
+CREATE OR ALTER FUNCTION dbo.CalculateListViewColumnDisplayOrder
+(
+    @ListViewId INT
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        Id,
+        ListViewId,
+        ListDynamicColumnId,
+        ROW_NUMBER() OVER (ORDER BY IsVisible DESC, ListDynamicColumnId) AS DisplayOrder,
+        IsVisible
+    FROM ListViewColumn
+    WHERE ListViewId = @ListViewId
+);
+GO
+
+-- Procedure to update DisplayOrder in ListViewColumn
+CREATE OR ALTER PROCEDURE dbo.UpdateListViewColumnDisplayOrder
+    @ListViewId INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE lvc
+    SET DisplayOrder = calc.DisplayOrder
+    FROM ListViewColumn lvc
+    INNER JOIN dbo.CalculateListViewColumnDisplayOrder(@ListViewId) calc
+        ON lvc.Id = calc.Id
+    WHERE lvc.ListViewId = @ListViewId;
+END;
+GO

@@ -26,13 +26,13 @@ namespace MsListsApp.Models
 
         public DateTime? UpdatedAt { get; set; }
 
-        // Navigation properties
-        public List List { get; set; } = null!;
+        //// Navigation properties
+        //public List List { get; set; } = null!;
 
-        public Account Account { get; set; } = null!;
+        //public Account Account { get; set; } = null!;
 
-        public Account GrantedByAccount { get; set; } = null!;
+        //public Account GrantedByAccount { get; set; } = null!;
 
-        public ListPermission HighestPermission { get; set; } = null!;
+        //public ListPermission HighestPermission { get; set; } = null!;
     }
 }

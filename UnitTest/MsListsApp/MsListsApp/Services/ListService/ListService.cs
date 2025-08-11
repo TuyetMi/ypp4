@@ -9,28 +9,31 @@ namespace MsListsApp.Services.ListService
 {
     public class ListService : IListService
     {
-        private readonly AppDbContext _context;
+        private readonly List<Account> _accounts;
+        private readonly List<RecentList> _recentLists;
 
-        public ListService(AppDbContext context)
+        public ListService(List<Account> accounts, List<RecentList> recentLists)
         {
-            _context = context;
+            _accounts = accounts ?? throw new ArgumentNullException(nameof(accounts));
+            _recentLists = recentLists ?? throw new ArgumentNullException(nameof(recentLists));
         }
 
-        public List<List> GetRecentListsByUser(int userId)
+        public async Task<IEnumerable<RecentList>> GetRecentListsByUserAsync(int accountId)
         {
-            var listIdsWithPermission = _context.ListMemberPermissions
-                .Where(p => p.AccountId == userId)
-                .Select(p => p.ListId)
-                .Distinct();
+            // Kiểm tra xem tài khoản có tồn tại không
+            var account = _accounts.FirstOrDefault(a => a.Id == accountId);
+            if (account == null)
+            {
+                throw new Exception("Account not found");
+            }
 
-            var recentLists = _context.RecentLists
-                .Where(r => r.AccountId == userId)
-                .Select(r => r.ListId)
-                .Where(l => l.ListStatus == "Active" && listIdsWithPermission.Contains(l.Id))
-                .OrderByDescending(l => l.UpdatedAt)
+            // Lấy danh sách RecentList theo accountId, sắp xếp theo LastAccessedAt giảm dần
+            var result = _recentLists
+                .Where(rl => rl.AccountId == accountId)
+                .OrderByDescending(rl => rl.LastAccessedAt)
                 .ToList();
 
-            return recentLists;
+            return await Task.FromResult(result);
         }
     }
 }

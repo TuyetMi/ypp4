@@ -3,92 +3,28 @@
   "WorkspaceRootPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\accountservice\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\accountservice\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\listmemberpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\listmemberpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\list.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\list.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\accountservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\accountservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\tests\\accounttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\tests\\accounttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\tests\\workspacemembertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\tests\\workspacemembertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\listservice\\listservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\listservice\\listservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\listpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\listpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\listservice\\ilistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\listservice\\ilistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\listpermissionservice\\ilistpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\listpermissionservice\\ilistpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\recentlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\recentlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\listpermissionservice\\listpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\listpermissionservice\\listpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\listmemberpermissionservice\\listmemberpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\listmemberpermissionservice\\listmemberpermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\models\\workspacemember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\models\\workspacemember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\listmemberpermissionservice\\ilistmemberpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\listmemberpermissionservice\\ilistmemberpermissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\workspacememberservice\\workspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\workspacememberservice\\workspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\mslistsapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\mslistsapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\workspacememberservice\\iworkspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\workspacememberservice\\iworkspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\workspaceservice\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|solutionrelative:mslistsapp\\services\\workspaceservice\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{762DD5D0-7533-44AB-816F-6148000484C5}|MsListsApp\\MsListsApp.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp\\mslistsapp\\services\\workspaceservice\\iworkspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -102,278 +38,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Workspace.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\Workspace.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Models\\Workspace.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\Workspace.cs",
-              "RelativeToolTip": "MsListsApp\\Models\\Workspace.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:11:04.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AccountTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\AccountTest.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Tests\\AccountTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\AccountTest.cs",
-              "RelativeToolTip": "MsListsApp\\Tests\\AccountTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:17:14.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Account.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Models\\Account.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\Account.cs",
-              "RelativeToolTip": "MsListsApp\\Models\\Account.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:05:19.277Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RecentList.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\RecentList.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Models\\RecentList.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\RecentList.cs",
-              "RelativeToolTip": "MsListsApp\\Models\\RecentList.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T06:27:49.634Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\AccountService\\AccountService.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Services\\AccountService\\AccountService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\AccountService\\AccountService.cs",
-              "RelativeToolTip": "MsListsApp\\Services\\AccountService\\AccountService.cs",
-              "ViewState": "AgIAAAAAAABAZmZmZmYkwB4AAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:06:30.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "List.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\List.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Models\\List.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\List.cs",
-              "RelativeToolTip": "MsListsApp\\Models\\List.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T06:27:12.951Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ListMemberPermission.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\ListMemberPermission.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Models\\ListMemberPermission.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\ListMemberPermission.cs",
-              "RelativeToolTip": "MsListsApp\\Models\\ListMemberPermission.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAowCQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T07:14:50.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\AppDbContext.cs",
               "RelativeDocumentMoniker": "MsListsApp\\Models\\AppDbContext.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\AppDbContext.cs",
               "RelativeToolTip": "MsListsApp\\Models\\AppDbContext.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwBQAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAgwD4AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:18:54.281Z"
+              "WhenOpened": "2025-08-11T06:16:12.588Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ListService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListService\\ListService.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Services\\ListService\\ListService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListService\\ListService.cs",
-              "RelativeToolTip": "MsListsApp\\Services\\ListService\\ListService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBsAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "IListPermissionService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListPermissionService\\IListPermissionService.cs",
+              "RelativeDocumentMoniker": "MsListsApp\\Services\\ListPermissionService\\IListPermissionService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListPermissionService\\IListPermissionService.cs",
+              "RelativeToolTip": "MsListsApp\\Services\\ListPermissionService\\IListPermissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T06:25:29.438Z"
+              "WhenOpened": "2025-08-11T06:08:30.336Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IListService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListService\\IListService.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Services\\ListService\\IListService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListService\\IListService.cs",
-              "RelativeToolTip": "MsListsApp\\Services\\ListService\\IListService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ListPermissionService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListPermissionService\\ListPermissionService.cs",
+              "RelativeDocumentMoniker": "MsListsApp\\Services\\ListPermissionService\\ListPermissionService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListPermissionService\\ListPermissionService.cs",
+              "RelativeToolTip": "MsListsApp\\Services\\ListPermissionService\\ListPermissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T06:30:11.544Z"
+              "WhenOpened": "2025-08-11T06:07:33.529Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ListTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\ListTest.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Tests\\ListTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\ListTest.cs",
-              "RelativeToolTip": "MsListsApp\\Tests\\ListTest.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwDoAAABEAAAAAAAAAA==",
+              "Title": "IListMemberPermissionService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListMemberPermissionService\\IListMemberPermissionService.cs",
+              "RelativeDocumentMoniker": "MsListsApp\\Services\\ListMemberPermissionService\\IListMemberPermissionService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListMemberPermissionService\\IListMemberPermissionService.cs",
+              "RelativeToolTip": "MsListsApp\\Services\\ListMemberPermissionService\\IListMemberPermissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T06:39:30.991Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "WorkspaceMemberTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\WorkspaceMemberTest.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Tests\\WorkspaceMemberTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\WorkspaceMemberTest.cs",
-              "RelativeToolTip": "MsListsApp\\Tests\\WorkspaceMemberTest.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T03:21:28.77Z"
+              "WhenOpened": "2025-08-11T04:37:02.225Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IAccountService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\AccountService\\IAccountService.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Services\\AccountService\\IAccountService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\AccountService\\IAccountService.cs",
-              "RelativeToolTip": "MsListsApp\\Services\\AccountService\\IAccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
+              "Title": "ListMemberPermission.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListMemberPermissionService\\ListMemberPermission.cs",
+              "RelativeDocumentMoniker": "MsListsApp\\Services\\ListMemberPermissionService\\ListMemberPermission.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\ListMemberPermissionService\\ListMemberPermission.cs",
+              "RelativeToolTip": "MsListsApp\\Services\\ListMemberPermissionService\\ListMemberPermission.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:06:17.759Z"
+              "WhenOpened": "2025-08-11T04:36:00.765Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ListPermission.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\ListPermission.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Models\\ListPermission.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\ListPermission.cs",
-              "RelativeToolTip": "MsListsApp\\Models\\ListPermission.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T07:13:28.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Test1.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Test1.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Test1.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Test1.cs",
-              "RelativeToolTip": "MsListsApp\\Test1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:04:36.345Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "WorkspaceTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\WorkspaceTest.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Tests\\WorkspaceTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Tests\\WorkspaceTest.cs",
-              "RelativeToolTip": "MsListsApp\\Tests\\WorkspaceTest.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAgwBwAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T02:43:10.939Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "WorkspaceMember.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\WorkspaceMember.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Models\\WorkspaceMember.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\WorkspaceMember.cs",
-              "RelativeToolTip": "MsListsApp\\Models\\WorkspaceMember.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:11:18.857Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 5,
               "Title": "WorkspaceMemberService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
               "RelativeDocumentMoniker": "MsListsApp\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
               "RelativeToolTip": "MsListsApp\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T03:02:06.385Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "MSTestSettings.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\MSTestSettings.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\MSTestSettings.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\MSTestSettings.cs",
-              "RelativeToolTip": "MsListsApp\\MSTestSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:04:27.87Z"
+              "WhenOpened": "2025-08-11T04:35:58.119Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "MsListsApp.csproj",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\MsListsApp.csproj",
-              "RelativeDocumentMoniker": "MsListsApp\\MsListsApp.csproj",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\MsListsApp.csproj",
-              "RelativeToolTip": "MsListsApp\\MsListsApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-04T07:04:41.103Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IWorkspaceMemberService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "RelativeToolTip": "MsListsApp\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T03:02:23.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "WorkspaceService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\WorkspaceService\\WorkspaceService.cs",
-              "RelativeDocumentMoniker": "MsListsApp\\Services\\WorkspaceService\\WorkspaceService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\WorkspaceService\\WorkspaceService.cs",
-              "RelativeToolTip": "MsListsApp\\Services\\WorkspaceService\\WorkspaceService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T08:28:04.615Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 6,
               "Title": "IWorkspaceService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Services\\WorkspaceService\\IWorkspaceService.cs",
               "RelativeDocumentMoniker": "MsListsApp\\Services\\WorkspaceService\\IWorkspaceService.cs",
@@ -381,7 +128,8 @@
               "RelativeToolTip": "MsListsApp\\Services\\WorkspaceService\\IWorkspaceService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T08:28:21.256Z"
+              "WhenOpened": "2025-08-04T08:28:21.256Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -63,28 +63,6 @@ namespace MsListsApp.Models
                 .HasForeignKey(r => r.ListId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            /* ----------------------------------------------------------------- */
-            modelBuilder.Entity<ListMemberPermission>()
-                .HasOne(p => p.Account)
-                .WithMany()
-                .HasForeignKey(p => p.AccountId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<ListMemberPermission>()
-                .HasOne(p => p.GrantedByAccount)
-                .WithMany()
-                .HasForeignKey(p => p.GrantedByAccountId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<ListMemberPermission>()
-                .HasOne(p => p.List)
-                .WithMany()
-                .HasForeignKey(p => p.ListId);
-
-            modelBuilder.Entity<ListMemberPermission>()
-                .HasOne(p => p.HighestPermission)
-                .WithMany(p => p.ListMemberPermissions)
-                .HasForeignKey(p => p.HighestPermissionId);
         }
     }
 }

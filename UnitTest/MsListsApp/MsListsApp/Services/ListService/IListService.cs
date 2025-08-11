@@ -9,6 +9,6 @@ namespace MsListsApp.Services.ListService
 {
     public interface IListService
     {
-        List<List> GetRecentListsByUser(int userId);
+        Task<IEnumerable<RecentList>> GetRecentListsByUserAsync(int accountId);
     }
 }

@@ -24,9 +24,10 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'FavoriteList') DROP TABLE Favo
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'DynamicColumnSettingValue') DROP TABLE DynamicColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListCellValue') DROP TABLE ListCellValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListRow') DROP TABLE ListRow;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnSettingObject') DROP TABLE ListColumnSettingObject;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListViewSettingValue') DROP TABLE ListViewSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnLookupMap') DROP TABLE ListColumnLookupMap;
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListColumnChoice') DROP TABLE ListColumnChoice; -- Đã thêm từ lần sửa trước
+IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListViewColumn') DROP TABLE ListViewColumn; -- Thêm dòng này
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListDynamicColumn') DROP TABLE ListDynamicColumn;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumnSettingValue') DROP TABLE SystemColumnSettingValue;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemColumn') DROP TABLE SystemColumn;
@@ -43,7 +44,6 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListTemplate') DROP TABLE List
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'DataTypeSettingKey') DROP TABLE DataTypeSettingKey;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewTypeSettingKey') DROP TABLE ViewTypeSettingKey;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'KeySetting') DROP TABLE KeySetting;
-IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewSettingKey') DROP TABLE ViewSettingKey;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ListPermission') DROP TABLE ListPermission;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'SystemDataType') DROP TABLE SystemDataType;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'ViewType') DROP TABLE ViewType;
@@ -52,7 +52,6 @@ IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'WorkspaceMember') DROP TABLE W
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'TemplateProvider') DROP TABLE TemplateProvider;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Workspace') DROP TABLE Workspace;
 IF EXISTS (SELECT 1 FROM sys.tables WHERE name = 'Account') DROP TABLE Account;
-GO
 
 -- Create tables in dependency order
 CREATE TABLE Account (
@@ -216,7 +215,7 @@ CREATE TABLE TemplateRow (
 CREATE TABLE TemplateCellValue (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     TemplateColumnId INT NOT NULL REFERENCES TemplateColumn(Id),
-    TemplateSampleRowId INT NOT NULL REFERENCES TemplateSampleRow(Id),
+    TemplateSampleRowId INT NOT NULL REFERENCES TemplateRow(Id),
     CellValue NVARCHAR(500)
 );
 
@@ -258,7 +257,7 @@ CREATE TABLE SystemColumn (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     SystemDataTypeId INT NOT NULL REFERENCES SystemDataType(Id),
     ColumnName NVARCHAR(100) NOT NULL,
-    DisplayOrder INT,
+	IsVisible BIT,
     CreatedBy INT REFERENCES Account(Id),
     CreatedAt DATETIME,
     CanRename BIT NOT NULL DEFAULT 0 --  only SystemColumn name "Title" has value = 1
@@ -278,7 +277,6 @@ CREATE TABLE ListDynamicColumn (
     SystemColumnId INT REFERENCES SystemColumn(Id),
     ColumnName NVARCHAR(100) NOT NULL, -- Column name displayed on UI
     ColumnDescription NVARCHAR(255), -- Short description of the column
-    DisplayOrder INT NOT NULL DEFAULT 0, -- Display order in the list
     IsSystemColumn BIT NOT NULL DEFAULT 0, -- System columns cannot be modified by users
     IsVisible BIT NOT NULL DEFAULT 1, -- 1: Visible | 0: Hidden from view
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- Who created this column
@@ -350,8 +348,6 @@ CREATE TABLE ListCellValue (
     CreatedBy INT NOT NULL REFERENCES Account(Id), -- Who created this value
     CreatedAt DATETIME -- Creation timestamp
 );
-
-
 
 CREATE TABLE FavoriteList (
     Id INT IDENTITY(1,1) PRIMARY KEY,

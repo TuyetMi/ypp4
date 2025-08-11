@@ -744,13 +744,13 @@ VALUES
 
 -- missing 
 -- System Column --
-INSERT INTO SystemColumn (SystemDataTypeId, ColumnName, DisplayOrder, CreatedBy, CanRename)
+INSERT INTO SystemColumn (SystemDataTypeId, ColumnName, IsVisible,CreatedBy, CanRename)
 VALUES 
-    (6, 'ID', 1, NULL, 0), 
-    (1, 'Title', 2, NULL, 1),
-    (5, 'Created By', 3, NULL, 0),
-    (5, 'Modified By', 4, NULL, 0),
-    (11, 'Attachment', 5, NULL, 0); 
+    (6, 'ID', 0, NULL, 0), 
+    (1, 'Title', 1, NULL, 1),
+    (5, 'Created By', 0, NULL, 0),
+    (5, 'Modified By', 0,  NULL, 0),
+    (11, 'Attachment', 0, NULL, 0); 
 
 INSERT INTO SystemColumnSettingValue (SystemColumnId, DataTypeSettingKeyId, KeyValue)
 VALUES 
@@ -1218,96 +1218,95 @@ VALUES
 (5, 2, 'Team Schedule Planner', 'schedule', '#CC33FF', 2, '2025-06-14 17:00:00', 'Archived');
 
 -- Insert data into ListDynamicColumn for ListId 1 to 100 (DisplayOrder starts from 6, CreatedBy matches ListId)
-INSERT INTO ListDynamicColumn (ListId, SystemDataTypeId, ColumnName, ColumnDescription, DisplayOrder, IsSystemColumn, IsVisible, CreatedBy, CreatedAt)
+INSERT INTO ListDynamicColumn (ListId, SystemDataTypeId, ColumnName, ColumnDescription, IsSystemColumn, IsVisible, CreatedBy, CreatedAt)
 VALUES
--- ListId 1 (4 columns, DisplayOrder 6-9, CreatedBy = 1)
-(1, 1, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 1', 6, 0, 1, 1, '2025-07-29 14:36:00'),
-(1, 2, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 1', 7, 0, 1, 1, '2025-07-29 14:36:00'),
-(1, 3, 'col_3_DATETIME', 'Mô tả cho cột 3 trong danh sách 1', 8, 0, 1, 1, '2025-07-29 14:36:00'),
-(1, 4, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 1', 9, 0, 1, 1, '2025-07-29 14:36:00'),
--- ListId 2 (3 columns, DisplayOrder 6-8, CreatedBy = 2)
-(2, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 2', 6, 0, 1, 2, '2025-07-29 14:36:00'),
-(2, 6, 'col_2_NUMBER', 'Mô tả cho cột 2 trong danh sách 2', 7, 0, 1, 2, '2025-07-29 14:36:00'),
-(2, 7, 'col_3_BOOLEAN', 'Mô tả cho cột 3 trong danh sách 2', 8, 0, 1, 2, '2025-07-29 14:36:00'),
--- ListId 3 (5 columns, DisplayOrder 6-10, CreatedBy = 3)
-(3, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 3', 6, 0, 1, 3, '2025-07-29 14:36:00'),
-(3, 9, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 3', 7, 0, 1, 3, '2025-07-29 14:36:00'),
-(3, 10, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 3', 8, 0, 1, 3, '2025-07-29 14:36:00'),
-(3, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 3', 9, 0, 1, 3, '2025-07-29 14:36:00'),
-(3, 12, 'col_5_INT', 'Mô tả cho cột 5 trong danh sách 3', 10, 0, 1, 3, '2025-07-29 14:36:00'),
--- ListId 4 (4 columns, DisplayOrder 6-9, CreatedBy = 4)
-(4, 1, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 4', 6, 0, 1, 4, '2025-07-29 14:36:00'),
-(4, 3, 'col_2_DATETIME', 'Mô tả cho cột 2 trong danh sách 4', 7, 0, 1, 4, '2025-07-29 14:36:00'),
-(4, 5, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 4', 8, 0, 1, 4, '2025-07-29 14:36:00'),
-(4, 7, 'col_4_BOOLEAN', 'Mô tả cho cột 4 trong danh sách 4', 9, 0, 1, 4, '2025-07-29 14:36:00'),
--- ListId 5 (3 columns, DisplayOrder 6-8, CreatedBy = 5)
-(5, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 5', 6, 0, 1, 5, '2025-07-29 14:36:00'),
-(5, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 5', 7, 0, 1, 5, '2025-07-29 14:36:00'),
-(5, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 5', 8, 0, 1, 5, '2025-07-29 14:36:00'),
--- ListId 6 (5 columns, DisplayOrder 6-10, CreatedBy = 6)
-(6, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 6', 6, 0, 1, 6, '2025-07-29 14:36:00'),
-(6, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 6', 7, 0, 1, 6, '2025-07-29 14:36:00'),
-(6, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 6', 8, 0, 1, 6, '2025-07-29 14:36:00'),
-(6, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 6', 9, 0, 1, 6, '2025-07-29 14:36:00'),
-(6, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 6', 10, 0, 1, 6, '2025-07-29 14:36:00'),
--- ListId 7 (4 columns, DisplayOrder 6-9, CreatedBy = 7)
-(7, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 7', 6, 0, 1, 7, '2025-07-29 14:36:00'),
-(7, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 7', 7, 0, 1, 7, '2025-07-29 14:36:00'),
-(7, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 7', 8, 0, 1, 7, '2025-07-29 14:36:00'),
-(7, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 7', 9, 0, 1, 7, '2025-07-29 14:36:00'),
--- ListId 8 (3 columns, DisplayOrder 6-8, CreatedBy = 8)
-(8, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 8', 6, 0, 1, 8, '2025-07-29 14:36:00'),
-(8, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 8', 7, 0, 1, 8, '2025-07-29 14:36:00'),
-(8, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 8', 8, 0, 1, 8, '2025-07-29 14:36:00'),
--- ListId 9 (5 columns, DisplayOrder 6-10, CreatedBy = 9)
-(9, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 9', 6, 0, 1, 9, '2025-07-29 14:36:00'),
-(9, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 9', 7, 0, 1, 9, '2025-07-29 14:36:00'),
-(9, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 9', 8, 0, 1, 9, '2025-07-29 14:36:00'),
-(9, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 9', 9, 0, 1, 9, '2025-07-29 14:36:00'),
-(9, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 9', 10, 0, 1, 9, '2025-07-29 14:36:00'),
--- ListId 10 (4 columns, DisplayOrder 6-9, CreatedBy = 10)
-(10, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 10', 6, 0, 1, 10, '2025-07-29 14:36:00'),
-(10, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 10', 7, 0, 1, 10, '2025-07-29 14:36:00'),
-(10, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 10', 8, 0, 1, 10, '2025-07-29 14:36:00'),
-(10, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 10', 9, 0, 1, 10, '2025-07-29 14:36:00'),
+-- ListId 1 (4 columns, CreatedBy = 1)
+(1, 1, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 1', 0, 1, 1, '2025-07-29 14:36:00'),
+(1, 2, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 1', 0, 1, 1, '2025-07-29 14:36:00'),
+(1, 3, 'col_3_DATETIME', 'Mô tả cho cột 3 trong danh sách 1', 0, 1, 1, '2025-07-29 14:36:00'),
+(1, 4, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 1', 0, 1, 1, '2025-07-29 14:36:00'),
+-- ListId 2 (3 columns, CreatedBy = 2)
+(2, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 2', 0, 1, 2, '2025-07-29 14:36:00'),
+(2, 6, 'col_2_NUMBER', 'Mô tả cho cột 2 trong danh sách 2', 0, 1, 2, '2025-07-29 14:36:00'),
+(2, 7, 'col_3_BOOLEAN', 'Mô tả cho cột 3 trong danh sách 2', 0, 1, 2, '2025-07-29 14:36:00'),
+-- ListId 3 (5 columns, CreatedBy = 3)
+(3, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 3', 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 9, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 3', 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 10, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 3', 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 3', 0, 1, 3, '2025-07-29 14:36:00'),
+(3, 12, 'col_5_INT', 'Mô tả cho cột 5 trong danh sách 3', 0, 1, 3, '2025-07-29 14:36:00'),
+-- ListId 4 (4 columns, CreatedBy = 4)
+(4, 1, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 4', 0, 1, 4, '2025-07-29 14:36:00'),
+(4, 3, 'col_2_DATETIME', 'Mô tả cho cột 2 trong danh sách 4', 0, 1, 4, '2025-07-29 14:36:00'),
+(4, 5, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 4', 0, 1, 4, '2025-07-29 14:36:00'),
+(4, 7, 'col_4_BOOLEAN', 'Mô tả cho cột 4 trong danh sách 4', 0, 1, 4, '2025-07-29 14:36:00'),
+-- ListId 5 (3 columns, CreatedBy = 5)
+(5, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 5', 0, 1, 5, '2025-07-29 14:36:00'),
+(5, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 5', 0, 1, 5, '2025-07-29 14:36:00'),
+(5, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 5', 0, 1, 5, '2025-07-29 14:36:00'),
+-- ListId 6 (5 columns, CreatedBy = 6)
+(6, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 6', 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 6', 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 6', 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 6', 0, 1, 6, '2025-07-29 14:36:00'),
+(6, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 6', 0, 1, 6, '2025-07-29 14:36:00'),
+-- ListId 7 (4 columns, CreatedBy = 7)
+(7, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 7', 0, 1, 7, '2025-07-29 14:36:00'),
+(7, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 7', 0, 1, 7, '2025-07-29 14:36:00'),
+(7, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 7', 0, 1, 7, '2025-07-29 14:36:00'),
+(7, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 7', 0, 1, 7, '2025-07-29 14:36:00'),
+-- ListId 8 (3 columns, CreatedBy = 8)
+(8, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 8', 0, 1, 8, '2025-07-29 14:36:00'),
+(8, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 8', 0, 1, 8, '2025-07-29 14:36:00'),
+(8, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 8', 0, 1, 8, '2025-07-29 14:36:00'),
+-- ListId 9 (5 columns, CreatedBy = 9)
+(9, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 9', 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 9', 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 9', 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 9', 0, 1, 9, '2025-07-29 14:36:00'),
+(9, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 9', 0, 1, 9, '2025-07-29 14:36:00'),
+-- ListId 10 (4 columns, CreatedBy = 10)
+(10, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 10', 0, 1, 10, '2025-07-29 14:36:00'),
+(10, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 10', 0, 1, 10, '2025-07-29 14:36:00'),
+(10, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 10', 0, 1, 10, '2025-07-29 14:36:00'),
+(10, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 10', 0, 1, 10, '2025-07-29 14:36:00'),
 -- Continue pattern for ListId 11 to 100
-(11, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 11', 6, 0, 1, 11, '2025-07-29 14:36:00'),
-(11, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 11', 7, 0, 1, 11, '2025-07-29 14:36:00'),
-(11, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 11', 8, 0, 1, 11, '2025-07-29 14:36:00'),
-(12, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 12', 6, 0, 1, 12, '2025-07-29 14:36:00'),
-(12, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 12', 7, 0, 1, 12, '2025-07-29 14:36:00'),
-(12, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 12', 8, 0, 1, 12, '2025-07-29 14:36:00'),
-(12, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 12', 9, 0, 1, 12, '2025-07-29 14:36:00'),
-(12, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 12', 10, 0, 1, 12, '2025-07-29 14:36:00'),
-(13, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 13', 6, 0, 1, 13, '2025-07-29 14:36:00'),
-(13, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 13', 7, 0, 1, 13, '2025-07-29 14:36:00'),
-(13, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 13', 8, 0, 1, 13, '2025-07-29 14:36:00'),
-(13, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 13', 9, 0, 1, 13, '2025-07-29 14:36:00'),
-(14, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 14', 6, 0, 1, 14, '2025-07-29 14:36:00'),
-(14, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 14', 7, 0, 1, 14, '2025-07-29 14:36:00'),
-(14, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 14', 8, 0, 1, 14, '2025-07-29 14:36:00'),
-(15, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 15', 6, 0, 1, 15, '2025-07-29 14:36:00'),
-(15, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 15', 7, 0, 1, 15, '2025-07-29 14:36:00'),
-(15, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 15', 8, 0, 1, 15, '2025-07-29 14:36:00'),
-(15, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 15', 9, 0, 1, 15, '2025-07-29 14:36:00'),
-(15, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 15', 10, 0, 1, 15, '2025-07-29 14:36:00'),
+(11, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 11', 0, 1, 11, '2025-07-29 14:36:00'),
+(11, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 11', 0, 1, 11, '2025-07-29 14:36:00'),
+(11, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 11', 0, 1, 11, '2025-07-29 14:36:00'),
+(12, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 12', 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 12', 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 12', 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 12', 0, 1, 12, '2025-07-29 14:36:00'),
+(12, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 12', 0, 1, 12, '2025-07-29 14:36:00'),
+(13, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 13', 0, 1, 13, '2025-07-29 14:36:00'),
+(13, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 13', 0, 1, 13, '2025-07-29 14:36:00'),
+(13, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 13', 0, 1, 13, '2025-07-29 14:36:00'),
+(13, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 13', 0, 1, 13, '2025-07-29 14:36:00'),
+(14, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 14', 0, 1, 14, '2025-07-29 14:36:00'),
+(14, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 14', 0, 1, 14, '2025-07-29 14:36:00'),
+(14, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 14', 0, 1, 14, '2025-07-29 14:36:00'),
+(15, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 15', 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 15', 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 15', 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 15', 0, 1, 15, '2025-07-29 14:36:00'),
+(15, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 15', 0, 1, 15, '2025-07-29 14:36:00'),
 -- Continue up to ListId 100
-(97, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 97', 6, 0, 1, 97, '2025-07-29 14:36:00'),
-(97, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 97', 7, 0, 1, 97, '2025-07-29 14:36:00'),
-(97, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 97', 8, 0, 1, 97, '2025-07-29 14:36:00'),
-(98, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 98', 6, 0, 1, 98, '2025-07-29 14:36:00'),
-(98, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 98', 7, 0, 1, 98, '2025-07-29 14:36:00'),
-(98, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 98', 8, 0, 1, 98, '2025-07-29 14:36:00'),
-(98, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 98', 9, 0, 1, 98, '2025-07-29 14:36:00'),
-(98, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 98', 10, 0, 1, 98, '2025-07-29 14:36:00'),
-(99, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 99', 6, 0, 1, 99, '2025-07-29 14:36:00'),
-(99, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 99', 7, 0, 1, 99, '2025-07-29 14:36:00'),
-(99, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 99', 8, 0, 1, 99, '2025-07-29 14:36:00'),
-(99, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 99', 9, 0, 1, 99, '2025-07-29 14:36:00'),
-(100, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 100', 6, 0, 1, 100, '2025-07-29 14:36:00'),
-(100, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 100', 7, 0, 1, 100, '2025-07-29 14:36:00'),
-(100, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 100', 8, 0, 1, 100, '2025-07-29 14:36:00');
---select * from ListDynamicColumn l where l.ListId =1; 
+(97, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 97', 0, 1, 97, '2025-07-29 14:36:00'),
+(97, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 97', 0, 1, 97, '2025-07-29 14:36:00'),
+(97, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 97', 0, 1, 97, '2025-07-29 14:36:00'),
+(98, 8, 'col_1_TEXT', 'Mô tả cho cột 1 trong danh sách 98', 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 10, 'col_2_INT', 'Mô tả cho cột 2 trong danh sách 98', 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 12, 'col_3_INT', 'Mô tả cho cột 3 trong danh sách 98', 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 1, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 98', 0, 1, 98, '2025-07-29 14:36:00'),
+(98, 3, 'col_5_DATETIME', 'Mô tả cho cột 5 trong danh sách 98', 0, 1, 98, '2025-07-29 14:36:00'),
+(99, 5, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 99', 0, 1, 99, '2025-07-29 14:36:00'),
+(99, 7, 'col_2_BOOLEAN', 'Mô tả cho cột 2 trong danh sách 99', 0, 1, 99, '2025-07-29 14:36:00'),
+(99, 9, 'col_3_TEXT', 'Mô tả cho cột 3 trong danh sách 99', 0, 1, 99, '2025-07-29 14:36:00'),
+(99, 11, 'col_4_TEXT', 'Mô tả cho cột 4 trong danh sách 99', 0, 1, 99, '2025-07-29 14:36:00'),
+(100, 2, 'col_1_INT', 'Mô tả cho cột 1 trong danh sách 100', 0, 1, 100, '2025-07-29 14:36:00'),
+(100, 4, 'col_2_TEXT', 'Mô tả cho cột 2 trong danh sách 100', 0, 1, 100, '2025-07-29 14:36:00'),
+(100, 6, 'col_3_NUMBER', 'Mô tả cho cột 3 trong danh sách 100', 0, 1, 100, '2025-07-29 14:36:00');--select * from ListDynamicColumn l where l.ListId =1; 
 
 DECLARE @TotalRows INT = 500;
 DECLARE @CurrentListId INT = 1;
@@ -1765,7 +1764,7 @@ VALUES
 (140, 10, 3, 'OWNER', 140, 'Manage event tracker', '2025-05-20 18:00:00', '2025-05-20 18:00:00');
 
 -- Chức năng --
-INSERT INTO FavoriteList (ListId, FavoriteListOfUser, CreatedAt, UpdatedAt)
+INSERT INTO FavoriteList (ListId, AccountId, CreatedAt, UpdatedAt)
 VALUES
 -- AccountId = 1
 (2, 1, '2025-07-24 16:34:00', '2025-07-24 16:34:00'),

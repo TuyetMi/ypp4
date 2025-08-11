@@ -277,6 +277,11 @@ JOIN SystemDataType sd ON dsk.SystemDataTypeId = sd.Id
 WHERE dsk.SystemDataTypeId = @SystemDataTypeId
 GO
 
+----------------------------------------
+------------ EDIT COLUMN SCREEN ---------
+-- 1. Display all Data Types of the Column.
+-- 2. Display Key Settings corresponding to that Data Type.
+
 -------------------------------------------------
 ----------- LIST VIEW: LIST --------------------
 DECLARE @ListId INT = 1; -- Change to desired ListId

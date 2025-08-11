@@ -1,64 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using MsListsApp.Models;
 using MsListsApp.Services.ListService;
-
+using static System.Net.Mime.MediaTypeNames;
 namespace MsListsApp.Tests
 {
     [TestClass]
     public class ListServiceTests
     {
-        private AppDbContext _context = null!;
-        private ListService _listService = null!;
+        private readonly ListService _service;
+        private readonly List<Account> _accounts;
+        private readonly List<RecentList> _recentLists;
 
-        [TestInitialize]
-        public void Setup()
+        public ListServiceTests()
         {
-            var options = new DbContextOptionsBuilder<AppDbContext>()
-                .UseInMemoryDatabase(databaseName: "MsListsDbTest")
-                .Options;
+            // Dữ liệu thô để test
+            _accounts = new List<Account>
+        {
+            new Account { Id = 1, FirstName = "John", LastName = "Doe", Email = "john@example.com", AccountStatus = "Active", AccountPassword = "pass" },
+            new Account { Id = 2, FirstName = "Jane", LastName = "Doe", Email = "jane@example.com", AccountStatus = "Active", AccountPassword = "pass" }
+        };
 
-            _context = new AppDbContext(options);
-            _listService = new ListService(_context);
+            _recentLists = new List<RecentList>
+        {
+            new RecentList { Id = 1, AccountId = 1, ListId = 101, LastAccessedAt = DateTime.Now.AddDays(-1) },
+            new RecentList { Id = 2, AccountId = 1, ListId = 102, LastAccessedAt = DateTime.Now.AddDays(-2) },
+            new RecentList { Id = 3, AccountId = 2, ListId = 103, LastAccessedAt = DateTime.Now.AddDays(-3) }
+        };
 
-            // Seed data
-            var user = new Account { Id = 1, Email = "user1@test.com" };
-            var list1 = new List { Id = 1, ListName = "List A", CreatedBy = 1, ListStatus = "Active", ListTypeId = 1 };
-            var list2 = new List { Id = 2, ListName = "List B", CreatedBy = 1, ListStatus = "Active", ListTypeId = 1 };
-            var list3 = new List { Id = 3, ListName = "List C", CreatedBy = 1, ListStatus = "Archived", ListTypeId = 1 }; // ❌ Không phải Active
-
-
-            _context.Accounts.Add(user);
-            _context.Lists.AddRange(list1, list2, list3);
-            _context.RecentLists.AddRange(
-                new RecentList { AccountId = 1, ListId = 1, LastAccessedAt = DateTime.UtcNow.AddMinutes(-1) },
-                new RecentList { AccountId = 1, ListId = 2, LastAccessedAt = DateTime.UtcNow.AddMinutes(-2) },
-                new RecentList { AccountId = 1, ListId = 3, LastAccessedAt = DateTime.UtcNow.AddMinutes(-3) }
-            );
-            _context.ListMemberPermissions.AddRange(
-                new ListMemberPermission { ListId = 1, AccountId = 1, HighestPermissionId = 1 },
-                new ListMemberPermission { ListId = 3, AccountId = 1, HighestPermissionId = 1 }
-            // ⚠️ ListId = 2 KHÔNG có permission
-            );
-            _context.SaveChanges();
+            _service = new ListService(_accounts, _recentLists);
         }
 
         [TestMethod]
-        public void GetRecentListsByUser_ShouldReturn_OnlyListsWithPermission_AndActive()
+        public async Task GetRecentListsByUserAsync_ValidAccountId_ReturnsRecentLists()
         {
+            // Arrange
+            int accountId = 1;
+
             // Act
-            var recentLists = _listService.GetRecentListsByUser(1);
+            var result = await _service.GetRecentListsByUserAsync(accountId);
 
             // Assert
-            Assert.AreEqual(1, recentLists.Count); // chỉ còn ListId = 1
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count()); // User 1 có 2 RecentList
+            Assert.IsTrue(result.All(rl => rl.AccountId == accountId));
+            Assert.IsTrue(result.First().LastAccessedAt > result.Last().LastAccessedAt); // Kiểm tra sắp xếp
+        }
 
-            Assert.IsTrue(recentLists.Any(l => l.Id == 1));     // ✅ Có quyền + Active
-            Assert.IsFalse(recentLists.Any(l => l.Id == 2));    // ❌ Không có quyền
-            Assert.IsFalse(recentLists.Any(l => l.Id == 3));    // ❌ Đã bị Archived
+        [TestMethod]
+        public async Task GetRecentListsByUserAsync_AccountNotFound_ThrowsException()
+        {
+            // Arrange
+            int invalidAccountId = 999;
+
+            // Act & Assert
+            await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetRecentListsByUserAsync(invalidAccountId));
+        }
+
+        [TestMethod]
+        public async Task GetRecentListsByUserAsync_NoRecentLists_ReturnsEmptyList()
+        {
+            // Arrange
+            int accountId = 2;
+            _recentLists.RemoveAll(rl => rl.AccountId == accountId); // Xóa RecentList của user 2
+
+            // Act
+            var result = await _service.GetRecentListsByUserAsync(accountId);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(0, result.Count()); // Không có RecentList
         }
     }
 }

@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "MsListsApp\\Models\\AppDbContext.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MsListsApp\\MsListsApp\\Models\\AppDbContext.cs",
               "RelativeToolTip": "MsListsApp\\Models\\AppDbContext.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAgwD4AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAD4AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T06:16:12.588Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "MsListsApp\\Services\\ListPermissionService\\IListPermissionService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T06:08:30.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T06:08:30.336Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "MsListsApp\\Services\\ListPermissionService\\ListPermissionService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T06:07:33.529Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T06:07:33.529Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "MsListsApp\\Services\\ListMemberPermissionService\\IListMemberPermissionService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T04:37:02.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T04:37:02.225Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "MsListsApp\\Services\\ListMemberPermissionService\\ListMemberPermission.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T04:36:00.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T04:36:00.765Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "MsListsApp\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T04:35:58.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T04:35:58.119Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "MsListsApp\\Services\\WorkspaceService\\IWorkspaceService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T08:28:21.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T08:28:21.256Z"
             }
           ]
         }

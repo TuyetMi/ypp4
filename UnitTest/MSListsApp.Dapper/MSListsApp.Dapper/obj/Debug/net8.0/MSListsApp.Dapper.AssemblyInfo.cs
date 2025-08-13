@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MSListsApp.Dapper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+608bb6c4928b63801a23535dfcb35c3b25688283")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+001d9b8d395297ed006c607f12f209faca8510f9")]
 [assembly: System.Reflection.AssemblyProductAttribute("MSListsApp.Dapper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MSListsApp.Dapper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

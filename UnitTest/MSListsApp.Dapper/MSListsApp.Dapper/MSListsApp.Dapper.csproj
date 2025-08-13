@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Repositories\WorkspaceMemberRepository\" />
+    <Folder Include="Services\WorkspaceMemberService\" />
   </ItemGroup>
 
 </Project>

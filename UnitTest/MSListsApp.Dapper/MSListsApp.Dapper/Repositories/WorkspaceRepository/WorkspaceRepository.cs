@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Dapper;
 using MSListsApp.Dapper.Models;
 
-namespace MSListsApp.Dapper.Repositories
+namespace MSListsApp.Dapper.Repositories.WorkspaceRepository
 {
-    public class WorkspaceRepository
+    public class WorkspaceRepository: IWorkspaceRepository
     {
         private readonly IDbConnection _connection;
 
@@ -21,15 +21,15 @@ namespace MSListsApp.Dapper.Repositories
         public void EnsureTableWorkspaceCreated()
         {
             var sql = @"
-            CREATE TABLE IF NOT-created EXISTS Workspace (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                WorkspaceName TEXT,
-                CreatedBy INTEGER,
-                IsPersonal BOOLEAN,
-                CreatedAt DATETIME,
-                UpdatedAt DATETIME
-            );
-        ";
+                CREATE TABLE IF NOT EXISTS Workspace (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    WorkspaceName TEXT,
+                    CreatedBy INTEGER,
+                    IsPersonal BOOLEAN,
+                    CreatedAt DATETIME,
+                    UpdatedAt DATETIME
+                );
+            ";
             _connection.Execute(sql);
         }
 
@@ -78,6 +78,20 @@ namespace MSListsApp.Dapper.Repositories
         ";
             return _connection.QuerySingleOrDefault<Workspace>(sql, new { WorkspaceId = workspaceId });
         }
-
+        public IEnumerable<Workspace> GetWorkspacesByCreatorId(int accountId)
+        {
+            var sql = @"
+        SELECT 
+            Id,
+            WorkspaceName,
+            CreatedBy,
+            IsPersonal,
+            CreatedAt,
+            UpdatedAt
+        FROM Workspace
+        WHERE CreatedBy = @AccountId;
+    ";
+            return _connection.Query<Workspace>(sql, new { AccountId = accountId });
+        }
     }
 }

@@ -5,18 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MSListsApp.Dapper.DTOs;
 
-namespace MSListsApp.Dapper.Services
+namespace MSListsApp.Dapper.Services.AccountService
 {
     public interface IAccountService
     {
-        void EnsureTableCreated();
-
-        int CreateAccount(AccountCreateDto dto);
-
-        void UpdateAccount(AccountUpdateDto dto);
-
+        int CreateAccount(CreateAccountDto accountDto);
+        void UpdateAccount(UpdateAccountDto accountDto);
         void DeleteAccount(int id);
-
-        AccountReadDto GetAccountById(int id);
+        AccountDto GetAccountInfoById(int id);
     }
 }

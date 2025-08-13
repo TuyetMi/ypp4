@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Dapper;
 using MSListsApp.Dapper.Models;
 
-namespace MSListsApp.Dapper.Repositories
+namespace MSListsApp.Dapper.Repositories.AccountRepository
 {
-    public class AccountRepository
+    public class AccountRepository : IAccountRepository
     {
         private readonly IDbConnection _connection;
 

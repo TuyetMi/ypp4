@@ -15,4 +15,5 @@ namespace MSListsApp.Dapper.DTOs
         public string MemberStatus { get; set; } = "Active";
         public DateTime? UpdatedAt { get; set; }
     }
+
 }

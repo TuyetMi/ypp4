@@ -36,24 +36,24 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceRepository
         public int Add(Workspace workspace)
         {
             var sql = @"
-            INSERT INTO Workspace (WorkspaceName, CreatedBy, IsPersonal, CreatedAt, UpdatedAt)
-            VALUES (@WorkspaceName, @CreatedBy, @IsPersonal, @CreatedAt, @UpdatedAt);
-            SELECT last_insert_rowid();
-        ";
+                INSERT INTO Workspace (WorkspaceName, CreatedBy, IsPersonal, CreatedAt, UpdatedAt)
+                VALUES (@WorkspaceName, @CreatedBy, @IsPersonal, @CreatedAt, @UpdatedAt);
+                SELECT last_insert_rowid();
+            ";
             return _connection.ExecuteScalar<int>(sql, workspace);
         }
 
         public void Update(Workspace workspace)
         {
             var sql = @"
-            UPDATE Workspace SET
-                WorkspaceName = @WorkspaceName,
-                CreatedBy = @CreatedBy,
-                IsPersonal = @IsPersonal,
-                CreatedAt = @CreatedAt,
-                UpdatedAt = @UpdatedAt
-            WHERE Id = @Id;
-        ";
+                UPDATE Workspace SET
+                    WorkspaceName = @WorkspaceName,
+                    CreatedBy = @CreatedBy,
+                    IsPersonal = @IsPersonal,
+                    CreatedAt = @CreatedAt,
+                    UpdatedAt = @UpdatedAt
+                WHERE Id = @Id;
+            ";
             _connection.Execute(sql, workspace);
         }
 
@@ -66,31 +66,31 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceRepository
         public Workspace GetWorkspaceById(int workspaceId)
         {
             var sql = @"
-            SELECT 
-                Id,
-                WorkspaceName,
-                CreatedBy,
-                IsPersonal,
-                CreatedAt,
-                UpdatedAt
-            FROM Workspace
-            WHERE Id = @WorkspaceId;
-        ";
+                SELECT 
+                    Id,
+                    WorkspaceName,
+                    CreatedBy,
+                    IsPersonal,
+                    CreatedAt,
+                    UpdatedAt
+                FROM Workspace
+                WHERE Id = @WorkspaceId;
+            ";
             return _connection.QuerySingleOrDefault<Workspace>(sql, new { WorkspaceId = workspaceId });
         }
         public IEnumerable<Workspace> GetWorkspacesByCreatorId(int accountId)
         {
             var sql = @"
-        SELECT 
-            Id,
-            WorkspaceName,
-            CreatedBy,
-            IsPersonal,
-            CreatedAt,
-            UpdatedAt
-        FROM Workspace
-        WHERE CreatedBy = @AccountId;
-    ";
+                SELECT 
+                    Id,
+                    WorkspaceName,
+                    CreatedBy,
+                    IsPersonal,
+                    CreatedAt,
+                    UpdatedAt
+                FROM Workspace
+                WHERE CreatedBy = @AccountId;
+            ";
             return _connection.Query<Workspace>(sql, new { AccountId = accountId });
         }
     }

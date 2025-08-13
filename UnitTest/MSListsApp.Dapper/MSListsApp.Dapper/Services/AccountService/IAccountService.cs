@@ -9,9 +9,7 @@ namespace MSListsApp.Dapper.Services.AccountService
 {
     public interface IAccountService
     {
-        int CreateAccount(CreateAccountDto accountDto);
-        void UpdateAccount(UpdateAccountDto accountDto);
-        void DeleteAccount(int id);
-        AccountDto GetAccountInfoById(int id);
+        int CreateAccount(AccountDto dto);
+        AccountDto? GetAccountInfoById(int id);
     }
 }

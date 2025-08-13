@@ -5,10 +5,10 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceMemberRepository
 {
     public interface IWorkspaceMemberRepository
     {
-        int Add(WorkspaceMember workspaceMember);
-        void Delete(int id);
+        int Add(WorkspaceMember member);
         void EnsureTableWorkspaceMemberCreated();
-        WorkspaceMemberDto? GetById(int id);
-        void Update(WorkspaceMemberDto workspaceMember);
+        IEnumerable<string> GetAccountNamesByWorkspaceId(int workspaceId);
+        WorkspaceMember? GetById(int id);
+        IEnumerable<string> GetWorkspaceNamesByAccountId(int accountId);
     }
 }

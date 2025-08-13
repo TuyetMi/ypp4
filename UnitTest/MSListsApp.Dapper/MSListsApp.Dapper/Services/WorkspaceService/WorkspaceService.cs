@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using MSListsApp.Dapper.DTOs;
 using MSListsApp.Dapper.Models;
 using MSListsApp.Dapper.Repositories.WorkspaceRepository;
@@ -11,53 +7,37 @@ namespace MSListsApp.Dapper.Services.WorkspaceService
 {
     public class WorkspaceService : IWorkspaceService
     {
-        private readonly IWorkspaceRepository _workspaceRepository;
+        private readonly WorkspaceRepository _repository;
 
-        public WorkspaceService(IWorkspaceRepository workspaceRepository)
+        public WorkspaceService(WorkspaceRepository repository)
         {
-            _workspaceRepository = workspaceRepository;
+            _repository = repository;
         }
 
-        public int CreateWorkspace(WorkspaceCreateDto createDto)
+        // Tạo mới workspace
+        public int CreateWorkspace(WorkspaceDto dto)
         {
-            var workspace = MapToModel(createDto);
-            return _workspaceRepository.Add(workspace);
+            if (string.IsNullOrEmpty(dto.WorkspaceName))
+                throw new ArgumentException("WorkspaceName không được để trống.");
+
+            var workspace = new Workspace
+            {
+                WorkspaceName = dto.WorkspaceName,
+                CreatedBy = dto.CreatedBy,
+                IsPersonal = dto.IsPersonal,
+                CreatedAt = dto.CreatedAt ?? DateTime.UtcNow,
+                UpdatedAt = dto.UpdatedAt ?? DateTime.UtcNow
+            };
+
+            return _repository.Add(workspace);
         }
 
-        public void UpdateWorkspace(WorkspaceUpdateDto updateDto)
+        // Lấy workspace theo Id
+        public WorkspaceDto? GetWorkspaceById(int id)
         {
-            var workspace = _workspaceRepository.GetWorkspaceById(updateDto.Id);
-            if (workspace == null) throw new Exception("Workspace not found.");
+            var workspace = _repository.GetWorkspaceById(id);
+            if (workspace == null) return null;
 
-            // Cập nhật các trường nếu được gửi
-            if (!string.IsNullOrEmpty(updateDto.WorkspaceName))
-                workspace.WorkspaceName = updateDto.WorkspaceName;
-
-            workspace.UpdatedAt = updateDto.UpdatedAt ?? DateTime.Now;
-
-            _workspaceRepository.Update(workspace);
-        }
-
-        public void DeleteWorkspace(int workspaceId)
-        {
-            _workspaceRepository.Delete(workspaceId);
-        }
-
-        public WorkspaceDto? GetWorkspaceById(int workspaceId)
-        {
-            var workspace = _workspaceRepository.GetWorkspaceById(workspaceId);
-            return workspace == null ? null : MapToDto(workspace);
-        }
-
-        public IEnumerable<WorkspaceDto> GetWorkspacesByCreatorId(int accountId)
-        {
-            var workspaces = _workspaceRepository.GetWorkspacesByCreatorId(accountId);
-            return workspaces.Select(MapToDto);
-        }
-
-        // --- Mapping methods nằm trong service ---
-        private static WorkspaceDto MapToDto(Workspace workspace)
-        {
             return new WorkspaceDto
             {
                 Id = workspace.Id,
@@ -69,19 +49,13 @@ namespace MSListsApp.Dapper.Services.WorkspaceService
             };
         }
 
-        private static Workspace MapToModel(WorkspaceCreateDto createDto)
+        // Lấy danh sách tên workspace do account tạo
+        public IEnumerable<string> GetWorkspaceNamesByAccountId(int accountId)
         {
-            return new Workspace
-            {
-                WorkspaceName = createDto.WorkspaceName,
-                CreatedBy = createDto.CreatedBy,
-                IsPersonal = createDto.IsPersonal,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = null
-            };
+            return _repository.GetWorkspaceNamesByAccountId(accountId);
         }
 
+
+
     }
-
-
 }

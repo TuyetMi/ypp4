@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Microsoft.Data.Sqlite;
 using MSListsApp.Dapper.DTOs;
 using MSListsApp.Dapper.Repositories.WorkspaceRepository;
@@ -13,9 +9,8 @@ namespace MSListsApp.Dapper.Tests
     [TestClass]
     public class WorkspaceTests
     {
-        private SqliteConnection _connection;
-        private IWorkspaceRepository _repository;
-        private IWorkspaceService _service;
+        private SqliteConnection _connection = null!;
+        private WorkspaceService _service = null!;
 
         [TestInitialize]
         public void Setup()
@@ -25,93 +20,59 @@ namespace MSListsApp.Dapper.Tests
             TestDatabaseHelper.CreateAllTables(_connection);
 
             // Khởi tạo repository + service
-            _repository = new WorkspaceRepository(_connection);
-            _service = new WorkspaceService(_repository);
+            var workspaceRepo = new WorkspaceRepository(_connection);
+            _service = new WorkspaceService(workspaceRepo);
         }
 
         [TestCleanup]
         public void Cleanup()
         {
+            _connection.Close();
             _connection.Dispose();
         }
 
         [TestMethod]
-        public void TestCreateWorkspace()
+        public void GetWorkspaceById_ShouldReturn_CorrectWorkspace()
         {
-            var createDto = new WorkspaceCreateDto
+            // Arrange
+            var dto = new WorkspaceDto
             {
-                WorkspaceName = "My Workspace",
-                CreatedBy = 1,
-                IsPersonal = false
-            };
-
-            int id = _service.CreateWorkspace(createDto);
-            Assert.IsTrue(id > 0, "Workspace ID should be greater than 0");
-
-            var workspace = _service.GetWorkspaceById(id);
-            Assert.IsNotNull(workspace);
-            Assert.AreEqual("My Workspace", workspace.WorkspaceName);
-            Assert.AreEqual(1, workspace.CreatedBy);
-            Assert.IsFalse(workspace.IsPersonal);
-        }
-
-        [TestMethod]
-        public void TestUpdateWorkspace()
-        {
-            var createDto = new WorkspaceCreateDto
-            {
-                WorkspaceName = "Initial Workspace",
+                WorkspaceName = "Test Workspace",
                 CreatedBy = 2,
-                IsPersonal = false
+                IsPersonal = true
             };
-            int id = _service.CreateWorkspace(createDto);
+            var id = _service.CreateWorkspace(dto);
 
-            var updateDto = new WorkspaceUpdateDto
-            {
-                Id = id,
-                WorkspaceName = "Updated Workspace",
-            };
+            // Act
+            var result = _service.GetWorkspaceById(id);
 
-            _service.UpdateWorkspace(updateDto);
-
-            var updated = _service.GetWorkspaceById(id);
-            Assert.AreEqual("Updated Workspace", updated.WorkspaceName);
-            Assert.IsTrue(updated.IsPersonal);
-            Assert.AreEqual(2, updated.CreatedBy); // CreatedBy vẫn giữ nguyên
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual("Test Workspace", result!.WorkspaceName);
+            Assert.AreEqual(2, result.CreatedBy);
+            Assert.IsTrue(result.IsPersonal);
         }
-
         [TestMethod]
-        public void TestDeleteWorkspace()
+        public void GetWorkspaceNamesByAccountId_ShouldReturn_CorrectNames()
         {
-            var createDto = new WorkspaceCreateDto
-            {
-                WorkspaceName = "To Delete",
-                CreatedBy = 3,
-                IsPersonal = false
-            };
-            int id = _service.CreateWorkspace(createDto);
-
-            _service.DeleteWorkspace(id);
-
-            var deleted = _service.GetWorkspaceById(id);
-            Assert.IsNull(deleted);
-        }
-
-        [TestMethod]
-        public void TestGetWorkspacesByCreatorId()
-        {
-            var dto1 = new WorkspaceCreateDto { WorkspaceName = "WS1", CreatedBy = 10 };
-            var dto2 = new WorkspaceCreateDto { WorkspaceName = "WS2", CreatedBy = 10 };
-            var dto3 = new WorkspaceCreateDto { WorkspaceName = "WS3", CreatedBy = 20 };
+            // Arrange
+            var dto1 = new WorkspaceDto { WorkspaceName = "WS1", CreatedBy = 1, IsPersonal = false };
+            var dto2 = new WorkspaceDto { WorkspaceName = "WS2", CreatedBy = 1, IsPersonal = false };
+            var dto3 = new WorkspaceDto { WorkspaceName = "WS3", CreatedBy = 2, IsPersonal = false };
 
             _service.CreateWorkspace(dto1);
             _service.CreateWorkspace(dto2);
             _service.CreateWorkspace(dto3);
 
-            var list = _service.GetWorkspacesByCreatorId(10).ToList();
-            Assert.AreEqual(2, list.Count);
-            Assert.IsTrue(list.Any(w => w.WorkspaceName == "WS1"));
-            Assert.IsTrue(list.Any(w => w.WorkspaceName == "WS2"));
+            // Act
+            var names = _service.GetWorkspaceNamesByAccountId(1).ToList();
+
+            // Assert
+            Assert.AreEqual(2, names.Count);
+            CollectionAssert.Contains(names, "WS1");
+            CollectionAssert.Contains(names, "WS2");
+            CollectionAssert.DoesNotContain(names, "WS3");
         }
     }
+
 }

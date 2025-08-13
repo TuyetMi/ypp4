@@ -41,140 +41,73 @@ namespace MSListsApp.Dapper
 
         public static void SeedData(IDbConnection connection)
         {
+            // Seed Accounts
             var accountRepo = new AccountRepository(connection);
-
-            // Thêm một vài account mẫu
             accountRepo.Add(new Account
             {
                 Avatar = "avatar1.png",
                 FirstName = "John",
                 LastName = "Doe",
-                DateBirth = new DateTime(1990, 1, 1),
-                Email = "john.doe@example.com",
-                Company = "ABC Corp",
-                AccountStatus = "Active"
+                Email = "john@example.com",
+                Company = "CompanyA",
+                AccountStatus = "Active",
+                AccountPassword = "123456"
             });
-
             accountRepo.Add(new Account
             {
                 Avatar = "avatar2.png",
                 FirstName = "Jane",
                 LastName = "Smith",
-                DateBirth = new DateTime(1992, 5, 12),
-                Email = "jane.smith@example.com",
-                Company = "XYZ Inc",
-                AccountStatus = "Active"
+                Email = "jane@example.com",
+                Company = "CompanyB",
+                AccountStatus = "Active",
+                AccountPassword = "abcdef"
             });
 
-            accountRepo.Add(new Account
-            {
-                Avatar = "avatar3.png",
-                FirstName = "Alice",
-                LastName = "Johnson",
-                DateBirth = new DateTime(1988, 7, 23),
-                Email = "alice.johnson@example.com",
-                Company = "Tech Solutions",
-                AccountStatus = "Inactive"
-            });
-
-            accountRepo.Add(new Account
-            {
-                Avatar = "avatar4.png",
-                FirstName = "Bob",
-                LastName = "Brown",
-                DateBirth = new DateTime(1995, 3, 15),
-                Email = "bob.brown@example.com",
-                Company = "Innovate Ltd",
-                AccountStatus = "Active"
-            });
-
-            accountRepo.Add(new Account
-            {
-                Avatar = "avatar5.png",
-                FirstName = "Carol",
-                LastName = "Davis",
-                DateBirth = new DateTime(1991, 11, 30),
-                Email = "carol.davis@example.com",
-                Company = "Creative Co",
-                AccountStatus = "Inactive"
-            });
-
+            // Seed Workspaces
             var workspaceRepo = new WorkspaceRepository(connection);
-
-            // Thêm 3 workspace mẫu
-            workspaceRepo.Add(new Workspace
+            var ws1Id = workspaceRepo.Add(new Workspace
             {
-                WorkspaceName = "Marketing Team",
+                WorkspaceName = "Workspace 1",
                 CreatedBy = 1,
                 IsPersonal = false,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             });
-
-            workspaceRepo.Add(new Workspace
+            var ws2Id = workspaceRepo.Add(new Workspace
             {
-                WorkspaceName = "Development Team",
+                WorkspaceName = "Workspace 2",
                 CreatedBy = 2,
-                IsPersonal = false,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
-            });
-
-            workspaceRepo.Add(new Workspace
-            {
-                WorkspaceName = "Personal Workspace",
-                CreatedBy = 1,
                 IsPersonal = true,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             });
 
-            var workspaceMemberRepo = new WorkspaceMemberRepository(connection);
-
-            // Thêm dữ liệu mẫu cho WorkspaceMember
-            workspaceMemberRepo.Add(new WorkspaceMember
+            // Seed WorkspaceMembers
+            var wmRepo = new WorkspaceMemberRepository(connection);
+            wmRepo.Add(new WorkspaceMember
             {
-                WorkspaceId = 1,
+                WorkspaceId = ws1Id,
                 AccountId = 1,
-                JoinedAt = DateTime.Now,
+                JoinedAt = DateTime.UtcNow,
                 MemberStatus = "Active",
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.UtcNow
             });
-
-            workspaceMemberRepo.Add(new WorkspaceMember
+            wmRepo.Add(new WorkspaceMember
             {
-                WorkspaceId = 1,
+                WorkspaceId = ws1Id,
                 AccountId = 2,
-                JoinedAt = DateTime.Now,
+                JoinedAt = DateTime.UtcNow,
                 MemberStatus = "Active",
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.UtcNow
             });
-
-            workspaceMemberRepo.Add(new WorkspaceMember
+            wmRepo.Add(new WorkspaceMember
             {
-                WorkspaceId = 2,
+                WorkspaceId = ws2Id,
                 AccountId = 2,
-                JoinedAt = DateTime.Now,
+                JoinedAt = DateTime.UtcNow,
                 MemberStatus = "Active",
-                UpdatedAt = DateTime.Now
-            });
-
-            workspaceMemberRepo.Add(new WorkspaceMember
-            {
-                WorkspaceId = 2,
-                AccountId = 4,
-                JoinedAt = DateTime.Now,
-                MemberStatus = "Active",
-                UpdatedAt = DateTime.Now
-            });
-
-            workspaceMemberRepo.Add(new WorkspaceMember
-            {
-                WorkspaceId = 3,
-                AccountId = 1,
-                JoinedAt = DateTime.Now,
-                MemberStatus = "Active",
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.UtcNow
             });
         }
     }

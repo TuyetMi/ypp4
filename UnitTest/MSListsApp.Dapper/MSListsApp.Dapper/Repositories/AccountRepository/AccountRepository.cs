@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using Dapper;
+using MSListsApp.Dapper.DTOs;
 using MSListsApp.Dapper.Models;
 
 namespace MSListsApp.Dapper.Repositories.AccountRepository
@@ -29,7 +25,8 @@ namespace MSListsApp.Dapper.Repositories.AccountRepository
                     DateBirth DATETIME,
                     Email TEXT,
                     Company TEXT,
-                    AccountStatus TEXT
+                    AccountStatus TEXT,
+                    AccountPassword TEXT
                 );
             ";
             _connection.Execute(sql);
@@ -38,35 +35,17 @@ namespace MSListsApp.Dapper.Repositories.AccountRepository
         public int Add(Account account)
         {
             var sql = @"
-                INSERT INTO Account (Avatar, FirstName, LastName, DateBirth, Email, Company, AccountStatus)
-                VALUES (@Avatar, @FirstName, @LastName, @DateBirth, @Email, @Company, @AccountStatus);
-                SELECT last_insert_rowid();
-            ";
-            return _connection.ExecuteScalar<int>(sql, account);
-        }
-        public void Update(Account account)
-        {
-            var sql = @"
-                UPDATE Account SET
-                    Avatar = @Avatar,
-                    FirstName = @FirstName,
-                    LastName = @LastName,
-                    DateBirth = @DateBirth,
-                    Email = @Email,
-                    Company = @Company,
-                    AccountStatus = @AccountStatus
-                WHERE Id = @Id;
-            ";
-            _connection.Execute(sql, account);
+                INSERT INTO Account 
+                    (Avatar, FirstName, LastName, DateBirth, Email, Company, AccountStatus, AccountPassword)
+                VALUES 
+                    (@Avatar, @FirstName, @LastName, @DateBirth, @Email, @Company, @AccountStatus, @AccountPassword);
+                SELECT last_insert_rowid();"; 
+
+            var id = _connection.ExecuteScalar<int>(sql, account);
+            return id;
         }
 
-        public void Delete(int id)
-        {
-            var sql = "DELETE FROM Account WHERE Id = @Id";
-            _connection.Execute(sql, new { Id = id });
-        }
-
-        public Account GetAccountInfoById(int accountId)
+        public Account GetById(int id)
         {
             var sql = @"
                 SELECT 
@@ -78,10 +57,10 @@ namespace MSListsApp.Dapper.Repositories.AccountRepository
                     a.Company,
                     a.AccountStatus
                 FROM Account a
-                WHERE a.Id = @AccountId;
+                WHERE a.Id = @Id;
             ";
 
-            return _connection.QuerySingleOrDefault<Account>(sql, new { AccountId = accountId });
+            return _connection.QuerySingleOrDefault<Account>(sql, new { Id = id });
         }
     }
 }

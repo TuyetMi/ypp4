@@ -14,39 +14,53 @@ namespace MSListsApp.Dapper.Services.WorkspaceMemberService
             _repository = repository;
         }
 
-        public int AddMember(WorkspaceMemberDto createDto)
+        public int AddMember(WorkspaceMemberDto dto)
         {
+            if (dto.WorkspaceId <= 0)
+                throw new ArgumentException("WorkspaceId phải lớn hơn 0.");
+            if (dto.AccountId <= 0)
+                throw new ArgumentException("AccountId phải lớn hơn 0.");
+
             var member = new WorkspaceMember
             {
-                WorkspaceId = createDto.WorkspaceId,
-                AccountId = createDto.AccountId,
-                JoinedAt = createDto.JoinedAt ?? DateTime.Now,
-                MemberStatus = createDto.MemberStatus,
-                UpdatedAt = createDto.UpdatedAt
+                WorkspaceId = dto.WorkspaceId,
+                AccountId = dto.AccountId,
+                JoinedAt = dto.JoinedAt ?? DateTime.UtcNow,
+                MemberStatus = dto.MemberStatus,
+                UpdatedAt = dto.UpdatedAt ?? DateTime.UtcNow
             };
+
             return _repository.Add(member);
         }
 
-        public void UpdateMember(WorkspaceMemberDto updateDto)
+        // Lấy member theo Id
+        public WorkspaceMemberDto? GetMemberById(int id)
         {
-            var member = _repository.GetById(updateDto.Id);
-            if (member == null) throw new Exception("Member not found.");
+            var member = _repository.GetById(id);
+            if (member == null) return null;
 
-            // Update từng trường nếu có
-            if (updateDto.WorkspaceId != 0) member.WorkspaceId = updateDto.WorkspaceId;
-            if (updateDto.AccountId != 0) member.AccountId = updateDto.AccountId;
-            member.JoinedAt = updateDto.JoinedAt ?? member.JoinedAt;
-            member.MemberStatus = updateDto.MemberStatus ?? member.MemberStatus;
-            member.UpdatedAt = updateDto.UpdatedAt ?? DateTime.Now;
-
-            _repository.Update(member);
+            return new WorkspaceMemberDto
+            {
+                Id = member.Id,
+                WorkspaceId = member.WorkspaceId,
+                AccountId = member.AccountId,
+                JoinedAt = member.JoinedAt,
+                MemberStatus = member.MemberStatus,
+                UpdatedAt = member.UpdatedAt
+            };
         }
 
-        public void DeleteMember(int memberId)
+        // Lấy tên các account là member của workspace
+        public IEnumerable<string> GetAccountNamesByWorkspaceId(int workspaceId)
         {
-            _repository.Delete(memberId);
+            return _repository.GetAccountNamesByWorkspaceId(workspaceId);
         }
 
+        // Lấy tên các workspace mà account là member
+        public IEnumerable<string> GetWorkspaceNamesByAccountId(int accountId)
+        {
+            return _repository.GetWorkspaceNamesByAccountId(accountId);
+        }
 
     }
 

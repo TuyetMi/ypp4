@@ -5,8 +5,8 @@ namespace MSListsApp.Dapper.Services.WorkspaceMemberService
     public interface IWorkspaceMemberService
     {
         int AddMember(WorkspaceMemberDto dto);
-        void UpdateMember(WorkspaceMemberDto dto);
-        void DeleteMember(int id);
-
+        IEnumerable<string> GetAccountNamesByWorkspaceId(int workspaceId);
+        WorkspaceMemberDto? GetMemberById(int id);
+        IEnumerable<string> GetWorkspaceNamesByAccountId(int accountId);
     }
 }

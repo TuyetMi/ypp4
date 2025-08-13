@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Dapper;
-using MSListsApp.Dapper.DTOs;
 using MSListsApp.Dapper.Models;
 
 namespace MSListsApp.Dapper.Repositories.WorkspaceMemberRepository
@@ -35,54 +29,40 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceMemberRepository
             _connection.Execute(sql);
         }
 
-        public int Add(WorkspaceMember workspaceMember)
+        public int Add(WorkspaceMember member)
         {
             var sql = @"
-                INSERT INTO WorkspaceMember (WorkspaceId, AccountId, JoinedAt, MemberStatus, UpdatedAt)
-                VALUES (@WorkspaceId, @AccountId, @JoinedAt, @MemberStatus, @UpdatedAt);
-                SELECT last_insert_rowid();
-            ";
-            return _connection.ExecuteScalar<int>(sql, workspaceMember);
+                INSERT INTO WorkspaceMember 
+                    (WorkspaceId, AccountId, JoinedAt, MemberStatus, UpdatedAt)
+                VALUES 
+                    (@WorkspaceId, @AccountId, @JoinedAt, @MemberStatus, @UpdatedAt);
+                SELECT last_insert_rowid();";
+
+            return _connection.ExecuteScalar<int>(sql, member);
         }
 
-        public void Update(WorkspaceMemberDto workspaceMember)
+        public WorkspaceMember? GetById(int id)
+        {
+            var sql = "SELECT * FROM WorkspaceMember WHERE Id = @Id";
+            return _connection.QuerySingleOrDefault<WorkspaceMember>(sql, new { Id = id });
+        }
+        public IEnumerable<string> GetAccountNamesByWorkspaceId(int workspaceId)
         {
             var sql = @"
-                UPDATE WorkspaceMember SET
-                    WorkspaceId = @WorkspaceId,
-                    AccountId = @AccountId,
-                    JoinedAt = @JoinedAt,
-                    MemberStatus = @MemberStatus,
-                    UpdatedAt = @UpdatedAt
-                WHERE Id = @Id;
-            ";
-            _connection.Execute(sql, workspaceMember);
+                SELECT a.FirstName || ' ' || a.LastName AS FullName
+                FROM WorkspaceMember wm
+                INNER JOIN Account a ON wm.AccountId = a.Id
+                WHERE wm.WorkspaceId = @WorkspaceId;";
+            return _connection.Query<string>(sql, new { WorkspaceId = workspaceId });
         }
-
-        public void Delete(int id)
-        {
-            var sql = "DELETE FROM WorkspaceMember WHERE Id = @Id";
-            _connection.Execute(sql, new { Id = id });
-        }
-        public WorkspaceMemberDto? GetById(int id)
+        public IEnumerable<string> GetWorkspaceNamesByAccountId(int accountId)
         {
             var sql = @"
-                SELECT 
-                    Id,
-                    WorkspaceId,
-                    AccountId,
-                    JoinedAt,
-                    MemberStatus,
-                    UpdatedAt
-                FROM WorkspaceMember
-                WHERE Id = @Id
-            ";
-            return _connection.QueryFirstOrDefault<WorkspaceMemberDto>(sql, new { Id = id });
+                SELECT w.WorkspaceName
+                FROM WorkspaceMember wm
+                INNER JOIN Workspace w ON wm.WorkspaceId = w.Id
+                WHERE wm.AccountId = @AccountId;";
+            return _connection.Query<string>(sql, new { AccountId = accountId });
         }
-
-
-
-
-
     }
 }

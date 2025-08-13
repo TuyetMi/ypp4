@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n4bdhN/mKOM=",
+  "dgSpecHash": "LvAxSjOKYvY=",
   "success": true,
-  "projectFilePath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
+  "projectFilePath": "E:\\YPP 4\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luong\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\luong\\.nuget\\packages\\microsoft.applicationinsights\\2.23.0\\microsoft.applicationinsights.2.23.0.nupkg.sha512",

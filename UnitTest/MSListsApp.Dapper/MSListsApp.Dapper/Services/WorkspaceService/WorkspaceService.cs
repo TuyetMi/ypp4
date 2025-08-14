@@ -18,7 +18,7 @@ namespace MSListsApp.Dapper.Services.WorkspaceService
         public int CreateWorkspace(WorkspaceDto dto)
         {
             if (string.IsNullOrEmpty(dto.WorkspaceName))
-                throw new ArgumentException("WorkspaceName không được để trống.");
+                throw new ArgumentException("WorkspaceName can't be null.");
 
             var workspace = new Workspace
             {

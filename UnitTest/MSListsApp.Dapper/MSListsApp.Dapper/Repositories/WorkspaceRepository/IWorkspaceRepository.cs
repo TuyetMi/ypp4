@@ -10,7 +10,7 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceRepository
     public interface IWorkspaceRepository
     {
         int Add(Workspace workspace);
-        void EnsureTableWorkspaceCreated();
+        void CreateTable();
         Workspace GetWorkspaceById(int id);
         IEnumerable<string> GetWorkspaceNamesByAccountId(int accountId);
     }

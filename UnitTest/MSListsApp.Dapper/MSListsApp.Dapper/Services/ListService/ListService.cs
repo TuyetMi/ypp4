@@ -1,11 +1,6 @@
 ﻿using MSListsApp.Dapper.DTOs;
 using MSListsApp.Dapper.Models;
 using MSListsApp.Dapper.Repositories.ListRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MSListsApp.Dapper.Services.ListService
 {
@@ -40,31 +35,15 @@ namespace MSListsApp.Dapper.Services.ListService
             return _repository.Add(list);
         }
 
-        // Lấy List theo Id
-        public ListDto? GetListById(int id)
+        public ListDetailDto? GetDetailById(int id)
         {
-            var list = _repository.GetById(id);
-            if (list == null) return null;
-
-            return new ListDto
-            {
-                Id = list.Id,
-                ListTypeId = list.ListTypeId,
-                ListTemplateId = list.ListTemplateId,
-                WorkspaceId = list.WorkspaceId,
-                ListName = list.ListName,
-                Icon = list.Icon,
-                Color = list.Color,
-                CreatedBy = list.CreatedBy,
-                CreatedAt = list.CreatedAt,
-                ListStatus = list.ListStatus
-            };
+            return _repository.GetDetailById(id);
         }
 
-        // Lấy thông tin List (tên, icon, color, workspace name)
-        public object? GetListInfoById(int id)
+        public IEnumerable<ListSummaryDto> GetListsInPersonalWorkspaceByUser(int accountId)
         {
-            return _repository.GetListInfoById(id);
+            return _repository.GetListsInPersonalWorkspaceByUser(accountId);
         }
+
     }
 }

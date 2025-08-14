@@ -14,7 +14,7 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceRepository
             _connection = connection;
         }
 
-        public void EnsureTableWorkspaceCreated()
+        public void CreateTable()
         {
             var sql = @"
                 CREATE TABLE IF NOT EXISTS Workspace (

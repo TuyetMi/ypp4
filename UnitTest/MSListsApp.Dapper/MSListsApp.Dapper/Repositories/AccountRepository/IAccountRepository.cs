@@ -7,7 +7,7 @@ namespace MSListsApp.Dapper.Repositories.AccountRepository
     public interface IAccountRepository
     {
         int Add(Account account);
-        void EnsureTableAccountCreated();
+        void CreateTable();
         Account GetById(int id);
     }
 }

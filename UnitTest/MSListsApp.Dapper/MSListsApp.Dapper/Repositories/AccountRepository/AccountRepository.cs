@@ -14,7 +14,7 @@ namespace MSListsApp.Dapper.Repositories.AccountRepository
             _connection = connection;
 
         }
-        public void EnsureTableAccountCreated()
+        public void CreateTable()
         {
             var sql = @"
                 CREATE TABLE IF NOT EXISTS Account (

@@ -23,6 +23,7 @@ namespace MSListsApp.Dapper.Tests
             var wmRepo = new WorkspaceMemberRepository(_connection);
             _service = new WorkspaceMemberService(wmRepo);
         }
+
         [TestCleanup]
         public void Cleanup()
         {

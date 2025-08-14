@@ -14,7 +14,7 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceMemberRepository
             _connection = connection;
         }
 
-        public void EnsureTableWorkspaceMemberCreated()
+        public void CreateTable()
         {
             var sql = @"
                 CREATE TABLE IF NOT EXISTS WorkspaceMember (
@@ -43,7 +43,16 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceMemberRepository
 
         public WorkspaceMember? GetById(int id)
         {
-            var sql = "SELECT * FROM WorkspaceMember WHERE Id = @Id";
+            var sql = @" SELECT 
+                    Id,
+                    WorkspaceId,
+                    AccountId,
+                    JoinedAt,
+                    MemberStatus,
+                    UpdatedAt
+                FROM Workspace
+                WHERE Id = @Id;
+            ";
             return _connection.QuerySingleOrDefault<WorkspaceMember>(sql, new { Id = id });
         }
         public IEnumerable<string> GetAccountNamesByWorkspaceId(int workspaceId)

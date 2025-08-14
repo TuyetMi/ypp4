@@ -31,12 +31,14 @@ DECLARE @UserId INT = 2;
 SELECT 
     l.ListName,
 	l.Icon,
-	l.Color
+	l.Color,
+	CASE WHEN fvrl.Id IS NOT NULL THEN 1 ELSE 0 END AS IsFavorited
 FROM List l
 JOIN Workspace ws ON l.WorkspaceID = ws.Id
+LEFT JOIN FavoriteList fvrl ON fvrl.ListId = l.Id and fvrl.AccountId = @UserId
 WHERE ws.CreatedBy = @UserId
     AND l.ListStatus = 'Active'
-	AND ws.WorkspaceName = 'My Lists';
+	AND ws.IsPersonal = 1;
 GO
 
 -- 3. Display information of the logged-in user

@@ -32,26 +32,6 @@ namespace MSListsApp.Dapper.Tests
             _connection.Dispose();
         }
 
-        [TestMethod]
-        public void GetMemberById_ShouldReturn_CorrectMember()
-        {
-            // Arrange
-            var dto = new WorkspaceMemberDto
-            {
-                WorkspaceId = 2,
-                AccountId = 1
-            };
-            var id = _service.AddMember(dto);
-
-            // Act
-            var result = _service.GetMemberById(id);
-
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(2, result!.WorkspaceId);
-            Assert.AreEqual(1, result.AccountId);
-            Assert.AreEqual("Active", result.MemberStatus);
-        }
 
         [TestMethod]
         public void GetAccountNamesByWorkspaceId_ShouldReturn_CorrectNames()

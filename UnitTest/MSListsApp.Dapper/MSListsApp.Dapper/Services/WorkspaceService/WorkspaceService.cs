@@ -14,23 +14,6 @@ namespace MSListsApp.Dapper.Services.WorkspaceService
             _repository = repository;
         }
 
-        // Tạo mới workspace
-        public int CreateWorkspace(WorkspaceDto dto)
-        {
-            if (string.IsNullOrEmpty(dto.WorkspaceName))
-                throw new ArgumentException("WorkspaceName can't be null.");
-
-            var workspace = new Workspace
-            {
-                WorkspaceName = dto.WorkspaceName,
-                CreatedBy = dto.CreatedBy,
-                IsPersonal = dto.IsPersonal,
-                CreatedAt = dto.CreatedAt ?? DateTime.UtcNow,
-                UpdatedAt = dto.UpdatedAt ?? DateTime.UtcNow
-            };
-
-            return _repository.Add(workspace);
-        }
 
         // Lấy workspace theo Id
         public WorkspaceDto? GetWorkspaceById(int id)

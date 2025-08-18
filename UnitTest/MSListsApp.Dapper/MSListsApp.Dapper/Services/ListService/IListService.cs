@@ -4,8 +4,8 @@ namespace MSListsApp.Dapper.Services.ListService
 {
     public interface IListService
     {
-        int CreateList(ListDto dto);
+
         ListDetailDto? GetDetailById(int id);
-        IEnumerable<ListSummaryDto> GetListsInPersonalWorkspaceByUser(int accountId);
+        IEnumerable<ListSummaryDto> GetMyList(int accountId);
     }
 }

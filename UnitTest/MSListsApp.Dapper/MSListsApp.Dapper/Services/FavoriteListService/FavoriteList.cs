@@ -13,18 +13,6 @@ namespace MSListsApp.Dapper.Services.FavoriteListService
             _repository = repository;
         }
 
-        public int AddFavoriteList(FavoriteListDto favoriteListDto)
-        {
-            var favoriteList = new Models.FavoriteList
-            {
-                ListId = favoriteListDto.ListId,
-                AccountId = favoriteListDto.AccountId,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
-            };
-
-            return _repository.Add(favoriteList);
-        }
 
         public IEnumerable<ListSummaryDto> GetFavoriteListsByUser(int accountId)
         {

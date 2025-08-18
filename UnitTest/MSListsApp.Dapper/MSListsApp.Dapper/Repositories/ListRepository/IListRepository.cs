@@ -5,10 +5,7 @@ namespace MSListsApp.Dapper.Repositories.ListRepository
 {
     public interface IListRepository
     {
-        int Add(List list);
-        void CreateTable();
-        
         ListDetailDto? GetDetailById(int id);
-        IEnumerable<ListSummaryDto> GetListsInPersonalWorkspaceByUser(int accountId);
+        IEnumerable<ListSummaryDto> GetMyList(int accountId);
     }
 }

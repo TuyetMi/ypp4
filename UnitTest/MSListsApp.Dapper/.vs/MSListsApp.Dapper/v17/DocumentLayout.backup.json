@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listrepository\\listrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listrepository\\listrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listservice\\listservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listservice\\listservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\favoritelisttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\favoritelisttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,28 +23,140 @@
       "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\accounttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\accountservice\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\accountservice\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\testdatabasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\testdatabasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacerepository\\workspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacerepository\\workspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\dicontainerbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\dicontainerbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\listtypetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\listtypetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\mslistsapp.dapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\mslistsapp.dapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\mslistsapp.dapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\mslistsapp.dapper.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\accountservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\accountservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspaceservice\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspaceservice\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspaceservice\\iworkspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspaceservice\\iworkspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listtypeservice\\ilisttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listtypeservice\\ilisttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listtypeservice\\listtypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listtypeservice\\listtypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\listtypetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\listtypetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\workspacemembertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\workspacemembertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspacememberservice\\workspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspacememberservice\\workspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspacememberservice\\iworkspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspacememberservice\\iworkspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listservice\\ilistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listservice\\ilistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\favoritelistservice\\ifavoritelistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\favoritelistservice\\ifavoritelistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\favoritelistservice\\favoritelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\favoritelistservice\\favoritelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\favoritelistrepository\\favoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\favoritelistrepository\\favoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\favoritelistrepository\\ifavoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\favoritelistrepository\\ifavoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\dtos\\favoritelistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\dtos\\favoritelistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\dtos\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\dtos\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacerepository\\workspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacerepository\\workspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacerepository\\iworkspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacerepository\\iworkspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacememberrepository\\iworkspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacememberrepository\\iworkspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacememberrepository\\workspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacememberrepository\\workspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listtyperepository\\listtyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listtyperepository\\listtyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listtyperepository\\ilisttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listtyperepository\\ilisttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listrepository\\ilistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listrepository\\ilistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\workspacemember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\workspacemember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\dtos\\listtypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,128 +175,12 @@
       "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\dtos\\workspacememberdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\dtos\\favoritelistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\dtos\\favoritelistdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\dtos\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\dtos\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\workspacemembertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\workspacemembertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listtyperepository\\listtyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listtyperepository\\listtyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listrepository\\listrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listrepository\\listrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listtypeservice\\listtypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listtypeservice\\listtypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listservice\\listservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listservice\\listservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listrepository\\ilistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listrepository\\ilistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listservice\\ilistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listservice\\ilistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\listtyperepository\\ilisttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\listtyperepository\\ilisttyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\listtypeservice\\ilisttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\listtypeservice\\ilisttypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\favoritelistservice\\favoritelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\favoritelistservice\\favoritelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\favoritelistrepository\\ifavoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\favoritelistrepository\\ifavoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\accountservice\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\accountservice\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\favoritelistrepository\\favoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\favoritelistrepository\\favoritelistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\listtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\listtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\accountservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\accountservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspacememberservice\\workspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspacememberservice\\workspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspacememberservice\\iworkspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspacememberservice\\iworkspacememberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacerepository\\iworkspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacerepository\\iworkspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacememberrepository\\workspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacememberrepository\\workspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\repositories\\workspacememberrepository\\iworkspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\repositories\\workspacememberrepository\\iworkspacememberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\list.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\list.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspaceservice\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspaceservice\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\services\\workspaceservice\\iworkspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\services\\workspaceservice\\iworkspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\workspacemember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\workspacemember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|solutionrelative:mslistsapp.dapper\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{943B4560-F438-499D-A449-4D6A4C2A92C5}|MSListsApp.Dapper\\MSListsApp.Dapper.csproj|d:\\ypp4 git\\ypp4\\unittest\\mslistsapp.dapper\\mslistsapp.dapper\\models\\datatypesettingkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -210,17 +218,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 283,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AccountTest.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\AccountTest.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\AccountTest.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\AccountTest.cs",
               "RelativeToolTip": "MSListsApp.Dapper\\Tests\\AccountTest.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwCUAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA0wDYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T07:20:51.043Z",
               "EditorCaption": ""
@@ -228,232 +236,132 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ListTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTest.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\ListTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTest.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\ListTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
+              "ViewState": "AgIAAAcAAADAKzMzMzMLwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T02:47:50.614Z",
+              "WhenOpened": "2025-08-13T02:33:56.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "FavoriteListTest.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\FavoriteListTest.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\FavoriteListTest.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\FavoriteListTest.cs",
               "RelativeToolTip": "MSListsApp.Dapper\\Tests\\FavoriteListTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-14T07:19:33.056Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ListTypeTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T08:15:04.908Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TestDatabaseHelper.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\TestDatabaseHelper.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\TestDatabaseHelper.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\TestDatabaseHelper.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\TestDatabaseHelper.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowB8AAAAlAAAAAAAAAA==",
+              "Title": "ListTest.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTest.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\ListTest.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTest.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\ListTest.cs",
+              "ViewState": "AgIAACQAAAAATGZmZmbmvzMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T02:50:46.495Z",
+              "WhenOpened": "2025-08-14T02:47:50.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WorkspaceRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAYwBAAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ListService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
+              "ViewState": "AgIAAAYAAAAAzczMzMzsvxYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T09:23:40.941Z",
+              "WhenOpened": "2025-08-13T18:09:07.317Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MSTestSettings.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSTestSettings.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\MSTestSettings.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSTestSettings.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\MSTestSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T02:52:27.322Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MSListsApp.Dapper.csproj",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
-              "RelativeToolTip": "MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-12T02:58:44.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ListTypeDto.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T02:58:40.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ListDto.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListDto.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\ListDto.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListDto.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\ListDto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA5wBcAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T08:23:10.643Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "WorkspaceDto.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:16:20.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "WorkspaceMemberDto.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwA4AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:16:53.593Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FavoriteListDto.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T06:19:21.493Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 0,
               "Title": "ListRepository.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListRepository\\ListRepository.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\ListRepository\\ListRepository.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListRepository\\ListRepository.cs",
               "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\ListRepository\\ListRepository.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwE0AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAACAzMzMzMwwwDIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T18:04:37.26Z"
+              "WhenOpened": "2025-08-13T18:04:37.26Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AccountDto.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\AccountDto.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\AccountDto.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\AccountDto.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\AccountDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
+              "ViewState": "AgIAABwAAABA/P////8fwC8AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T02:32:43.335Z"
+              "WhenOpened": "2025-08-12T07:20:15.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TestDatabaseHelper.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\TestDatabaseHelper.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\TestDatabaseHelper.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\TestDatabaseHelper.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\TestDatabaseHelper.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAUwDAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T02:50:46.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T02:35:23.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DIContainerBuilder.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DIContainerBuilder.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DIContainerBuilder.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DIContainerBuilder.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\DIContainerBuilder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T10:31:51.681Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "WorkspaceMemberTests.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAQwDwAAAAAAAAAAAAAAA==",
+              "Title": "IListTypeService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:38:35.808Z"
+              "WhenOpened": "2025-08-14T07:59:24.962Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "ListTypeRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T02:59:42.801Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "WorkspaceTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwBIAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:39:14.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IListService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T18:15:42.763Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
               "Title": "ListTypeService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListTypeService\\ListTypeService.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\ListTypeService\\ListTypeService.cs",
@@ -465,259 +373,309 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ListService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\ListService\\ListService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAjwCwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T18:09:07.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IListTypeRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T03:37:11.061Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T03:21:43.263Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IListRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T03:39:23.713Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\AccountRepository\\AccountRepository.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowBAAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T07:20:15.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "IListTypeService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\ListTypeService\\IListTypeService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T07:59:24.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "FavoriteList.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T07:07:51.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IFavoriteListRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T07:03:29.566Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\AccountService\\AccountService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T02:33:56.337Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "FavoriteListRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T06:36:03.834Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ListType.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\ListType.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\ListType.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\ListType.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Models\\ListType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T08:26:48.623Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "IAccountService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\AccountService\\IAccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T02:35:23.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "WorkspaceMemberService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAADsAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:28:20.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "IWorkspaceMemberService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:29:50.561Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "IWorkspaceRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T06:22:10.622Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "WorkspaceMemberRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowBAAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:00:57.739Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "IWorkspaceMemberRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:14:04.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "List.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\List.cs",
-              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\List.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\List.cs",
-              "RelativeToolTip": "MSListsApp.Dapper\\Models\\List.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T17:55:59.008Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 12,
               "Title": "WorkspaceService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceService\\WorkspaceService.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\WorkspaceService\\WorkspaceService.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceService\\WorkspaceService.cs",
               "RelativeToolTip": "MSListsApp.Dapper\\Services\\WorkspaceService\\WorkspaceService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T06:27:34.055Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 13,
               "Title": "IWorkspaceService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceService\\IWorkspaceService.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\WorkspaceService\\IWorkspaceService.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceService\\IWorkspaceService.cs",
               "RelativeToolTip": "MSListsApp.Dapper\\Services\\WorkspaceService\\IWorkspaceService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T06:27:49.875Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 10,
+              "Title": "MSTestSettings.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSTestSettings.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\MSTestSettings.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSTestSettings.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\MSTestSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T02:52:27.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MSListsApp.Dapper.csproj",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
+              "RelativeToolTip": "MSListsApp.Dapper\\MSListsApp.Dapper.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-12T02:58:44.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IWorkspaceMemberService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\IWorkspaceMemberService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T07:29:50.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "WorkspaceTest.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\WorkspaceTest.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T06:39:14.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ListTypeTest.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\ListTypeTest.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T08:15:04.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "WorkspaceMemberTests.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Tests\\WorkspaceMemberTests.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAIwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T06:38:35.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "WorkspaceMemberService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\WorkspaceMemberService\\WorkspaceMemberService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T07:28:20.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IListService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\ListService\\IListService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T18:15:42.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IFavoriteListService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\FavoriteListService\\IFavoriteListService.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\FavoriteListService\\IFavoriteListService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\FavoriteListService\\IFavoriteListService.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\FavoriteListService\\IFavoriteListService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T09:35:22.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FavoriteList.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Services\\FavoriteListService\\FavoriteList.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAowAYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:07:51.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IFavoriteListRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\IFavoriteListRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T07:03:29.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "FavoriteListDto.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\FavoriteListDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T06:19:21.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T03:21:43.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "FavoriteListRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\FavoriteListRepository\\FavoriteListRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T06:36:03.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AccountDto.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\AccountDto.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\AccountDto.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\AccountDto.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\AccountDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T02:32:43.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "WorkspaceRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T09:23:40.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IWorkspaceRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T06:22:10.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IWorkspaceMemberRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\IWorkspaceMemberRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T07:14:04.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "WorkspaceMemberRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\WorkspaceMemberRepository\\WorkspaceMemberRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T07:00:57.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ListTypeRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\ListTypeRepository.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T02:59:42.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IListTypeRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\ListTypeRepository\\IListTypeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T03:37:11.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IListRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Repositories\\ListRepository\\IListRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T03:39:23.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "Account.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\Account.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\Account.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\Account.cs",
               "RelativeToolTip": "MSListsApp.Dapper\\Models\\Account.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T03:00:58.93Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 37,
               "Title": "WorkspaceMember.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\WorkspaceMember.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\WorkspaceMember.cs",
@@ -729,19 +687,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 38,
               "Title": "Workspace.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\Workspace.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\Workspace.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\Workspace.cs",
               "RelativeToolTip": "MSListsApp.Dapper\\Models\\Workspace.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T09:19:40.619Z"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "ListDto.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListDto.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\ListDto.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListDto.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\ListDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA5wBcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T08:23:10.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ListTypeDto.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\ListTypeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T02:58:40.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "WorkspaceDto.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\WorkspaceDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T06:16:20.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "WorkspaceMemberDto.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\DTOs\\WorkspaceMemberDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T06:16:53.593Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 43,
+              "Title": "ListType.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\ListType.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\ListType.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\ListType.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Models\\ListType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T08:26:48.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "List.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\List.cs",
+              "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\List.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\List.cs",
+              "RelativeToolTip": "MSListsApp.Dapper\\Models\\List.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T17:55:59.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
               "Title": "DataTypeSettingKey.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\DataTypeSettingKey.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\DataTypeSettingKey.cs",
@@ -753,7 +783,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "KeySetting.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\KeySetting.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\KeySetting.cs",
@@ -765,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "ListPerrmission.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\ListPerrmission.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\ListPerrmission.cs",
@@ -777,7 +807,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "TemplateProvider.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\TemplateProvider.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\TemplateProvider.cs",
@@ -789,7 +819,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "ViewTypeSettingKey.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\ViewTypeSettingKey.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\ViewTypeSettingKey.cs",
@@ -801,7 +831,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "SystemDataType.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\SystemDataType.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\SystemDataType.cs",
@@ -813,7 +843,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "ViewType.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MSListsApp.Dapper\\MSListsApp.Dapper\\Models\\ViewType.cs",
               "RelativeDocumentMoniker": "MSListsApp.Dapper\\Models\\ViewType.cs",

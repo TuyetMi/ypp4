@@ -16,39 +16,6 @@ namespace MSListsApp.Dapper.Repositories.ListRepository
             _connection = connection;
         }
 
-        // Tạo bảng nếu chưa có
-        public void CreateTable()
-        {
-            var sql = @"
-                CREATE TABLE IF NOT EXISTS List (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ListTypeId INTEGER NOT NULL,
-                    ListTemplateId INTEGER,
-                    WorkspaceId INTEGER,
-                    ListName TEXT NOT NULL,
-                    Icon TEXT,
-                    Color TEXT,
-                    CreatedBy INTEGER NOT NULL,
-                    CreatedAt TEXT,
-                    ListStatus TEXT NOT NULL DEFAULT 'Active'
-                );";
-            _connection.Execute(sql);
-        }
-
-        // Thêm List mới, trả về Id
-        public int Add(List list)
-        {
-            var sql = @"
-                INSERT INTO List 
-                    (ListTypeId, ListTemplateId, WorkspaceId, ListName, Icon, Color, CreatedBy, CreatedAt, ListStatus)
-                VALUES 
-                    (@ListTypeId, @ListTemplateId, @WorkspaceId, @ListName, @Icon, @Color, @CreatedBy, @CreatedAt, @ListStatus);
-                SELECT last_insert_rowid();";
-
-            return _connection.ExecuteScalar<int>(sql, list);
-        }
-
-       
         public ListDetailDto? GetDetailById(int id)
         {
             var sql = @"
@@ -65,10 +32,11 @@ namespace MSListsApp.Dapper.Repositories.ListRepository
             ";
             return _connection.QueryFirstOrDefault<ListDetailDto>(sql, new { Id = id });
         }
-        public IEnumerable<ListSummaryDto> GetListsInPersonalWorkspaceByUser(int accountId)
+        public IEnumerable<ListSummaryDto> GetMyList(int accountId)
         {
             var sql = @"
                 SELECT 
+                    l.Id,
                     l.ListName,
                     l.Icon,
                     l.Color,

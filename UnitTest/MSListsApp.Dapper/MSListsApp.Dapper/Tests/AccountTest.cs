@@ -17,6 +17,7 @@ namespace MSListsApp.Dapper.Tests
         {
             _connection = TestDatabaseHelper.CreateInMemoryDatabase();
             TestDatabaseHelper.CreateAllTables(_connection);
+            TestDatabaseHelper.SeedData(_connection);
 
             var accountRepo = new AccountRepository(_connection);
             _service = new AccountService(accountRepo);
@@ -27,34 +28,39 @@ namespace MSListsApp.Dapper.Tests
             _connection.Close();
             _connection.Dispose();
         }
-        [TestMethod]
-        public void GetAccountById_ShouldReturn_CorrectAccount()
-        {
-            // Arrange
-            var dto = new AccountDto
-            {
-                Avatar = "avatar.png",
-                FirstName = "Jane",
-                LastName = "Smith",
-                DateBirth = new DateTime(1995, 5, 5),
-                Email = "jane@example.com",
-                Company = "AnotherCompany",
-                AccountStatus = "Active",
-                AccountPassword = "password123"
-            };
-            var id = _service.CreateAccount(dto);
 
+        [TestMethod]
+        public void GetAccountInfoById_ValidId_ReturnsCorrectData()
+        {
             // Act
-            var result = _service.GetAccountInfoById(id);
+            var account = _service.GetAccountInfoById(1);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual("Jane", result!.FirstName);
-            Assert.AreEqual("Smith", result.LastName);
-            Assert.AreEqual("jane@example.com", result.Email);
-            Assert.AreEqual("", result.AccountPassword, "Password should be hidden when returning DTO");
+            Assert.IsNotNull(account);
+            Assert.AreEqual("John", account.FirstName);
+            Assert.AreEqual("Doe", account.LastName);
+            Assert.AreEqual("john@example.com", account.Email);
         }
 
+        [TestMethod]
+        public void GetAccountInfoById_IdLessThanOrEqualZero_ThrowsArgumentException()
+        {
+            var ex = Assert.ThrowsExactly<ArgumentException>(() =>
+                _service.GetAccountInfoById(0)
+            );
+            Console.WriteLine(ex.Message); // sẽ in ra message trong output
+            StringAssert.Contains(ex.Message, "Invalid account id.");
+        }
+
+        [TestMethod]
+        public void GetAccountInfoById_InvalidId_ThrowsKeyNotFoundException()
+        {
+            var ex = Assert.ThrowsExactly<KeyNotFoundException>(() =>
+                _service.GetAccountInfoById(999)
+            );
+            Console.WriteLine(ex.Message); // sẽ in ra message trong output
+            StringAssert.Contains(ex.Message, "not found"); // vẫn assert
+        }
 
 
 

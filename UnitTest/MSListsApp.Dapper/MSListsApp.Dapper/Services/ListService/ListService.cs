@@ -13,36 +13,14 @@ namespace MSListsApp.Dapper.Services.ListService
             _repository = repository;
         }
 
-        // Tạo List mới
-        public int CreateList(ListDto dto)
-        {
-            if (string.IsNullOrWhiteSpace(dto.ListName))
-                throw new ArgumentException("ListName is required.");
-
-            var list = new List
-            {
-                ListTypeId = dto.ListTypeId,
-                ListTemplateId = dto.ListTemplateId,
-                WorkspaceId = dto.WorkspaceId,
-                ListName = dto.ListName,
-                Icon = dto.Icon,
-                Color = dto.Color,
-                CreatedBy = dto.CreatedBy,
-                CreatedAt = dto.CreatedAt ?? DateTime.UtcNow,
-                ListStatus = dto.ListStatus
-            };
-
-            return _repository.Add(list);
-        }
-
         public ListDetailDto? GetDetailById(int id)
         {
             return _repository.GetDetailById(id);
         }
 
-        public IEnumerable<ListSummaryDto> GetListsInPersonalWorkspaceByUser(int accountId)
+        public IEnumerable<ListSummaryDto> GetMyList(int accountId)
         {
-            return _repository.GetListsInPersonalWorkspaceByUser(accountId);
+            return _repository.GetMyList(accountId);
         }
 
     }

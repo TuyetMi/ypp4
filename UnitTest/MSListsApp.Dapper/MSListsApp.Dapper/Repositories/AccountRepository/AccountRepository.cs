@@ -14,53 +14,39 @@ namespace MSListsApp.Dapper.Repositories.AccountRepository
             _connection = connection;
 
         }
-        public void CreateTable()
-        {
-            var sql = @"
-                CREATE TABLE IF NOT EXISTS Account (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Avatar TEXT,
-                    FirstName TEXT,
-                    LastName TEXT,
-                    DateBirth DATETIME,
-                    Email TEXT,
-                    Company TEXT,
-                    AccountStatus TEXT,
-                    AccountPassword TEXT
-                );
-            ";
-            _connection.Execute(sql);
-        }
 
-        public int Add(Account account)
-        {
-            var sql = @"
-                INSERT INTO Account 
-                    (Avatar, FirstName, LastName, DateBirth, Email, Company, AccountStatus, AccountPassword)
-                VALUES 
-                    (@Avatar, @FirstName, @LastName, @DateBirth, @Email, @Company, @AccountStatus, @AccountPassword);
-                SELECT last_insert_rowid();"; 
+        //public Account GetById(int id)
+        //{
+        //    var sql = @"
+        //        SELECT 
+        //            a.Id,
+        //            a.FirstName,
+        //            a.LastName,
+        //            a.Avatar,
+        //            a.Email,
+        //            a.Company,
+        //            a.AccountStatus
+        //        FROM Account a
+        //        WHERE a.Id = @Id;
+        //    ";
+        //    return _connection.QuerySingleOrDefault<Account>(sql, new { Id = id });
+        //}
 
-            var id = _connection.ExecuteScalar<int>(sql, account);
-            return id;
-        }
-
-        public Account GetById(int id)
+        public AccountSummaryDto GetAccountInfoById(int id)
         {
             var sql = @"
                 SELECT 
-                    a.Id,
-                    a.FirstName,
-                    a.LastName,
-                    a.Avatar,
-                    a.Email,
-                    a.Company,
-                    a.AccountStatus
-                FROM Account a
-                WHERE a.Id = @Id;
+                    Id,
+                    FirstName,
+                    LastName,
+                    Avatar,
+                    Email,
+                    Company,
+                    AccountStatus
+                FROM Account
+                WHERE Id = @Id;
             ";
-
-            return _connection.QuerySingleOrDefault<Account>(sql, new { Id = id });
+            return _connection.QuerySingleOrDefault<AccountSummaryDto>(sql, new { Id = id });
         }
     }
 }

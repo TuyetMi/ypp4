@@ -15,30 +15,6 @@ namespace MSListsApp.Dapper.Repositories.ListTypeRepository
             _connection = connection;
         }
 
-        public void CreateTable()
-        {
-            var sql = @"
-                CREATE TABLE IF NOT EXISTS ListType (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Title TEXT NULL,
-                    Icon TEXT NULL,
-                    ListTypeDescription TEXT NULL,
-                    HeaderImage TEXT NULL
-                );";
-            _connection.Execute(sql);
-        }
-
-        public int Add(ListType listType)
-        {
-            var sql = @"
-                INSERT INTO ListType 
-                    (Title, Icon, ListTypeDescription, HeaderImage)
-                VALUES 
-                    (@Title, @Icon, @ListTypeDescription, @HeaderImage);
-                SELECT last_insert_rowid();";
-            return _connection.ExecuteScalar<int>(sql, listType);
-        }
-
         public ListTypeDto? GetById(int id)
         {
             var sql = @"

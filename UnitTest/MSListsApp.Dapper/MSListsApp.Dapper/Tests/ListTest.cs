@@ -48,8 +48,8 @@ namespace MSListsApp.Dapper.Tests
             // Arrange
             int accountId = 1;
 
-            // Act
-            var result = _service.GetListsInPersonalWorkspaceByUser(accountId).ToList();
+            // get my list 
+            var result = _service.GetMyList(accountId).ToList();
 
             // Assert
             Assert.AreEqual(2, result.Count);

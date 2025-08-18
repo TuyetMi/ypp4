@@ -14,25 +14,6 @@ namespace MSListsApp.Dapper.Services.WorkspaceMemberService
             _repository = repository;
         }
 
-        public int AddMember(WorkspaceMemberDto dto)
-        {
-            if (dto.WorkspaceId <= 0)
-                throw new ArgumentException("WorkspaceId phải lớn hơn 0.");
-            if (dto.AccountId <= 0)
-                throw new ArgumentException("AccountId phải lớn hơn 0.");
-
-            var member = new WorkspaceMember
-            {
-                WorkspaceId = dto.WorkspaceId,
-                AccountId = dto.AccountId,
-                JoinedAt = dto.JoinedAt ?? DateTime.UtcNow,
-                MemberStatus = dto.MemberStatus,
-                UpdatedAt = dto.UpdatedAt ?? DateTime.UtcNow
-            };
-
-            return _repository.Add(member);
-        }
-
         // Lấy member theo Id
         public WorkspaceMemberDto? GetMemberById(int id)
         {

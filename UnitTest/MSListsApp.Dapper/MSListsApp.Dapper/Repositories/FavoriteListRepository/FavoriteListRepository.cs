@@ -14,30 +14,6 @@ namespace MSListsApp.Dapper.Repositories.FavoriteListRepository
             _connection = connection;
         }
 
-        public void CreateTable()
-        {
-            var sql = @"
-                CREATE TABLE IF NOT EXISTS FavoriteList (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ListId INTEGER NULL,
-                    AccountId INTEGER NULL,
-                    CreatedAt TEXT NULL,
-                    UpdatedAt TEXT NULL
-                );
-            ";
-            _connection.Execute(sql);
-        }
-
-        public int Add(FavoriteList favoriteList)
-        {
-            var sql = @"
-                INSERT INTO FavoriteList (ListId, AccountId, CreatedAt, UpdatedAt)
-                VALUES (@ListId, @AccountId, @CreatedAt, @UpdatedAt);
-                SELECT last_insert_rowid();
-            ";
-            return _connection.ExecuteScalar<int>(sql, favoriteList);
-        }
-
         public IEnumerable<ListSummaryDto> GetFavoriteListsByUser(int accountId)
         {
             var sql = @"

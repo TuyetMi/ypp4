@@ -13,21 +13,7 @@ namespace MSListsApp.Dapper.Services.ListTypeService
         {
             _repository = repository;
         }
-        public int CreateListType(ListTypeDto dto)
-        {
-            if (string.IsNullOrWhiteSpace(dto.Title))
-                throw new ArgumentException("Title is required.");
 
-            var listType = new ListType
-            {
-                Title = dto.Title,
-                Icon = dto.Icon,
-                ListTypeDescription = dto.ListTypeDescription,
-                HeaderImage = dto.HeaderImage
-            };
-
-            return _repository.Add(listType);
-        }
 
         public ListTypeDto? GetListTypeById(int id)
         {

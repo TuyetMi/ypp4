@@ -9,7 +9,6 @@ namespace MSListsApp.Dapper.Services.AccountService
 {
     public interface IAccountService
     {
-        int CreateAccount(AccountDto dto);
-        AccountDto? GetAccountInfoById(int id);
+        AccountSummaryDto GetAccountInfoById(int id);
     }
 }

@@ -5,8 +5,7 @@ namespace MSListsApp.Dapper.Repositories.FavoriteListRepository
 {
     public interface IFavoriteListRepository
     {
-        int Add(FavoriteList favoriteList);
-        void CreateTable();
+
         IEnumerable<ListSummaryDto> GetFavoriteListsByUser(int accountId);
     }
 }

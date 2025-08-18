@@ -13,34 +13,6 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceMemberRepository
         {
             _connection = connection;
         }
-
-        public void CreateTable()
-        {
-            var sql = @"
-                CREATE TABLE IF NOT EXISTS WorkspaceMember (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    WorkspaceId INTEGER NOT NULL,
-                    AccountId INTEGER NOT NULL,
-                    JoinedAt DATETIME,
-                    MemberStatus TEXT NOT NULL DEFAULT 'Active',
-                    UpdatedAt DATETIME
-                );
-            ";
-            _connection.Execute(sql);
-        }
-
-        public int Add(WorkspaceMember member)
-        {
-            var sql = @"
-                INSERT INTO WorkspaceMember 
-                    (WorkspaceId, AccountId, JoinedAt, MemberStatus, UpdatedAt)
-                VALUES 
-                    (@WorkspaceId, @AccountId, @JoinedAt, @MemberStatus, @UpdatedAt);
-                SELECT last_insert_rowid();";
-
-            return _connection.ExecuteScalar<int>(sql, member);
-        }
-
         public WorkspaceMember? GetById(int id)
         {
             var sql = @" SELECT 

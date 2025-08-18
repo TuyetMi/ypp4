@@ -14,33 +14,6 @@ namespace MSListsApp.Dapper.Repositories.WorkspaceRepository
             _connection = connection;
         }
 
-        public void CreateTable()
-        {
-            var sql = @"
-                CREATE TABLE IF NOT EXISTS Workspace (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    WorkspaceName TEXT,
-                    CreatedBy INTEGER,
-                    IsPersonal BOOLEAN,
-                    CreatedAt DATETIME,
-                    UpdatedAt DATETIME
-                );
-            ";
-            _connection.Execute(sql);
-        }
-
-        public int Add(Workspace workspace)
-        {
-            var sql = @"
-                INSERT INTO Workspace 
-                    (WorkspaceName, CreatedBy, IsPersonal, CreatedAt, UpdatedAt)
-                VALUES 
-                    (@WorkspaceName, @CreatedBy, @IsPersonal, @CreatedAt, @UpdatedAt);
-                SELECT last_insert_rowid();";
-
-            return _connection.ExecuteScalar<int>(sql, workspace);
-        }
-
         public Workspace GetWorkspaceById(int id)
         {
             var sql = @"

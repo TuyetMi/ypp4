@@ -3520,11 +3520,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
+      "projectUniqueName": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
       "projectName": "MVC",
-      "projectPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
+      "projectPath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
       "packagesPath": "C:\\Users\\luong\\.nuget\\packages\\",
-      "outputPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\obj\\",
+      "outputPath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3557,7 +3557,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -3604,7 +3604,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

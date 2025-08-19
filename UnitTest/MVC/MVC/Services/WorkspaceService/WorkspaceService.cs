@@ -1,4 +1,5 @@
 ﻿
+using MVC.Dtos.WorkspaceDtos;
 using MVC.Models;
 using MVC.Repositories.WorkspaceRepository;
 
@@ -18,6 +19,18 @@ namespace MVC.Services.WorkspaceService
         public Task<IEnumerable<Workspace>> GetAllAsync() => _repository.GetAllAsync();
         public Task<int> UpdateAsync(Workspace workspace) => _repository.UpdateAsync(workspace);
         public Task<int> DeleteAsync(int id) => _repository.DeleteAsync(id);
+
+        public async Task<WorkspaceInfoDto?> GetWorkSpaceInfoByIdAsync(int id)
+        {
+            // Có thể thêm logic kiểm tra, logging, caching ở đây
+            return await _repository.GetWorkSpaceInfoByIdAsync(id);
+        }
+
+        public async Task<WorkspaceInfoDto?> GetPersonalWorkspaceAsync(int accountId)
+        {
+            // Thêm logic xử lý nếu cần
+            return await _repository.GetPersonalWorkspaceAsync(accountId);
+        }
     }
 }
 

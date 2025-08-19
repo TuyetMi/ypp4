@@ -13,7 +13,7 @@ namespace MVC.Repositories.WorkspaceRepository
         {
         }
 
-        public async Task<WorkspaceInfoDto?> GetInfoByIdAsync(int id)
+        public async Task<WorkspaceInfoDto?> GetWorkSpaceInfoByIdAsync(int id)
         {
             var sql = @"
                 SELECT 

@@ -10,7 +10,7 @@ namespace MVC.Repositories.WorkspaceRepository
         Task<IEnumerable<Workspace>> GetAllAsync();   // Lấy tất cả
         Task<int> UpdateAsync(Workspace workspace);     // Cập nhật
         Task<int> DeleteAsync(int id);
-        Task<WorkspaceInfoDto?> GetInfoByIdAsync(int id);
+        Task<WorkspaceInfoDto?> GetWorkSpaceInfoByIdAsync(int id);
         Task<WorkspaceInfoDto?> GetPersonalWorkspaceAsync(int createdBy);
     }
 }

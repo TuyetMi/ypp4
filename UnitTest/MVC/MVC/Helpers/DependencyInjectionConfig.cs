@@ -1,75 +1,128 @@
-﻿
-using MVC.Data;
+﻿using MVC.Data;
 using MVC.Repositories.AccountRepository;
 using MVC.Services.AccountService;
 
-
 namespace MVC.Helpers
 {
-    // chưa quản lý time - vong đời
-
+    // Defines lifetime of a service
     public enum Lifetime
     {
-        Singleton, //only one instance is created and reused everywhere
-        Transient,  //a new instance is created every time it’s resolved
-        Scoped
+        Singleton,  // Only one instance for the whole application
+        Scoped,     // One instance per scope (e.g., per test or per request)
+        Transient   // New instance every time it's resolved
     }
 
-    // Describes how a service is registered:
     public class DependencyInjectionConfig
     {
-        // Thông tin 1 service đã đăng ký
-        private class ServiceDescriptor
+        // Describes how a service is registered
+        internal class ServiceDescriptor
         {
-            public Func<object> Factory { get; set; } = null!;      //Factory → a function that knows how to create the object.
-            public Lifetime Lifetime { get; set; }                  //Lifetime → whether it’s Singleton or Transient.
-            public object? Instance { get; set; }                   //Instance → holds the created instance (only for Singleton).
+            public Func<DIScope, object> Factory { get; set; } // Factory method to create the instance
+            public Lifetime Lifetime { get; set; }            // Lifetime of this service
+            public object Instance { get; set; }              // Stores instance for Singleton
         }
 
-        private static readonly Dictionary<Type, ServiceDescriptor> _services = new();
+        private readonly Dictionary<Type, ServiceDescriptor> _services = new();
 
-        // When the class is used for the first time, it registers default services:
-        static DependencyInjectionConfig()
+        // Register service by type (TService -> TImplementation)
+        public void Register<TService, TImplementation>(Lifetime lifetime = Lifetime.Transient)
         {
-
-            Register<IAccountRepository>(() =>
-                new AccountRepository(TestDatabaseHelper.GetConnection()), Lifetime.Transient); // always creates a new AccountRepository.
-
-            Register<IAccountService>(() =>
-                new AccountService(Resolve<IAccountRepository>()), Lifetime.Transient); //creates a new AccountService, injecting an IAccountRepository
-
-        }
-
-        // Đăng ký service mới
-        public static void Register<T>(Func<object> factory, Lifetime lifetime = Lifetime.Transient) // T = interface or type.
-        {
-            _services[typeof(T)] = new ServiceDescriptor
+            _services[typeof(TService)] = new ServiceDescriptor
             {
-                Factory = factory,      // factory = how to build the object.
-                Lifetime = lifetime     // lifetime = default is Transient.
+                Lifetime = lifetime,
+                Factory = scope => CreateInstance(typeof(TImplementation), scope) // Auto resolve dependencies via constructor
             };
         }
 
-        // Resolve generic
-        public static T Resolve<T>()
+        // Register service using a factory lambda (useful for special cases like DB connection)
+        public void Register<TService>(Lifetime lifetime, Func<DIScope, TService> factory)
         {
-            return (T)Resolve(typeof(T)); // Resolves (gets) a service instance by type.
+            _services[typeof(TService)] = new ServiceDescriptor
+            {
+                Lifetime = lifetime,
+                Factory = scope => factory(scope)
+            };
         }
 
-        // Resolve theo Type
-        private static object Resolve(Type type)
+        // Generic resolve method
+        public T Resolve<T>()
+        {
+            return (T)Resolve(typeof(T));
+        }
+
+        // Resolve by runtime Type
+        public object Resolve(Type type)
         {
             if (!_services.TryGetValue(type, out var descriptor))
-                throw new Exception($"No service registered for type {type.Name}");
+                throw new Exception($"Service {type.Name} not registered");
 
-            return descriptor.Lifetime switch
-            {
-                Lifetime.Singleton => descriptor.Instance ??= descriptor.Factory(),
-                Lifetime.Transient => descriptor.Factory(),
-                _ => throw new NotImplementedException($"Lifetime {descriptor.Lifetime} not supported")
-            };
+            if (descriptor.Lifetime == Lifetime.Singleton)
+                return descriptor.Instance ??= descriptor.Factory(null);
+
+            // Transient
+            return descriptor.Factory(null);
         }
 
+        // Internal: get descriptor by type
+        internal ServiceDescriptor GetDescriptor(Type type)
+        {
+            if (!_services.ContainsKey(type))
+                throw new Exception($"Service {type.Name} not registered");
+            return _services[type];
+        }
 
+        // Create instance by resolving constructor dependencies
+        private object CreateInstance(Type type, DIScope scope)
+        {
+            var ctor = type.GetConstructors().First();
+            var parameters = ctor.GetParameters()
+                .Select(p =>
+                {
+                    if (scope != null)
+                        return scope.Resolve(p.ParameterType); // Resolve scoped dependencies
+                    return Resolve(p.ParameterType);          // Resolve singleton/transient
+                })
+                .ToArray();
+
+            return Activator.CreateInstance(type, parameters); // Create object
+        }
+    }
+
+    // Scope container for managing Scoped services
+    public class DIScope : IDisposable
+    {
+        private readonly DependencyInjectionConfig _di;
+        private readonly Dictionary<Type, object> _scopedInstances = new();
+
+        public DIScope(DependencyInjectionConfig di)
+        {
+            _di = di;
+        }
+
+        // Generic resolve
+        public T Resolve<T>()
+        {
+            return (T)Resolve(typeof(T));
+        }
+
+        // Resolve by runtime Type
+        public object Resolve(Type type)
+        {
+            var descriptor = _di.GetDescriptor(type);
+
+            if (descriptor.Lifetime == Lifetime.Scoped)
+            {
+                if (!_scopedInstances.ContainsKey(type))
+                    _scopedInstances[type] = descriptor.Factory(this); // Create scoped instance once per scope
+                return _scopedInstances[type];
+            }
+
+            return _di.Resolve(type); // Delegate to main DI for Singleton/Transient
+        }
+
+        public void Dispose()
+        {
+            _scopedInstances.Clear(); // Clear scoped instances when done
+        }
     }
 }

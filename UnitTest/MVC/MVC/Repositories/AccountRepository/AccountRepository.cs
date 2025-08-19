@@ -18,7 +18,14 @@ namespace MVC.Repositories.AccountRepository
         {
             const string sql = @"
                 SELECT 
-                    Id, Avatar, FirstName, LastName, DateBirth, Email, Company, Status
+                    Id, 
+                    Avatar, 
+                    FirstName, 
+                    LastName, 
+                    DateBirth, 
+                    Email, 
+                    Company, 
+                    Status
                 FROM Account
                 WHERE Id = @Id;
             ";
@@ -30,8 +37,15 @@ namespace MVC.Repositories.AccountRepository
         {
             const string sql = @"
                 SELECT 
-                    Id, Avatar, FirstName, LastName, DateBirth, Email, Company, Status
-                FROM Account;
+                    Id, 
+                    Avatar, 
+                    FirstName, 
+                    LastName, 
+                    DateBirth, 
+                    Email, 
+                    Company, 
+                    Status
+                FROM Account
             ";
 
             return await _connection.QueryAsync<AccountInfoDto>(sql);

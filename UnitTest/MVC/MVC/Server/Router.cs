@@ -1,43 +1,45 @@
-﻿
-using System.Net;
+﻿using System.Net;
 using System.Reflection;
+using System.Text;
 using System.Text.Json;
+using MVC.Helpers;
 
-namespace MVC.Router
+namespace MVC.Server
 {
     public class Router
     {
-        private readonly IServiceProvider _scope;
+        private readonly DIScope _scope;
 
-        public Router(IServiceProvider scope)
+        public Router(DIScope scope)
         {
             _scope = scope;
         }
 
         public async Task<string> RouteAsync(HttpListenerRequest request)
         {
-            // /controller/action/params
             var parts = request.Url.AbsolutePath.Trim('/').Split('/');
             if (parts.Length < 1) return "{\"error\":\"Not found\"}";
 
-            string controllerName = parts[0] + "Controller"; // account -> AccountController
+            string controllerName = parts[0] + "Controller";
             string actionName = parts.Length > 1 ? parts[1] : null;
 
-            // Lấy controller type
-            var controllerType = Assembly.GetExecutingAssembly()
-                .GetTypes()
+            // Lấy controller type từ DI
+            var controllerType = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(a =>
+                {
+                    try { return a.GetTypes(); }
+                    catch { return new Type[0]; }
+                })
                 .FirstOrDefault(t => t.Name.Equals(controllerName, StringComparison.OrdinalIgnoreCase));
 
             if (controllerType == null) return "{\"error\":\"Controller not found\"}";
 
-            // Resolve controller từ DI
-            var controller = _scope.GetService(controllerType);
+            var controller = _scope.Resolve(controllerType);
             if (controller == null) return "{\"error\":\"Controller not registered in DI\"}";
 
             MethodInfo? method = null;
             object[] parameters = Array.Empty<object>();
 
-            // Chọn action dựa trên HTTP method
             if (!string.IsNullOrEmpty(actionName))
             {
                 var methods = controllerType.GetMethods()
@@ -54,7 +56,6 @@ namespace MVC.Router
                     var paramInfos = method.GetParameters();
                     if (paramInfos.Length == 1)
                     {
-                        // POST/PUT body
                         if (request.HttpMethod == "POST" || request.HttpMethod == "PUT")
                         {
                             using var reader = new System.IO.StreamReader(request.InputStream);
@@ -62,8 +63,7 @@ namespace MVC.Router
                             var param = JsonSerializer.Deserialize(json, paramInfos[0].ParameterType);
                             parameters = new object[] { param! };
                         }
-                        // GET URL param
-                        else if (paramInfos.Length == 1 && parts.Length > 2)
+                        else if (parts.Length > 2)
                         {
                             var param = Convert.ChangeType(parts[2], paramInfos[0].ParameterType);
                             parameters = new object[] { param! };
@@ -74,7 +74,6 @@ namespace MVC.Router
 
             if (method == null) return "{\"error\":\"Action not found\"}";
 
-            // Invoke action
             var result = method.Invoke(controller, parameters);
 
             if (result is Task task)
@@ -92,7 +91,7 @@ namespace MVC.Router
             return JsonSerializer.Serialize(result);
         }
     }
-    // Attribute hỗ trợ phân biệt HTTP method
+
     [AttributeUsage(AttributeTargets.Method)]
     public class HttpMethodAttribute : Attribute
     {

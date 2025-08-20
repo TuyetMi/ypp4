@@ -131,5 +131,6 @@ namespace MVC.Helpers
         {
             _scopedInstances.Clear(); // Clear scoped instances when done
         }
+
     }
 }

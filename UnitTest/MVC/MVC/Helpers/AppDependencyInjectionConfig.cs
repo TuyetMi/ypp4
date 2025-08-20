@@ -24,14 +24,18 @@ namespace MVC.Helpers
         }
         public static void RegisterControllers(DependencyInjectionConfig di)
         {
-            // Lấy tất cả type trong assembly hiện tại
-            var controllerTypes = Assembly.GetExecutingAssembly()
-                .GetTypes()
+            // Scan tất cả assembly đã load trong AppDomain
+            var controllerTypes = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(a =>
+                {
+                    try { return a.GetTypes(); }
+                    catch { return new Type[0]; } // tránh lỗi assembly không load được type
+                })
                 .Where(t => t.Name.EndsWith("Controller") && !t.IsAbstract);
 
             foreach (var type in controllerTypes)
             {
-                // Đăng ký chính nó vào DI
+                // Đăng ký controller vào DI
                 di.RegisterByType(type, type, Lifetime.Transient);
             }
         }

@@ -1,8 +1,7 @@
-﻿using System.Data;
+﻿
 using MVC.Data;
 using MVC.Helpers;
 using MVC.Models;
-using MVC.Repositories.AccountRepository;
 using MVC.Services.AccountService;
 
 namespace MVC.Tests.AccountTest
@@ -10,28 +9,16 @@ namespace MVC.Tests.AccountTest
     [TestClass]
     public class AccountServiceTests
     {
-        private DependencyInjectionConfig _di;
         private DIScope _scope;
-        private IAccountService _accountService; 
-
+        private IAccountService _accountService;
 
         [TestInitialize]
         public void Setup()
         {
-            // Khởi tạo database test
             TestDatabaseHelper.InitDatabase();
 
-            _di = new DependencyInjectionConfig();
-
-            _di.Register<IDbConnection>(Lifetime.Scoped, scope => TestDatabaseHelper.GetConnection());
-
-            _di.Register<IAccountRepository, AccountRepository>(Lifetime.Scoped);
-            _di.Register<IAccountService, AccountService>(Lifetime.Transient);
-
-            // 3. Tạo scope cho test
-            _scope = new DIScope(_di);
-
-            // 4. Resolve service trong scope
+            var di = AppDependencyInjectionConfig.CreateConfig();
+            _scope = new DIScope(di);
             _accountService = _scope.Resolve<IAccountService>();
         }
 

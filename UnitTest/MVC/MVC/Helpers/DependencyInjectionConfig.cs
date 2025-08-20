@@ -1,7 +1,4 @@
-﻿using MVC.Data;
-using MVC.Repositories.AccountRepository;
-using MVC.Services.AccountService;
-
+﻿
 namespace MVC.Helpers
 {
     // Defines lifetime of a service
@@ -41,6 +38,15 @@ namespace MVC.Helpers
             {
                 Lifetime = lifetime,
                 Factory = scope => factory(scope)
+            };
+        }
+
+        public void Register(Type serviceType, Type implementationType, Lifetime lifetime = Lifetime.Transient)
+        {
+            _services[serviceType] = new ServiceDescriptor
+            {
+                Lifetime = lifetime,
+                Factory = scope => CreateInstance(implementationType, scope)
             };
         }
 

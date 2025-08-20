@@ -3,7 +3,6 @@ using System.Reflection;
 using MVC.Data;
 using MVC.Repositories.AccountRepository;
 using MVC.Services.AccountService;
-using static MVC.Helpers.DependencyInjectionConfig;
 
 namespace MVC.Helpers
 {
@@ -13,10 +12,10 @@ namespace MVC.Helpers
         {
             var di = new DependencyInjectionConfig();
 
-            // Đăng ký các service chung cho mọi test
-            di.Register<IDbConnection>(Lifetime.Scoped, scope => TestDatabaseHelper.GetConnection());
-            di.Register<IAccountRepository, AccountRepository>(Lifetime.Scoped);
-            di.Register<IAccountService, AccountService>(Lifetime.Transient);
+            // Đăng ký service core
+            di.RegisterFactory<IDbConnection>(Lifetime.Scoped, scope => TestDatabaseHelper.GetConnection());
+            di.RegisterService<IAccountRepository, AccountRepository>(Lifetime.Scoped);
+            di.RegisterService<IAccountService, AccountService>(Lifetime.Transient);
 
             // Scan toàn bộ controller trong assembly
             RegisterControllers(di);
@@ -33,7 +32,7 @@ namespace MVC.Helpers
             foreach (var type in controllerTypes)
             {
                 // Đăng ký chính nó vào DI
-                di.Register(type, type, Lifetime.Transient);
+                di.RegisterByType(type, type, Lifetime.Transient);
             }
         }
     }

@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[2.1.66, )"
             },
-            "MSTest": {
-              "target": "Package",
-              "version": "[3.10.2, )"
-            },
             "Microsoft.Data.Sqlite.Core": {
               "target": "Package",
               "version": "[9.0.8, )"

@@ -14,27 +14,27 @@ namespace MVC.Controllers
         }
 
         // ===== CRUD =====
-        public async Task<int> Create(Account account)
+        public async Task<int> CreateAccount(Account account)
         {
             return await _service.CreateAsync(account);
         }
 
-        public async Task<Account?> GetById(int id)
+        public async Task<Account?> GetAccountById(int id)
         {
             return await _service.GetByIdAsync(id);
         }
 
-        public async Task<IEnumerable<Account>> GetAll()
+        public async Task<IEnumerable<Account>> GetAllAccount()
         {
             return await _service.GetAllAsync();
         }
 
-        public async Task<int> Update(Account account)
+        public async Task<int> UpdateAccount(Account account)
         {
             return await _service.UpdateAsync(account);
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> DeleteAccount(int id)
         {
             return await _service.DeleteAsync(id);
         }

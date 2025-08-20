@@ -21,18 +21,18 @@ namespace MVC.Helpers
 
         private readonly Dictionary<Type, ServiceDescriptor> _services = new();
 
-        // Register service by type (TService -> TImplementation)
-        public void Register<TService, TImplementation>(Lifetime lifetime = Lifetime.Transient)
+        // 1. Interface → Implementation
+        public void RegisterService<TService, TImplementation>(Lifetime lifetime = Lifetime.Transient)
         {
             _services[typeof(TService)] = new ServiceDescriptor
             {
                 Lifetime = lifetime,
-                Factory = scope => CreateInstance(typeof(TImplementation), scope) // Auto resolve dependencies via constructor
+                Factory = scope => CreateInstance(typeof(TImplementation), scope)
             };
         }
 
-        // Register service using a factory lambda (useful for special cases like DB connection)
-        public void Register<TService>(Lifetime lifetime, Func<DIScope, TService> factory)
+        // 2. Register với Factory
+        public void RegisterFactory<TService>(Lifetime lifetime, Func<DIScope, TService> factory)
         {
             _services[typeof(TService)] = new ServiceDescriptor
             {
@@ -41,7 +41,8 @@ namespace MVC.Helpers
             };
         }
 
-        public void Register(Type serviceType, Type implementationType, Lifetime lifetime = Lifetime.Transient)
+        // 3. Non-generic Register (dùng cho scan/reflection)
+        public void RegisterByType(Type serviceType, Type implementationType, Lifetime lifetime = Lifetime.Transient)
         {
             _services[serviceType] = new ServiceDescriptor
             {

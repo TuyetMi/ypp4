@@ -5,7 +5,8 @@ namespace MVC.Models
     {
         Active = 1,
         Inactive = 2,
-        Suspended = 3
+        Suspended = 3,
+        Deleted = 4
     }
     public class Account
     {

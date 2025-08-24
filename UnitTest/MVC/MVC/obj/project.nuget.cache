@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Nlo8w8zdXTI=",
+  "dgSpecHash": "vexLk5IQg7Y=",
   "success": true,
-  "projectFilePath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
+  "projectFilePath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luong\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\luong\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",

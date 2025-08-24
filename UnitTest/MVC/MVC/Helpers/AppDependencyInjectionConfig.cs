@@ -12,30 +12,25 @@ namespace MVC.Helpers
         {
             var di = new DependencyInjectionConfig();
 
-            // Đăng ký service core
-            di.RegisterFactory<IDbConnection>(Lifetime.Scoped, scope => TestDatabaseHelper.GetConnection());
+            // Core services
+            di.RegisterFactory<IDbConnection>(Lifetime.Scoped, _ => TestDatabaseHelper.GetConnection());
             di.RegisterService<IAccountRepository, AccountRepository>(Lifetime.Scoped);
             di.RegisterService<IAccountService, AccountService>(Lifetime.Transient);
 
-            // Scan toàn bộ controller trong assembly
+            // Scan & register controllers
             RegisterControllers(di);
 
             return di;
         }
-        public static void RegisterControllers(DependencyInjectionConfig di)
+
+        private static void RegisterControllers(DependencyInjectionConfig di)
         {
-            // Scan tất cả assembly đã load trong AppDomain
-            var controllerTypes = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(a =>
-                {
-                    try { return a.GetTypes(); }
-                    catch { return new Type[0]; } // tránh lỗi assembly không load được type
-                })
+            var controllerTypes = Assembly.GetExecutingAssembly()
+                .GetTypes()
                 .Where(t => t.Name.EndsWith("Controller") && !t.IsAbstract);
 
             foreach (var type in controllerTypes)
             {
-                // Đăng ký controller vào DI
                 di.RegisterByType(type, type, Lifetime.Transient);
             }
         }

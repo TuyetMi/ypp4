@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj": {}
+    "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj": {}
   },
   "projects": {
-    "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj": {
+    "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj",
+        "projectUniqueName": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj",
         "projectName": "MVC.Test",
-        "projectPath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj",
+        "projectPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj",
         "packagesPath": "C:\\Users\\luong\\.nuget\\packages\\",
-        "outputPath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC.Test\\obj\\",
+        "outputPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj": {
-                "projectPath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj"
+              "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj": {
+                "projectPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj"
               }
             }
           }
@@ -48,7 +48,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -91,18 +91,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj": {
+    "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
+        "projectUniqueName": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
         "projectName": "MVC",
-        "projectPath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
+        "projectPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
         "packagesPath": "C:\\Users\\luong\\.nuget\\packages\\",
-        "outputPath": "E:\\YPP 4\\ypp4\\UnitTest\\MVC\\MVC\\obj\\",
+        "outputPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -135,7 +135,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -178,7 +178,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

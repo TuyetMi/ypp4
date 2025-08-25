@@ -4,19 +4,20 @@ using MVC.Server; // Giả sử DIScope, DI config, DBHelper ở đây
 
 class Program
 {
-    static async Task Main()
+    static async Task Main(string[] args)
     {
+        // 1. Prepare database
         TestDatabaseHelper.InitDatabase();
 
-        // ===== Khởi tạo DI =====
+        // 2. Configure DI
         var diConfig = AppDependencyInjectionConfig.CreateConfig();
         using var scope = new DIScope(diConfig);
 
-        // ===== Tạo Router tự động ánh xạ controller/action =====
+        // 3. Setup router & server
         var router = new Router(scope);
-
-        // ===== Khởi tạo HTTP server =====
         var server = new HttpServer(router);
+
+        // 4. Start server
         await server.StartAsync("http://localhost:5000/");
     }
 }

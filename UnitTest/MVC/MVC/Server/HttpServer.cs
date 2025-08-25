@@ -6,49 +6,47 @@ namespace MVC.Server
     public class HttpServer
     {
         private readonly Router _router;
+        private readonly HttpListener _listener;
 
         public HttpServer(Router router)
         {
             _router = router;
+            _listener = new HttpListener();
         }
 
         public async Task StartAsync(string prefix)
         {
-            HttpListener listener = new HttpListener();
-            listener.Prefixes.Add(prefix);
-            listener.Start();
-            Console.WriteLine($"Server running at {prefix}");
-            Console.WriteLine("Press CTRL+C to stop...");
+            _listener.Prefixes.Add(prefix);
+            _listener.Start();
+            Console.WriteLine($"🚀 Server started at {prefix}");
 
             while (true)
             {
-                var context = await listener.GetContextAsync();
-                await HandleRequest(context);
+                var context = await _listener.GetContextAsync();
+                _ = ProcessRequestAsync(context);
             }
         }
 
-        private async Task HandleRequest(HttpListenerContext context)
+        private async Task ProcessRequestAsync(HttpListenerContext context)
         {
-            var response = context.Response;
-
             try
             {
-                string responseString = await _router.RouteAsync(context.Request);
-                byte[] buffer = Encoding.UTF8.GetBytes(responseString);
+                string responseJson = await _router.RouteAsync(context.Request);
 
-                response.ContentType = "application/json";
-                response.ContentLength64 = buffer.Length;
-                await response.OutputStream.WriteAsync(buffer, 0, buffer.Length);
+                context.Response.ContentType = "application/json";
+                using var writer = new StreamWriter(context.Response.OutputStream);
+                await writer.WriteAsync(responseJson);
             }
             catch (Exception ex)
             {
-                response.StatusCode = 500;
-                var error = Encoding.UTF8.GetBytes($"{{\"error\":\"{ex.Message}\"}}");
-                await response.OutputStream.WriteAsync(error, 0, error.Length);
+                Console.WriteLine($"❌ Error: {ex.Message}");
+                context.Response.StatusCode = 500;
+                using var writer = new StreamWriter(context.Response.OutputStream);
+                await writer.WriteAsync("{\"error\":\"Internal server error\"}");
             }
             finally
             {
-                response.OutputStream.Close();
+                context.Response.OutputStream.Close();
             }
         }
     }

@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "bwacRUYn6Io=",
+  "success": true,
+  "projectFilePath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC.View\\MVC\\MVC\\MVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\luong\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.8\\microsoft.data.sqlite.core.9.0.8.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\sourcegear.sqlite3\\3.50.3\\sourcegear.sqlite3.3.50.3.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\3.0.1\\sqlitepclraw.bundle_e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\sqlitepclraw.config.e_sqlite3\\3.0.1\\sqlitepclraw.config.e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\sqlitepclraw.core\\3.0.1\\sqlitepclraw.core.3.0.1.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\3.0.1\\sqlitepclraw.provider.e_sqlite3.3.0.1.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\system.data.sqlclient\\4.9.0\\system.data.sqlclient.4.9.0.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

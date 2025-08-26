@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Net;
 using System.Text;
+using MVC.Helpers;
 
 namespace MVC.Models
 {
     public class HttpServer
     {
-        private readonly Router _router = new Router();
+        private readonly Router _router;
+        private readonly DependencyInjectionConfig _di;
+
+        public HttpServer(DependencyInjectionConfig diConfig)
+        {
+            _di = diConfig;
+            _router = new Router(_di);
+        }
 
         public async Task StartAsync()
         {
@@ -24,6 +32,7 @@ namespace MVC.Models
                 var path = request.Url.AbsolutePath;
                 var method = request.HttpMethod;
 
+                // Lấy nội dung và contentType từ Router
                 var (content, contentType) = _router.Route(path, method);
 
                 var buffer = Encoding.UTF8.GetBytes(content);

@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\dtos\\accountdtos\\accountinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\dtos\\accountdtos\\accountinfodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,8 +11,28 @@
       "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\dtos\\accountdtos\\accountlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc.test\\tests\\accounttest\\accountservicemocktest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|solutionrelative:mvc.test\\tests\\accounttest\\accountservicemocktest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\repositories\\accountrepository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc.test\\tests\\accounttest\\accountcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|solutionrelative:mvc.test\\tests\\accounttest\\accountcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\server\\router.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\views\\homeview\\info.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -87,10 +99,6 @@
       "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\services\\accountservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc.test\\tests\\accounttest\\accountcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|solutionrelative:mvc.test\\tests\\accounttest\\accountcontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc.test\\tests\\accounttest\\accountservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|solutionrelative:mvc.test\\tests\\accounttest\\accountservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -105,10 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc.test\\tests\\workspacetest\\workspaceservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{42F47422-7FE7-4B6B-A55A-1B1745DD0AB4}|MVC.Test\\MVC.Test.csproj|solutionrelative:mvc.test\\tests\\workspacetest\\workspaceservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|solutionrelative:mvc\\repositories\\accountrepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7314467-8345-4B5B-9D9C-6C765E3F07C6}|MVC\\MVC.csproj|d:\\ypp4 git\\ypp4\\unittest\\mvc\\mvc\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -150,7 +154,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 283,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -159,83 +163,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AccountLoginDto.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
-              "RelativeDocumentMoniker": "MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
-              "RelativeToolTip": "MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Title": "AccountServiceMockTest.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\AccountTest\\AccountServiceMockTest.cs",
+              "RelativeDocumentMoniker": "MVC.Test\\Tests\\AccountTest\\AccountServiceMockTest.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\AccountTest\\AccountServiceMockTest.cs",
+              "RelativeToolTip": "MVC.Test\\Tests\\AccountTest\\AccountServiceMockTest.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwDgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T07:55:47.781Z",
+              "WhenOpened": "2025-08-27T02:56:47.716Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Router.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Server\\Router.cs",
-              "RelativeDocumentMoniker": "MVC\\Server\\Router.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Server\\Router.cs",
-              "RelativeToolTip": "MVC\\Server\\Router.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAiwJsAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:56:11.625Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Program.cs",
-              "RelativeDocumentMoniker": "MVC.Test\\Program.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Program.cs",
-              "RelativeToolTip": "MVC.Test\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T03:04:24.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Account.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "MVC\\Models\\Account.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Models\\Account.cs",
-              "RelativeToolTip": "MVC\\Models\\Account.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T07:57:16.071Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "AccountView.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\AccountView.cs",
-              "RelativeDocumentMoniker": "MVC\\Views\\AccountView.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\AccountView.cs",
-              "RelativeToolTip": "MVC\\Views\\AccountView.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAYwIMAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T09:04:08.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.html",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\HomeView\\Index.html",
-              "RelativeDocumentMoniker": "MVC\\Views\\HomeView\\Index.html",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\HomeView\\Index.html",
-              "RelativeToolTip": "MVC\\Views\\HomeView\\Index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-08-25T07:18:06.494Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "MVC\\Controllers\\HomeController.cs",
@@ -243,12 +183,11 @@
               "RelativeToolTip": "MVC\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T06:59:30.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T06:59:30.751Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\GenericRepository.cs",
               "RelativeDocumentMoniker": "MVC\\Repositories\\GenericRepository.cs",
@@ -261,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AccountInfoDto.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Dtos\\AccountDtos\\AccountInfoDto.cs",
               "RelativeDocumentMoniker": "MVC\\Dtos\\AccountDtos\\AccountInfoDto.cs",
@@ -274,32 +213,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "AccountRepository.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\AccountRepository\\AccountRepository.cs",
               "RelativeDocumentMoniker": "MVC\\Repositories\\AccountRepository\\AccountRepository.cs",
               "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\AccountRepository\\AccountRepository.cs",
               "RelativeToolTip": "MVC\\Repositories\\AccountRepository\\AccountRepository.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwDIAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwDIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-16T08:15:10.269Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Services\\AccountService\\AccountService.cs",
-              "RelativeDocumentMoniker": "MVC\\Services\\AccountService\\AccountService.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Services\\AccountService\\AccountService.cs",
-              "RelativeToolTip": "MVC\\Services\\AccountService\\AccountService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "AccountControllerTest.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
+              "RelativeDocumentMoniker": "MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
+              "RelativeToolTip": "MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
+              "ViewState": "AgIAADcAAAAA5P//////v1AAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T08:40:53.893Z"
+              "WhenOpened": "2025-08-18T07:36:51.021Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "AccountLoginDto.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
+              "RelativeDocumentMoniker": "MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
+              "RelativeToolTip": "MVC\\Dtos\\AccountDtos\\AccountLoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T07:55:47.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "RelativeToolTip": "MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T07:22:09.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "MVC\\Controllers\\AccountController.cs",
@@ -312,7 +278,79 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.html",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\HomeView\\Index.html",
+              "RelativeDocumentMoniker": "MVC\\Views\\HomeView\\Index.html",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\HomeView\\Index.html",
+              "RelativeToolTip": "MVC\\Views\\HomeView\\Index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-25T07:18:06.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AccountView.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\AccountView.cs",
+              "RelativeDocumentMoniker": "MVC\\Views\\AccountView.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\AccountView.cs",
+              "RelativeToolTip": "MVC\\Views\\AccountView.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwIMAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T09:04:08.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "MVC\\Models\\Account.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Models\\Account.cs",
+              "RelativeToolTip": "MVC\\Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T07:57:16.071Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Program.cs",
+              "RelativeDocumentMoniker": "MVC.Test\\Program.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Program.cs",
+              "RelativeToolTip": "MVC.Test\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T03:04:24.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Router.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Server\\Router.cs",
+              "RelativeDocumentMoniker": "MVC\\Server\\Router.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Server\\Router.cs",
+              "RelativeToolTip": "MVC\\Server\\Router.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAiwJsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T02:56:11.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Services\\AccountService\\AccountService.cs",
+              "RelativeDocumentMoniker": "MVC\\Services\\AccountService\\AccountService.cs",
+              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Services\\AccountService\\AccountService.cs",
+              "RelativeToolTip": "MVC\\Services\\AccountService\\AccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T08:40:53.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "TestStartUp.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Helpers\\TestStartUp.cs",
               "RelativeDocumentMoniker": "MVC\\Helpers\\TestStartUp.cs",
@@ -324,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Program.cs",
               "RelativeDocumentMoniker": "MVC\\Program.cs",
@@ -336,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "TestDatabaseHelper.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Helpers\\TestDatabaseHelper.cs",
               "RelativeDocumentMoniker": "MVC\\Helpers\\TestDatabaseHelper.cs",
@@ -348,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Info.html",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Views\\HomeView\\Info.html",
               "RelativeDocumentMoniker": "MVC\\Views\\HomeView\\Info.html",
@@ -356,12 +394,11 @@
               "RelativeToolTip": "MVC\\Views\\HomeView\\Info.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-08-25T07:19:06.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T07:19:06.854Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "HttpServer.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Server\\HttpServer.cs",
               "RelativeDocumentMoniker": "MVC\\Server\\HttpServer.cs",
@@ -373,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "AppDependencyInjectionConfig.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Helpers\\AppDependencyInjectionConfig.cs",
               "RelativeDocumentMoniker": "MVC\\Helpers\\AppDependencyInjectionConfig.cs",
@@ -385,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "DependencyInjectionConfig.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Helpers\\DependencyInjectionConfig.cs",
               "RelativeDocumentMoniker": "MVC\\Helpers\\DependencyInjectionConfig.cs",
@@ -397,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "WorkspaceMember.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Models\\WorkspaceMember.cs",
               "RelativeDocumentMoniker": "MVC\\Models\\WorkspaceMember.cs",
@@ -409,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "IAccountService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Services\\AccountService\\IAccountService.cs",
               "RelativeDocumentMoniker": "MVC\\Services\\AccountService\\IAccountService.cs",
@@ -421,19 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "AccountControllerTest.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
-              "RelativeDocumentMoniker": "MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
-              "RelativeToolTip": "MVC.Test\\Tests\\AccountTest\\AccountControllerTest.cs",
-              "ViewState": "AgIAAHkAAAAAyP/////vv1EAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T07:36:51.021Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "AccountServiceTest.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\AccountTest\\AccountServiceTest.cs",
               "RelativeDocumentMoniker": "MVC.Test\\Tests\\AccountTest\\AccountServiceTest.cs",
@@ -445,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "WorkspaceMemberDto.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Dtos\\WorkspaceMemberDtos\\WorkspaceMemberDto.cs",
               "RelativeDocumentMoniker": "MVC\\Dtos\\WorkspaceMemberDtos\\WorkspaceMemberDto.cs",
@@ -457,7 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Workspace.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Models\\Workspace.cs",
               "RelativeDocumentMoniker": "MVC\\Models\\Workspace.cs",
@@ -469,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "WorkspaceServiceTest.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\Tests\\WorkspaceTest\\WorkspaceServiceTest.cs",
               "RelativeDocumentMoniker": "MVC.Test\\Tests\\WorkspaceTest\\WorkspaceServiceTest.cs",
@@ -481,19 +506,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "ToolTip": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "RelativeToolTip": "MVC\\Repositories\\AccountRepository\\IAccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T07:22:09.746Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "MVC\\Repositories\\IGenericRepository.cs",
@@ -505,7 +518,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "MVC.Test.csproj",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC.Test\\MVC.Test.csproj",
               "RelativeDocumentMoniker": "MVC.Test\\MVC.Test.csproj",
@@ -517,7 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "IWorkspaceService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Services\\WorkspaceService\\IWorkspaceService.cs",
               "RelativeDocumentMoniker": "MVC\\Services\\WorkspaceService\\IWorkspaceService.cs",
@@ -529,7 +542,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "IWorkspaceRepository.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
               "RelativeDocumentMoniker": "MVC\\Repositories\\WorkspaceRepository\\IWorkspaceRepository.cs",
@@ -541,7 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "WorkspaceRepository.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
               "RelativeDocumentMoniker": "MVC\\Repositories\\WorkspaceRepository\\WorkspaceRepository.cs",
@@ -553,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "WorkspaceService.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Services\\WorkspaceService\\WorkspaceService.cs",
               "RelativeDocumentMoniker": "MVC\\Services\\WorkspaceService\\WorkspaceService.cs",
@@ -565,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "WorkspaceDto.cs",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\Dtos\\WorkspaceDtos\\WorkspaceDto.cs",
               "RelativeDocumentMoniker": "MVC\\Dtos\\WorkspaceDtos\\WorkspaceDto.cs",
@@ -577,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "MVC.csproj",
               "DocumentMoniker": "D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC\\MVC\\MVC.csproj",
               "RelativeDocumentMoniker": "MVC\\MVC.csproj",

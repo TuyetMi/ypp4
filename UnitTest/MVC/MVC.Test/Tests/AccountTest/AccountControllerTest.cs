@@ -78,7 +78,7 @@ namespace MVC.Tests.AccountTest
             var result = await _controller.GetAccountById(account.Id);
             Assert.AreEqual("Updated", result!.LastName);
         }
-
+        // bị dính với khóa ngoại
         [TestMethod]
         public async Task TestDelete()
         {

@@ -12,6 +12,23 @@ namespace MVC.Controllers
             _workspaceService = workspaceService;
         }
 
+        // Lấy workspace theo id
+        public async Task<string> GetWorkSpaceInfoById(int id)
+        {
+            // Gọi service
+            var workspace = await _workspaceService.GetWorkSpaceInfoByIdAsync(id);
+
+            if (workspace == null)
+            {
+                // Trả về JSON thông báo không tìm thấy
+                var notFound = new { Message = "Workspace not found" };
+                return JsonSerializer.Serialize(notFound);
+            }
+
+            // Trả về JSON workspace
+            return JsonSerializer.Serialize(workspace);
+        }
+
         // Xử lý request lấy workspace cá nhân
         public async Task<string> GetPersonalWorkspace(int accountId)
         {

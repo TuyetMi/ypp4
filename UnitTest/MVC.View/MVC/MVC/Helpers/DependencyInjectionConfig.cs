@@ -37,12 +37,23 @@
             };
         }
 
-        public void RegisterByType(Type serviceType, Type implementationType, Lifetime lifetime = Lifetime.Transient)
+        public void RegisterByType(Type serviceType, Type implType, Lifetime lifetime = Lifetime.Transient)
         {
             _services[serviceType] = new ServiceDescriptor
             {
                 Lifetime = lifetime,
-                Factory = scope => CreateInstance(implementationType, scope)
+                Factory = scope =>
+                {
+                    var ctor = implType.GetConstructors()
+                        .OrderByDescending(c => c.GetParameters().Length)
+                        .First();
+
+                    var parameters = ctor.GetParameters()
+                        .Select(p => scope.Resolve(p.ParameterType))
+                        .ToArray();
+
+                    return Activator.CreateInstance(implType, parameters);
+                }
             };
         }
 
@@ -55,10 +66,12 @@
 
         private object CreateInstance(Type type, DIScope scope)
         {
-            var ctor = type.GetConstructors().First();
+            var ctor = type.GetConstructors()
+                           .OrderByDescending(c => c.GetParameters().Length)
+                           .First();
             var parameters = ctor.GetParameters()
-                .Select(p => scope.Resolve(p.ParameterType))
-                .ToArray();
+                                .Select(p => scope.Resolve(p.ParameterType))
+                                .ToArray();
 
             return Activator.CreateInstance(type, parameters);
         }

@@ -22,7 +22,7 @@ namespace MVC.Server
             {
                 var accountController = ctx.Scope.Resolve<AccountController>();
                 var id = ctx.RouteParams["id"].AsInt();
-                var json = accountController.GetAccountInfoByIdJson(id).Result;
+                var json = accountController.GetAccountInfoById(id).Result;
                 return (json, "application/json");
             });
 

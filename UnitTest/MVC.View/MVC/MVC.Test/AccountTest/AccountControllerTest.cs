@@ -113,7 +113,7 @@ namespace MVC.Test.AccountTest
             _mockService.Setup(s => s.GetAccountInfoByIdAsync(5)).ReturnsAsync(dto);
 
             // Act
-            var result = await _controller.GetAccountInfoByIdJson(5);
+            var result = await _controller.GetAccountInfoById(5);
             var obj = JsonSerializer.Deserialize<AccountInfoDto>(result);
 
             // Assert
@@ -134,7 +134,7 @@ namespace MVC.Test.AccountTest
             _mockService.Setup(s => s.GetAllAccountInfoAsync()).ReturnsAsync(list);
 
             // Act
-            var result = await _controller.GetAllAccountInfoJson();
+            var result = await _controller.GetAllAccountInfo();
             var obj = JsonSerializer.Deserialize<List<AccountInfoDto>>(result);
 
             // Assert

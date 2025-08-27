@@ -48,7 +48,7 @@ namespace MVC.Controllers
 
         // ===== DTO API =====
 
-        public async Task<string> GetAccountInfoByIdJson(int id)
+        public async Task<string> GetAccountInfoById(int id)
         {
             var account = await _service.GetAccountInfoByIdAsync(id);
 
@@ -60,7 +60,7 @@ namespace MVC.Controllers
             // Convert object -> JSON string
             return JsonSerializer.Serialize(account);
         }
-        public async Task<string> GetAllAccountInfoJson()
+        public async Task<string> GetAllAccountInfo()
         {
             var list = await _service.GetAllAccountInfoAsync();
             return JsonSerializer.Serialize(list);

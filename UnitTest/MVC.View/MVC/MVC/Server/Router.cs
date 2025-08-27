@@ -19,30 +19,23 @@ namespace MVC.Models
             // Home page
             if (path == "/home" && method == "GET")
             {
-                return (File.ReadAllText("Views/HomeView.html"), "text/html");
+                return (File.ReadAllText("D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC.View\\MVC\\MVC\\Views\\HomeView.html"), "text/html");
             }
 
             // Lookup page
             if (path == "/lookup" && method == "GET")
             {
-                return (File.ReadAllText("Views/LookupView.html"), "text/html");
+                return (File.ReadAllText("D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC.View\\MVC\\MVC\\Views\\LookupView.html"), "text/html");
             }
 
-            // API trả JSON
+            // API trả JSON: /api/account/{id}
             if (path.StartsWith("/api/account/") && method == "GET")
             {
-                // Lấy id từ URL: /api/account/{id}
                 var parts = path.Split('/');
-                if (parts.Length < 4)
+                if (parts.Length < 4 || !int.TryParse(parts[3], out int id))
                     return ("{}", "application/json");
 
-                if (!int.TryParse(parts[3], out int id))
-                    return ("{}", "application/json");
-
-                // Lấy controller từ DI scope
                 var accountController = scope.Resolve<AccountController>();
-
-                // Lấy JSON từ controller (async => .Result cho demo)
                 var json = accountController.GetAccountInfoByIdJson(id).Result;
 
                 return (json, "application/json");

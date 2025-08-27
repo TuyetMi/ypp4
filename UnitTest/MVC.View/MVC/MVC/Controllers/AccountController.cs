@@ -1,8 +1,6 @@
-﻿using MVC.Models;
-using MVC.Dtos.AccountDtos;
+﻿
 using MVC.Services.AccountService;
-
-using System.Text.Json; // để dùng HttpGet/HttpPost...
+using System.Text.Json; 
 
 namespace MVC.Controllers
 {

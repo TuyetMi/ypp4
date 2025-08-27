@@ -1,34 +1,31 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tra cứu Account</title>
+    <meta charset="UTF-8">
+    <title>Lookup Account</title>
 </head>
 <body>
-    <h1>Tra cứu Account</h1>
+    <h1>Lookup Account by ID</h1>
+
     <form id="lookupForm">
-        <input type="text" id="accountId" placeholder="Nhập ID">
-        <button type="submit">Tìm</button>
+        <label for="accountId">Account ID:</label>
+        <input type="number" id="accountId" name="accountId" required>
+        <button type="submit">Search</button>
     </form>
-    <div id="accountInfo"></div>
-    <a href="/home">Quay lại Home</a>
+
+    <pre id="result"></pre>
 
     <script>
-    const form = document.getElementById("lookupForm");
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const id = document.getElementById("accountId").value;
-        const res = await fetch(`/api/account/${id}`);
-        const data = await res.json();
+        const form = document.getElementById('lookupForm');
+        const result = document.getElementById('result');
 
-        const container = document.getElementById("accountInfo");
-        if (!data.Id) {
-            container.innerHTML = "Không tìm thấy account";
-        } else {
-            container.innerHTML = `<p>ID: ${data.Id}</p>
-                                   <p>Name: ${data.Name}</p>
-                                   <p>Email: ${data.Email}</p>`;
-        }
-    });
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('accountId').value;
+            const res = await fetch(`/api/account/${id}`);
+            const data = await res.json();
+            result.textContent = JSON.stringify(data, null, 2);
+        });
     </script>
 </body>
 </html>

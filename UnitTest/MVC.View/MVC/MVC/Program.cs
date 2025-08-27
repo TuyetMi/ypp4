@@ -1,6 +1,7 @@
 ﻿using MVC.Helpers;
 using MVC.Data;
-using MVC.Server; // Giả sử DIScope, DI config, DBHelper ở đây
+using MVC.Server;
+using MVC.Models; // Giả sử DIScope, DI config, DBHelper ở đây
 
 class Program
 {
@@ -13,11 +14,16 @@ class Program
         var diConfig = AppDependencyInjectionConfig.CreateConfig();
         using var scope = new DIScope(diConfig);
 
-        // 3. Setup router & server
-        var router = new Router(scope);
-        var server = new HttpServer(router);
+        // Router
+        var router = new Router(diConfig);
 
-        // 4. Start server
-        await server.StartAsync("http://localhost:5000/");
+        // HttpServer lắng nghe localhost:5000
+        var server = new HttpServer(
+            new string[] { "http://localhost:5000/" },
+            router
+        );
+
+        // Chạy server
+        server.Start();
     }
 }

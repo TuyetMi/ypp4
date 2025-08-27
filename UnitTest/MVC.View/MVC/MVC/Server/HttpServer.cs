@@ -1,46 +1,63 @@
 ﻿using System;
 using System.Net;
 using System.Text;
-using MVC.Helpers;
+using MVC.Models;
 
-namespace MVC.Models
+namespace MVC.Server
 {
     public class HttpServer
     {
+        private readonly HttpListener _listener;
         private readonly Router _router;
-        private readonly DependencyInjectionConfig _di;
 
-        public HttpServer(DependencyInjectionConfig diConfig)
+        public HttpServer(string[] prefixes, Router router)
         {
-            _di = diConfig;
-            _router = new Router(_di);
+            if (!HttpListener.IsSupported)
+                throw new NotSupportedException("HttpListener không được support trên hệ thống này.");
+
+            _listener = new HttpListener();
+            foreach (var prefix in prefixes)
+            {
+                _listener.Prefixes.Add(prefix);
+            }
+
+            _router = router;
         }
 
-        public async Task StartAsync()
+        public void Start()
         {
-            using var listener = new HttpListener();
-            listener.Prefixes.Add("http://localhost:5000/");
-            listener.Start();
-            Console.WriteLine("Server running at http://localhost:5000/");
+            _listener.Start();
+            Console.WriteLine("🚀 Server started...");
+            Console.WriteLine("Listening on: " + string.Join(", ", _listener.Prefixes));
 
             while (true)
             {
-                var context = await listener.GetContextAsync();
-                var request = context.Request;
-                var response = context.Response;
-
-                var path = request.Url.AbsolutePath;
-                var method = request.HttpMethod;
-
-                // Lấy nội dung và contentType từ Router
-                var (content, contentType) = _router.Route(path, method);
-
-                var buffer = Encoding.UTF8.GetBytes(content);
-                response.ContentType = contentType;
-                response.ContentLength64 = buffer.Length;
-                await response.OutputStream.WriteAsync(buffer, 0, buffer.Length);
-                response.OutputStream.Close();
+                var context = _listener.GetContext(); // blocking
+                ProcessRequest(context);
             }
+        }
+
+        private void ProcessRequest(HttpListenerContext context)
+        {
+            var request = context.Request;
+            var response = context.Response;
+
+            Console.WriteLine($"[{DateTime.Now}] {request.HttpMethod} {request.Url?.AbsolutePath}");
+
+            var (content, contentType) = _router.Route(request.Url!.AbsolutePath, request.HttpMethod);
+
+            var buffer = Encoding.UTF8.GetBytes(content);
+            response.ContentType = contentType;
+            response.ContentLength64 = buffer.Length;
+
+            using var output = response.OutputStream;
+            output.Write(buffer, 0, buffer.Length);
+        }
+
+        public void Stop()
+        {
+            _listener.Stop();
+            _listener.Close();
         }
     }
 }

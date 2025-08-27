@@ -2,7 +2,7 @@
 using System.Data;
 using Microsoft.Data.Sqlite;
 
-namespace MVC.Data
+namespace MVC.Helpers
 {
     public class TestDatabaseHelper
     {

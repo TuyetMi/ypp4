@@ -1,34 +1,52 @@
-﻿using MVC.Controllers;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using MVC.Controllers;
 using MVC.Helpers;
 
-namespace MVC.Models
+namespace MVC.Server
 {
     public class Router
     {
-
         private readonly DependencyInjectionConfig _di;
+
+        private readonly Dictionary<(string path, string method), Func<DIScope, (string, string)>> _routes;
 
         public Router(DependencyInjectionConfig di)
         {
             _di = di;
+
+            _routes = new Dictionary<(string, string), Func<DIScope, (string, string)>>
+            {
+                {
+                    ("/home", "GET"),
+                    scope => (File.ReadAllText(GetViewPath("HomeView.html")), "text/html")
+                },
+                {
+                    ("/lookup", "GET"),
+                    scope => (File.ReadAllText(GetViewPath("LookupView.html")), "text/html")
+                }
+            };
         }
+
+        private string GetViewPath(string fileName)
+        {
+            var baseDir = AppContext.BaseDirectory;
+            var projectRoot = Path.GetFullPath(Path.Combine(baseDir, @"D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC.View\\MVC\\MVC"));
+            return Path.Combine(projectRoot, "Views", fileName);
+        }
+
         public (string content, string contentType) Route(string path, string method)
         {
-            using var scope = new DIScope(_di); // mỗi request 1 scope
+            using var scope = new DIScope(_di);
 
-            // Home page
-            if (path == "/home" && method == "GET")
+            // Check static route (home, lookup)
+            if (_routes.TryGetValue((path, method), out var handler))
             {
-                return (File.ReadAllText("D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC.View\\MVC\\MVC\\Views\\HomeView.html"), "text/html");
+                return handler(scope);
             }
 
-            // Lookup page
-            if (path == "/lookup" && method == "GET")
-            {
-                return (File.ReadAllText("D:\\YPP4 GIT\\ypp4\\UnitTest\\MVC.View\\MVC\\MVC\\Views\\LookupView.html"), "text/html");
-            }
-
-            // API trả JSON: /api/account/{id}
+            // Check dynamic API route
             if (path.StartsWith("/api/account/") && method == "GET")
             {
                 var parts = path.Split('/');
@@ -37,13 +55,11 @@ namespace MVC.Models
 
                 var accountController = scope.Resolve<AccountController>();
                 var json = accountController.GetAccountInfoByIdJson(id).Result;
-
                 return (json, "application/json");
             }
 
-            // 404 Not Found
+            // Default 404
             return ("<h1>404 Not Found</h1>", "text/html");
         }
     }
 }
-

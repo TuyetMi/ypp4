@@ -3,6 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Lookup Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            display: none;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 300px;
+            margin-top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+            .card img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+
+            .card h2 {
+                margin: 8px 0 4px;
+                font-size: 1.2em;
+            }
+
+            .card p {
+                margin: 4px 0;
+                color: #555;
+            }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Lookup Account by ID</h1>
@@ -13,18 +51,58 @@
         <button type="submit">Search</button>
     </form>
 
-    <pre id="result"></pre>
+    <div id="error" class="error"></div>
+
+    <div id="userCard" class="card">
+        <img id="avatar" src="" alt="User Avatar">
+        <h2 id="fullName"></h2>
+        <p id="email"></p>
+        <p id="dob"></p>
+        <p id="company"></p>
+        <p id="status"></p>
+    </div>
 
     <script>
         const form = document.getElementById('lookupForm');
-        const result = document.getElementById('result');
+        const card = document.getElementById('userCard');
+        const error = document.getElementById('error');
+
+        const avatarEl = document.getElementById('avatar');
+        const fullNameEl = document.getElementById('fullName');
+        const emailEl = document.getElementById('email');
+        const dobEl = document.getElementById('dob');
+        const companyEl = document.getElementById('company');
+        const statusEl = document.getElementById('status');
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const id = document.getElementById('accountId').value;
-            const res = await fetch(`/api/account/${id}`);
-            const data = await res.json();
-            result.textContent = JSON.stringify(data, null, 2);
+
+            try {
+                const res = await fetch(`/api/account/${id}`);
+                const data = await res.json();
+
+                if (!data || !data.Id) {
+                    card.style.display = "none";
+                    error.textContent = "⚠️ Account not found!";
+                    return;
+                }
+
+                error.textContent = "";
+
+                avatarEl.src = data.Avatar || "https://via.placeholder.com/80";
+                fullNameEl.textContent = `${data.FirstName} ${data.LastName}`;
+                emailEl.textContent = `📧 ${data.Email}`;
+                dobEl.textContent = data.DateBirth ? `🎂 ${new Date(data.DateBirth).toLocaleDateString()}` : "";
+                companyEl.textContent = data.Company ? `🏢 ${data.Company}` : "";
+                statusEl.textContent = `Status: ${data.Status === 1 ? "Active" : "Inactive"}`;
+
+                card.style.display = "block";
+
+            } catch (err) {
+                card.style.display = "none";
+                error.textContent = "❌ Error fetching account info!";
+            }
         });
     </script>
 </body>

@@ -1,140 +1,145 @@
-﻿
-using MVC.Controllers;
-using MVC.Data;
+﻿using MVC.Controllers;
 using MVC.Helpers;
 using MVC.Models;
+using MVC.Dtos.AccountDtos;
+using System.Text.Json;
+using Moq;
+using MVC.Services.AccountService;
 
-namespace MVC.Tests.AccountTest
+namespace MVC.Test.Tests.AccountTest
 {
     [TestClass]
     public class AccountControllerTests
     {
-        private DIScope _scope;
-        private AccountController _controller;
+        private Mock<IAccountService> _mockService = null!;
+        private AccountController _controller = null!;
 
         [TestInitialize]
         public void Setup()
         {
-            // Khởi tạo database test
-            TestDatabaseHelper.InitDatabase();
-
-            // Tạo DI config và scope
-            var di = AppDependencyInjectionConfig.CreateConfig();
-            _scope = new DIScope(di);
-
-            // Resolve controller từ DI (controller sẽ lấy service + repository qua DI)
-            _controller = _scope.Resolve<AccountController>();
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            _scope.Dispose();                  // Giải phóng scoped services
-            TestDatabaseHelper.CloseDatabase(); // Đóng database
+            _mockService = new Mock<IAccountService>();
+            _controller = new AccountController(_mockService.Object);
         }
 
         [TestMethod]
-        public async Task TestCreateAndGetById()
+        public async Task CreateAccount_ShouldReturnNewId()
         {
-            var account = new Account { FirstName = "Mi", LastName = "Luong" };
+            // Arrange
+            var account = new Account { Id = 1, FirstName = "John", LastName = "Doe" };
+            _mockService.Setup(s => s.CreateAsync(account)).ReturnsAsync(1);
 
-            // Create
-            var id = await _controller.CreateAccount(account);
-            Assert.IsTrue(id > 0, "Id phải lớn hơn 0");
+            // Act
+            var result = await _controller.CreateAccount(account);
+            var obj = JsonSerializer.Deserialize<Dictionary<string, int>>(result);
 
-            // GetById
-            var result = await _controller.GetAccountById(id);
-            Assert.IsNotNull(result);
-            Assert.AreEqual("Mi", result!.FirstName);
-            Assert.AreEqual("Luong", result.LastName);
+            // Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(1, obj["Id"]);
         }
 
         [TestMethod]
-        public async Task TestGetAll()
+        public async Task GetAccountById_ShouldReturnAccount()
         {
-            var all = await _controller.GetAllAccount();
-            Assert.IsTrue(all.Any(), "DB phải có ít nhất một account");
-            foreach (var acc in all)
+            // Arrange
+            var account = new Account { Id = 2, FirstName = "Jane", LastName = "Smith" };
+            _mockService.Setup(s => s.GetByIdAsync(2)).ReturnsAsync(account);
+
+            // Act
+            var result = await _controller.GetAccountById(2);
+            var obj = JsonSerializer.Deserialize<Account>(result);
+
+            // Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(2, obj.Id);
+            Assert.AreEqual("Jane", obj.FirstName);
+        }
+
+        [TestMethod]
+        public async Task GetAllAccounts_ShouldReturnList()
+        {
+            // Arrange
+            var accounts = new List<Account>
             {
-                Assert.IsNotNull(acc.FirstName);
-                Assert.IsNotNull(acc.LastName);
-            }
+                new Account { Id = 1, FirstName = "John" },
+                new Account { Id = 2, FirstName = "Jane" }
+            };
+            _mockService.Setup(s => s.GetAllAsync()).ReturnsAsync(accounts);
 
-            Console.WriteLine($"Có {all.Count()} account trong DB test.");
+            // Act
+            var result = await _controller.GetAllAccounts();
+            var obj = JsonSerializer.Deserialize<List<Account>>(result);
+
+            // Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(2, obj.Count);
         }
 
         [TestMethod]
-        public async Task TestUpdate()
+        public async Task UpdateAccount_ShouldReturnUpdatedRows()
         {
-            // Lấy account có sẵn
-            var account = (await _controller.GetAllAccount()).FirstOrDefault();
-            Assert.IsNotNull(account);
+            // Arrange
+            var account = new Account { Id = 1, FirstName = "John" };
+            _mockService.Setup(s => s.UpdateAsync(account)).ReturnsAsync(1);
 
-            account!.LastName = "Updated";
+            // Act
+            var result = await _controller.UpdateAccount(account);
+            var obj = JsonSerializer.Deserialize<Dictionary<string, int>>(result);
 
-            var updated = await _controller.UpdateAccount(account);
-            Assert.AreEqual(1, updated);
-
-            var result = await _controller.GetAccountById(account.Id);
-            Assert.AreEqual("Updated", result!.LastName);
+            // Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(1, obj["Updated"]);
         }
 
         [TestMethod]
-        public async Task TestDelete()
+        public async Task DeleteAccount_ShouldReturnDeletedRows()
         {
-            // Lấy account có sẵn
-            var account = (await _controller.GetAllAccount()).FirstOrDefault();
-            Assert.IsNotNull(account);
+            // Arrange
+            _mockService.Setup(s => s.DeleteAsync(1)).ReturnsAsync(1);
 
-            var deleted = await _controller.DeleteAccount(account!.Id);
-            Assert.AreEqual(1, deleted);
+            // Act
+            var result = await _controller.DeleteAccount(1);
+            var obj = JsonSerializer.Deserialize<Dictionary<string, int>>(result);
 
-            var result = await _controller.GetAccountById(account.Id);
-            Assert.IsNull(result);
+            // Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(1, obj["Deleted"]);
         }
 
         [TestMethod]
-        public async Task TestGetSingleAccountDTO()
+        public async Task GetAccountInfoByIdJson_ShouldReturnDto()
         {
-            // Lấy account có sẵn
-            var account = (await _controller.GetAllAccount()).FirstOrDefault();
-            Assert.IsNotNull(account);
+            // Arrange
+            var dto = new AccountInfoDto { Id = 5, FirstName = "Alice", LastName = "Wonder" };
+            _mockService.Setup(s => s.GetAccountInfoByIdAsync(5)).ReturnsAsync(dto);
 
-            // Lấy DTO theo Id
-            var dto = await _controller.GetAccountInfoById(account!.Id);
-            Assert.IsNotNull(dto);
+            // Act
+            var result = await _controller.GetAccountInfoByIdJson(5);
+            var obj = JsonSerializer.Deserialize<AccountInfoDto>(result);
 
-            // In ra thông tin account
-            Console.WriteLine("=== Single Account Info ===");
-            Console.WriteLine($"Id: {dto!.Id}");
-            Console.WriteLine($"FirstName: {dto.FirstName}");
-            Console.WriteLine($"LastName: {dto.LastName}");
-            Console.WriteLine("===========================");
-
-            // Kiểm tra dữ liệu DTO
-            Assert.AreEqual(account.FirstName, dto.FirstName);
-            Assert.AreEqual(account.LastName, dto.LastName);
+            // Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(5, obj.Id);
+            Assert.AreEqual("Alice", obj.FirstName);
         }
 
         [TestMethod]
-        public async Task TestGetAllAccountsDTO()
+        public async Task GetAllAccountInfoJson_ShouldReturnDtoList()
         {
-            // Lấy tất cả DTOs
-            var allDtos = await _controller.GetAllAccountInfo();
-            Assert.IsTrue(allDtos.Any(), "DB phải có ít nhất một account DTO");
-
-            // In ra thông tin tất cả account
-            Console.WriteLine("=== All Accounts DTOs ===");
-            foreach (var dto in allDtos)
+            // Arrange
+            var list = new List<AccountInfoDto>
             {
-                Console.WriteLine($"Id: {dto.Id}, FirstName: {dto.FirstName}, LastName: {dto.LastName}");
-            }
-            Console.WriteLine("=========================");
+                new AccountInfoDto { Id = 1, FirstName = "John" },
+                new AccountInfoDto { Id = 2, FirstName = "Jane" }
+            };
+            _mockService.Setup(s => s.GetAllAccountInfoAsync()).ReturnsAsync(list);
 
-            // Optional: kiểm tra dữ liệu cụ thể có tồn tại
-            var firstAccount = allDtos.First();
-            Assert.IsNotNull(firstAccount.FirstName);
-            Assert.IsNotNull(firstAccount.LastName);
+            // Act
+            var result = await _controller.GetAllAccountInfoJson();
+            var obj = JsonSerializer.Deserialize<List<AccountInfoDto>>(result);
+
+            // Assert
+            Assert.IsNotNull(obj);
+            Assert.AreEqual(2, obj.Count);
         }
     }
 }

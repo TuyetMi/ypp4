@@ -1,7 +1,6 @@
 ﻿using MVC.Helpers;
-using MVC.Data;
 using MVC.Server;
-using MVC.Models; // Giả sử DIScope, DI config, DBHelper ở đây
+ // Giả sử DIScope, DI config, DBHelper ở đây
 
 class Program
 {

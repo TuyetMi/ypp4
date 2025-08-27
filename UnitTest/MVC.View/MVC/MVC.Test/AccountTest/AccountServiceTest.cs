@@ -1,9 +1,8 @@
-﻿
-using MVC.Helpers;
+﻿using MVC.Helpers;
 using MVC.Models;
 using MVC.Services.AccountService;
 
-namespace MVC.Tests.AccountTest
+namespace MVC.Test.AccountTest
 {
     [TestClass]
     public class AccountServiceTests

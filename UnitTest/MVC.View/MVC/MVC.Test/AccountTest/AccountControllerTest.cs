@@ -6,7 +6,7 @@ using System.Text.Json;
 using Moq;
 using MVC.Services.AccountService;
 
-namespace MVC.Test.Tests.AccountTest
+namespace MVC.Test.AccountTest
 {
     [TestClass]
     public class AccountControllerTests

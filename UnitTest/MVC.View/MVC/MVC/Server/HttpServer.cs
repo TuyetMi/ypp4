@@ -27,7 +27,7 @@ namespace MVC.Server
         public void Start()
         {
             _listener.Start();
-            Console.WriteLine("🚀 Server started...");
+            Console.WriteLine("Server started...");
             Console.WriteLine("Listening on: " + string.Join(", ", _listener.Prefixes));
 
             while (true)

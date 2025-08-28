@@ -12,11 +12,18 @@ namespace MVC.Server
         public Router(DependencyInjectionConfig di)
         {
             _di = di;
+            RegisterViewRoutes();
+            RegisterApiRoutes();
+        }
 
-            // Static views
+        private void RegisterViewRoutes()
+        {
             AddRoute("GET", "/home", scope => (LoadView("HomeView.html"), "text/html"));
             AddRoute("GET", "/lookup", scope => (LoadView("LookupView.html"), "text/html"));
+        }
 
+        private void RegisterApiRoutes()
+        {
             // API routes
             AddRoute("GET", "/api/account/{id}", ctx =>
             {

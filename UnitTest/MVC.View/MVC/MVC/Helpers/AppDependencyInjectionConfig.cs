@@ -1,9 +1,11 @@
-﻿using System.Data;
-using System.Reflection;
-using MVC.Repositories.AccountRepository;
+﻿using MVC.Repositories.AccountRepository;
+using MVC.Repositories.ListRepository;
 using MVC.Repositories.WorkspaceRepository;
 using MVC.Services.AccountService;
+using MVC.Services.ListService;
 using MVC.Services.WorkspaceService;
+using System.Data;
+using System.Reflection;
 
 namespace MVC.Helpers
 {
@@ -23,6 +25,10 @@ namespace MVC.Helpers
             // Workspace
             di.RegisterService<IWorkspaceRepository, WorkspaceRepository>(Lifetime.Scoped);
             di.RegisterService<IWorkspaceService, WorkspaceService>(Lifetime.Transient);
+
+            // List 
+            di.RegisterService<IListRepository, ListRepository>(Lifetime.Scoped);
+            di.RegisterService<IListService, ListService>(Lifetime.Transient);
 
             // Scan & register controllers
             RegisterControllers(di);

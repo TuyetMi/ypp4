@@ -10,6 +10,7 @@ namespace MVC.Repositories.ListRepository
         Task<IEnumerable<List>> GetAllAsync();   // Lấy tất cả
         Task<int> UpdateAsync(List list);     // Cập nhật
         Task<int> DeleteAsync(int id);
-        Task<IEnumerable<ListInfoDto>> GetRecentListsByUserAsync(int accountId);
+        Task<IEnumerable<ListInfoDto>> GetRecentListsByAccountAsync(int accountId);
+        Task<IEnumerable<ListInfoDto>> GetFavoritesListByAccountAsync(int accountId);
     }
 }

@@ -60,6 +60,63 @@ namespace MVC.Helpers
                     FOREIGN KEY (AccountId) REFERENCES Account(Id)
                 );";
             cmd.ExecuteNonQuery();
+
+            // ListType
+            cmd.CommandText = @"
+                CREATE TABLE ListType (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Title TEXT NOT NULL,
+                    Icon TEXT,
+                    ListTypeDescription TEXT,
+                    HeaderImage TEXT
+                );";
+            cmd.ExecuteNonQuery();
+
+            // List
+            cmd.CommandText = @"
+                CREATE TABLE List (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ListTypeId INTEGER NOT NULL,
+                    ListTemplateId INTEGER,
+                    WorkspaceID INTEGER,
+                    ListName TEXT NOT NULL,
+                    Icon TEXT,
+                    Color TEXT,
+                    CreatedBy INTEGER NOT NULL,
+                    CreatedAt DATETIME,
+                    ListStatus TEXT DEFAULT 'Active',
+                    FOREIGN KEY (ListTypeId) REFERENCES ListType(Id),
+                    FOREIGN KEY (WorkspaceID) REFERENCES Workspace(Id),
+                    FOREIGN KEY (CreatedBy) REFERENCES Account(Id)
+                );";
+            cmd.ExecuteNonQuery();
+
+            // RecentList
+            cmd.CommandText = @"
+                CREATE TABLE RecentList (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    AccountId INTEGER NOT NULL,
+                    ListId INTEGER NOT NULL,
+                    LastAccessedAt DATETIME NOT NULL,
+                    UNIQUE(AccountId, ListId),
+                    FOREIGN KEY (AccountId) REFERENCES Account(Id),
+                    FOREIGN KEY (ListId) REFERENCES List(Id)
+                );";
+            cmd.ExecuteNonQuery();
+
+            // FavoriteList
+            cmd.CommandText = @"
+                CREATE TABLE FavoriteList (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ListId INTEGER NOT NULL,
+                    AccountId INTEGER NOT NULL,
+                    CreatedAt DATETIME,
+                    UpdatedAt DATETIME,
+                    FOREIGN KEY (ListId) REFERENCES List(Id),
+                    FOREIGN KEY (AccountId) REFERENCES Account(Id)
+                );";
+            cmd.ExecuteNonQuery();
+
         }
 
         private static void SeedData(IDbConnection connection)
@@ -89,6 +146,48 @@ namespace MVC.Helpers
                 (2, 2, 1, '2025-08-19 10:00:00'),
                 (3, 3, 1, '2025-08-19 10:00:00');
             ");
+
+            // ListType
+            ExecuteNonQuery(connection, @"
+                INSERT INTO ListType (Title, Icon, ListTypeDescription, HeaderImage)
+                VALUES 
+                ('List', 'list_icon.png', 'Standard list for managing items', 'header_list.png'),
+                ('Form', 'form_icon.png', 'Customizable form for data entry', 'header_form.png'),
+                ('Gallery', 'gallery_icon.png', 'Visual gallery to display items as cards', 'header_gallery.png'),
+                ('Calendar', 'calendar_icon.png', 'Calendar view for scheduling and deadlines', 'header_calendar.png'),
+                ('Board', 'board_icon.png', 'Kanban board for task management', 'header_board.png');
+            ");
+
+            // List
+            ExecuteNonQuery(connection, @"
+                INSERT INTO List (ListTypeId, ListTemplateId, WorkspaceID, ListName, Icon, Color, CreatedBy, CreatedAt, ListStatus)
+                VALUES
+                (1, NULL, 1, 'Project Tasks', '📋', 'Blue', 1, '2025-08-20 09:00:00', 'Active'),
+                (2, NULL, 1, 'Employee Form', '📝', 'Green', 1, '2025-08-20 10:00:00', 'Active'),
+                (3, NULL, 2, 'Marketing Gallery', '🖼️', 'Purple', 2, '2025-08-21 14:30:00', 'Active'),
+                (4, NULL, 3, 'Event Calendar', '📅', 'Red', 3, '2025-08-22 08:15:00', 'Active'),
+                (5, NULL, 3, 'Sprint Board', '🗂️', 'Orange', 3, '2025-08-22 09:45:00', 'Archived');
+            ");
+
+            // RecentList
+            ExecuteNonQuery(connection, @"
+                INSERT INTO RecentList (AccountId, ListId, LastAccessedAt)
+                VALUES
+                (1, 1, '2025-08-25 08:00:00'),
+                (1, 2, '2025-08-25 09:30:00'),
+                (2, 3, '2025-08-26 10:00:00'),
+                (3, 4, '2025-08-26 11:15:00'),
+                (3, 5, '2025-08-26 15:20:00');
+            ");
+
+            // FavoriteList
+            ExecuteNonQuery(connection, @"
+                INSERT INTO FavoriteList (ListId, AccountId, CreatedAt, UpdatedAt)
+                VALUES
+                (1, 1, '2025-08-25 08:10:00', '2025-08-25 08:10:00'),
+                (3, 2, '2025-08-26 10:15:00', '2025-08-26 10:15:00'),
+                (4, 3, '2025-08-26 11:30:00', '2025-08-26 11:30:00');
+            ");
         }
 
         private static void ExecuteNonQuery(IDbConnection connection, string sql)
@@ -112,3 +211,4 @@ namespace MVC.Helpers
         }
     }
 }
+    
